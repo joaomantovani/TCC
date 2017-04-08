@@ -25,6 +25,16 @@ class Wallet extends Model
 	| FUNCTIONS
 	|--------------------------------------------------------------------------
 	*/
+	/**
+	 * Get the money converted.
+	 *
+	 * @param  string  
+	 * @return string
+	 */
+	public function getMoney($money)
+	{
+	    return Money::convert($money);
+	}
 	
 	/*
 	|--------------------------------------------------------------------------
@@ -47,16 +57,6 @@ class Wallet extends Model
 	| ACCESORS
 	|--------------------------------------------------------------------------
 	*/
-	/**
-	 * Get the money converted.
-	 *
-	 * @param  string  
-	 * @return string
-	 */
-	public function getMoneyAttribute($money)
-	{
-	    return Money::convert($money);
-	}
 	
 	/*
 	|--------------------------------------------------------------------------

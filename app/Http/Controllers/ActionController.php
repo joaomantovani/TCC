@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Action;
 use Auth;
+use Log;
 
 class ActionController extends Controller
 {
@@ -46,13 +47,13 @@ class ActionController extends Controller
         $user->stats->save();
 
         //Adiciona dinheiro pro usuario
-        $user->pockets->first()->money += $request->input('action.reward');
-        $user->pockets->first()->save();
+        $user->wallet->money += $request->input('action.reward');
+        $user->wallet->save();
 
     	return response()->json([
     	    'success' => true,
             'stamina' => $user->stats->stamina,
-            'money' => $user->getWallet()
+            'money' => $user->wallet->money
     	]);
     }
 }
