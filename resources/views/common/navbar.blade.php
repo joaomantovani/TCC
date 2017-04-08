@@ -28,7 +28,7 @@
         </div>
 
         <div class="item">
-            Dinheiro <span id="money-status" style="margin-left: 5px"> {{ Auth::user()->wallet->money }}</span>
+            Dinheiro <span id="money-status" style="margin-left: 5px"> {{ Auth::user()->wallet->getMoney() }}</span>
         </div>
     </div>
 </div>

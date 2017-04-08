@@ -16,7 +16,7 @@
 		@component('component.message')
 
 			@slot('icon')
-				bitcoin 
+				university 
 			@endslot
 
 			@slot('type')
@@ -68,10 +68,10 @@
 		  			@endslot
 		  			  <div class="ui small statistic">
 		  			    <div class="value">
-		  			      <i class="pocket small icon"></i> {{ Auth::user()->wallet->money }}
+		  			       {{ Money::format(Auth::user()->wallet->money) }}
 		  			    </div>
 		  			    <div class="label">
-		  			      Carteira
+		  			      <i class="credit card small icon"></i> Carteira
 		  			    </div>
 		  			  </div>
 

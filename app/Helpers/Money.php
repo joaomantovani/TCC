@@ -26,4 +26,9 @@ class Money
 
 		return $money_formated;
 	}
+
+	public static function format($value = '')
+	{
+		return number_format($value, 2);
+	}
 }

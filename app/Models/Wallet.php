@@ -31,9 +31,9 @@ class Wallet extends Model
 	 * @param  string  
 	 * @return string
 	 */
-	public function getMoney($money)
+	public function getMoney($money = null)
 	{
-	    return Money::convert($money);
+	    return is_null($money) ? Money::convert($this->money) : Money::convert($money);
 	}
 	
 	/*
