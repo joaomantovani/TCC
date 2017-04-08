@@ -1,0 +1,11 @@
+    #section2 .intro{
+    	left: -150%;
+		position: relative;
+    }
+    #section2 p{
+    	display: none;
+    }
+    #section3 .intro{
+    	left: 140%;
+		position: relative;
+    }
