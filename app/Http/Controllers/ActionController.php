@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Action;
 use Auth;
 use Log;
+use Money;
 
 class ActionController extends Controller
 {
@@ -36,7 +37,8 @@ class ActionController extends Controller
         //Verifica se o jogador não tem stamina suficiente
         if( $user->stats->stamina < $request->input('action.energy_required') )
             return response()->json([
-                'success' => false
+                'success' => false,
+                'message' => 'Você não tem stamina suficiente para completar a ação'
             ]);
 
         //Diminui a stamina
@@ -52,8 +54,15 @@ class ActionController extends Controller
 
     	return response()->json([
     	    'success' => true,
+            'message' => 'Boa!, você é foda!',
             'stamina' => $user->stats->stamina,
-            'money' => $user->wallet->money
+            'reward' => $request->input('action.reward'),
+            'toast' => [
+                'heading' => 'Mais dinheiro na conta',
+                'bgscolor' => '#2ecc71', 
+                'message' => '<i class="bitcoin icon"></i>' . Money::convert($request->input('action.reward')) .' foram adicionados na sua carteira.',
+            ],
+            'money' => $user->wallet->money,
     	]);
     }
 }

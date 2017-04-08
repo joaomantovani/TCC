@@ -65,6 +65,7 @@ Route::group(['middleware' => ['auth_player']], function () {
     Route::get('/home', 'HomeController@index');
     Route::get('/action', 'ActionController@index');
     Route::get('/banco', 'AccountController@index');
+    Route::get('/cantina', 'FoodController@index');
 });
 
 /*

@@ -52,11 +52,6 @@ mix.scripts([
     'resources/js/master.js',
 ], 'public/js/master.js');
 
-
-
-
-
-
 /*
  |--------------------------------------------------------------------------
  | Css da página de seleção
@@ -214,6 +209,9 @@ mix.styles([
     'resources/assets/semantic/dropdown.css',
     'resources/assets/semantic/progress.css',
 
+    //Toast
+    'resources/assets/css/jquery.toast.css',
+
 ], 'public/css/action.css');
 
 /*
@@ -227,5 +225,8 @@ mix.scripts([
     'resources/assets/js/action.js',
     'resources/assets/semantic/dropdown.js',
     'resources/assets/semantic/progress.js',
+
+    //Toast
+    'resources/assets/js/jquery.toast.js'
 
 ], 'public/js/action.js');

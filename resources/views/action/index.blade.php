@@ -137,6 +137,20 @@
 				$('#stamina-status').text(data.stamina);
 				$('#money-status').text(data.money);
 				showMessage('success', 'Você completou a ação', 'Aehoo');
+				
+				$.toast({ 
+				  heading : data.toast.heading,
+				  text : data.toast.message, 
+				  showHideTransition : 'slide',
+				  // bgColor : 'blue',
+				  // textColor : '#eee',
+				  allowToastClose : true, 
+				  hideAfter : 5000,
+				  bgcolor : data.toast.bgcolor,         
+				  stack : 5,               
+				  textAlign : 'left',      
+				  position : 'top-right'
+				});
 			}
 
 			//Se o jogador não teve sucesso na ação
