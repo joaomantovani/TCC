@@ -172,7 +172,7 @@ return [
          * Custom packages
          */
         Collective\Html\HtmlServiceProvider::class,
-        
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -131,7 +131,6 @@
 		.done(function(data) {
 			//Remove a classe de carregando
 			console.log(data);
-			$('#action-button').removeClass('disabled loading');
 
 			//Se o jogador teve sucesso na ação
 			if (data.success) {
@@ -147,6 +146,9 @@
 		})
 		.fail(function() {
 			alert('error');
+		})
+		.always(function() {
+			$('#action-button').removeClass('disabled loading');
 		})
 	});
 
