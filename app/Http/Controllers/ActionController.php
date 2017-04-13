@@ -59,7 +59,7 @@ class ActionController extends Controller
             'reward' => $request->input('action.reward'),
             'toast' => [
                 'heading' => 'Mais dinheiro na conta',
-                'bgscolor' => '#2ecc71', 
+                'bgcolor' => '#2ecc71', 
                 'message' => '<i class="bitcoin icon"></i>' . Money::convert($request->input('action.reward')) .' foram adicionados na sua carteira.',
             ],
             'money' => $user->wallet->money,

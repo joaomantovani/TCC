@@ -17,6 +17,12 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\GiveBadge',
             'App\Listeners\GiveExp',
         ],
+
+        'App\Events\Achievement' => [
+            'App\Listeners\GiveBadge',
+            'App\Listeners\GiveExp',
+            'App\Listeners\ShowAnimation',
+        ],
     ];
 
     /**

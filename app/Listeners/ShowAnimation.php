@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Listeners\Tutorial;
+namespace App\Listeners;
 
-use App\Events\Tutorial;
+use App\Events\Achievement;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class TutorialComplete
+class ShowAnimation
 {
-
     /**
      * Create the event listener.
      *
@@ -16,17 +15,17 @@ class TutorialComplete
      */
     public function __construct()
     {
-
+        //
     }
 
     /**
      * Handle the event.
      *
-     * @param  Tutorial  $event
+     * @param  Achievement  $event
      * @return void
      */
-    public function handle(Tutorial $event)
+    public function handle(Achievement $event)
     {
-        
+        //
     }
 }

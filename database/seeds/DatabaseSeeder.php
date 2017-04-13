@@ -20,6 +20,10 @@ class DatabaseSeeder extends Seeder
         //Remove todos os dados das tabelas e reseta o ID para 0
         \DB::table('badges')->truncate();
         \DB::table('achievements')->truncate();
+        \DB::table('stores')->truncate();
+        \DB::table('products')->truncate();
+        \DB::table('product_store')->truncate();
+        \DB::table('effects')->truncate();
         
         //Cria as badges
         $this->call(BadgeTableSeeder::class);
@@ -29,6 +33,12 @@ class DatabaseSeeder extends Seeder
         $this->call(SilverAchievementsTableSeeder::class);
         $this->call(GoldAchievementsTableSeeder::class);
         $this->call(PlatinumAchievementsTableSeeder::class);
+
+        //Cria as lojas
+        $this->call(FoodStoreSeeder::class);
+
+        //Cria os produtos (com efeitos)
+        $this->call(ProductsSeeder::class);
 
         //Cria as ações
         $this->call(ActionsTableSeeder::class);

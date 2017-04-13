@@ -22,7 +22,6 @@
                 <a class="item" href="#">Link Item</a>
             </div>
         </div>
-
         <div class="item">
             Stamina <span id="stamina-status" style="margin-left: 5px"> {{ Auth::user()->stats->stamina }}</span>
         </div>

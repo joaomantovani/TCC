@@ -47,7 +47,7 @@
 	      		{{-- Completa o tutorial --}}
 	      		{{ Form::open(['action' => 'TutorialController@finish', 'class' => 'form-same-line']) }}
 	      			{{ Form::token() }}
-		      		<button type="submit" class="ui big animated fade button" tabindex="0">
+		      		<button type="submit" class="ui big animated fade button tutorial-complete" tabindex="0">
 		      			<div class="visible content">Deixa pra lá...</div>
 		      		  	<div class="hidden content">
 		      		    	Começar o jogo
@@ -91,4 +91,21 @@
 @section('js')
 	@parent
 	<script src="{{ asset('js/tutorial.js') }}" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		$('.tutorial-complete').on('click', function(event) {
+			event.preventDefault();
+
+			$().achievement_alert({
+				duration: 400,					// Duration for fade animation in milliseconds
+			    display: 3000,					// How long the achievement text is displayed in milliseconds
+			    title: 'Achievement', 	// Title of alert box
+			    points : '350',					// Number of points to be displayed
+			    currency : 'P', 				// Points description
+			    name : 'Achievement Name', 		// Name of achievement
+			    icon : 'fa-trophy', 			// Icon to be shown (uses font awesome)
+			    sound : 'F' 					// Play achievement sound or not set to either T or F
+			});
+		});
+	</script>
 @endsection

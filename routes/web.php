@@ -82,6 +82,6 @@ Route::post('/action/ajax', 'ActionController@action');
 |
 */
 Route::get('teste', function () {
-    dd(\App\User::find(2)->stats);
+    // dd(\App\User::find(2)->stats);
     return view('teste');
 });

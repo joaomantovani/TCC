@@ -29,6 +29,9 @@ mix.styles([
     'resources/assets/semantic/button.min.css',
     'resources/assets/semantic/transition.min.css',
 
+    //Achievement
+    'resources/assets/css/achievement_alert.css',
+
     //Custom
     'resources/css/master.css',
 ], 'public/css/master.css');
@@ -47,6 +50,9 @@ mix.scripts([
     'resources/assets/js/vue.js',
     'resources/assets/semantic/semantic.min.js',
     'resources/assets/semantic/transition.min.js',
+
+    //Achievement
+    'resources/assets/js/achievement_alert.js',
 
     //Custom
     'resources/js/master.js',
