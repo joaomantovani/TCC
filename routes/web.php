@@ -32,6 +32,9 @@ Route::get('/jogador/{username}', 'PlayerController@personal');
 Route::get('/redirect', 'SocialAuthController@redirect');
 Route::get('/callback', 'SocialAuthController@callback');
 
+Route::get('/creditos', function () {
+    return view('credits');
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -65,7 +68,7 @@ Route::group(['middleware' => ['auth_player']], function () {
     Route::get('/home', 'HomeController@index');
     Route::get('/action', 'ActionController@index');
     Route::get('/banco', 'AccountController@index');
-    Route::get('/cantina', 'FoodController@index');
+    Route::resource('cantina', 'CantinaController');
 });
 
 /*

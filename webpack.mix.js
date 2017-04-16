@@ -29,6 +29,9 @@ mix.styles([
     'resources/assets/semantic/button.min.css',
     'resources/assets/semantic/transition.min.css',
 
+    //Toast
+    'resources/assets/css/jquery.toast.css',
+
     //Achievement
     'resources/assets/css/achievement_alert.css',
 
@@ -50,6 +53,9 @@ mix.scripts([
     'resources/assets/js/vue.js',
     'resources/assets/semantic/semantic.min.js',
     'resources/assets/semantic/transition.min.js',
+
+    //Toast
+    'resources/assets/js/jquery.toast.js',
 
     //Achievement
     'resources/assets/js/achievement_alert.js',
@@ -215,9 +221,6 @@ mix.styles([
     'resources/assets/semantic/dropdown.css',
     'resources/assets/semantic/progress.css',
 
-    //Toast
-    'resources/assets/css/jquery.toast.css',
-
 ], 'public/css/action.css');
 
 /*
@@ -231,8 +234,5 @@ mix.scripts([
     'resources/assets/js/action.js',
     'resources/assets/semantic/dropdown.js',
     'resources/assets/semantic/progress.js',
-
-    //Toast
-    'resources/assets/js/jquery.toast.js'
 
 ], 'public/js/action.js');

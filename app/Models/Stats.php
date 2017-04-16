@@ -51,4 +51,21 @@ class Stats extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+    /**
+     * Fit the stamina between 0 and 100.
+     *
+     * @param  string  
+     * @return void
+     */
+    public function setStaminaAttribute($value)
+    {
+        $this->attributes['stamina'] = $value;
+
+        if ($this->attributes['stamina'] < 0)
+            $this->attributes['stamina'] = 0;
+        
+        if ($this->attributes['stamina'] > 100)
+            $this->attributes['stamina'] = 100;
+
+    }
 }

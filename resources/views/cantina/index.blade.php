@@ -34,26 +34,11 @@ Bem vindo ao seu banco
 
 	<div class="ui centered grid">
 
-		<div class="six wide tablet eight wide computer column">
+		<div class="six wide tablet four wide computer column">
 
 			@component('component.card')
 
-			@slot('content')
-			fcenter
-			@endslot
-
-			@slot('class')
-			big
-			@endslot
-
-			<div class="ui large statistic">
-				<div class="value">
-					<i class="bitcoin icon"></i> {{ Auth::user()->account->money }}
-				</div>
-				<div class="label">
-					Banco
-				</div>
-			</div>
+			<img src="{{ asset('illustrations/avatar/garcom.png') }}" class="ui fluid image">
 
 			@endcomponent
 
@@ -68,10 +53,10 @@ Bem vindo ao seu banco
 			@endslot
 			<div class="ui small statistic">
 				<div class="value">
-					{{ Money::format(Auth::user()->wallet->money) }}
+					Cantina
 				</div>
 				<div class="label">
-					<i class="credit card small icon"></i> Carteira
+					{{-- Faça suas compras aqui! --}}
 				</div>
 			</div>
 
@@ -79,68 +64,41 @@ Bem vindo ao seu banco
 
 		</div>
 
-		<div class="six wide tablet eight wide computer column">
+		<div class="sixteen wide tablet eight wide computer column">
 
 			<div class="ui segment divided items">
-			  <div class="item">
+			@foreach( $store->products as $product)
+			  <div class="item" id="{{ $product->slug }}">
 			    <div class="image">
-			      <img src="http://placehold.it/175x175">
+			      <img src="{{ $product->image }}">
 			    </div>
 			    <div class="content">
-			      <a class="header">12 Years a Slave</a>
+			      <a class="header">{{ $product->name }}</a>
 			      <div class="meta">
-			        <span class="cinema">Union Square 14</span>
+			        <span class="cinema">{{ $product->description }}</span>
 			      </div>
 			      <div class="description">
-			        <p></p>
+			        <p>R$ {{ $product->price }}</p>
 			      </div>
 			      <div class="extra">
-			        <div class="ui label">IMAX</div>
-			        <div class="ui label"><i class="globe icon"></i> Additional Languages</div>
+			      	@foreach($product->effects as $effect)
+				        <div class="ui label">{{ $effect->allInformation() }}</div>
+			        @endforeach
 			      </div>
+
+			      <div class="extra bottom aligned content">
+			      	{!! Form::open(['url' => '/cantina', 'method' => 'post']) !!}
+			      	{!! csrf_field() !!}
+				        <div class="ui right floated primary button buy_product" id="{{ $product->id }}">
+		                  Comprar
+		                  <i class="right chevron icon"></i>
+		                </div>
+			  		{{ Form::close() }}
+	               </div>
+
 			    </div>
 			  </div>
-			  <div class="item">
-			    <div class="image">
-			      <img src="http://placehold.it/175x175">
-			    </div>
-			    <div class="content">
-			      <a class="header">My Neighbor Totoro</a>
-			      <div class="meta">
-			        <span class="cinema">IFC Cinema</span>
-			      </div>
-			      <div class="description">
-			        <p></p>
-			      </div>
-			      <div class="extra">
-			        <div class="ui right floated primary button">
-			          Buy tickets
-			          <i class="right chevron icon"></i>
-			        </div>
-			        <div class="ui label">Limited</div>
-			      </div>
-			    </div>
-			  </div>
-			  <div class="item">
-			    <div class="image">
-			      <img src="http://placehold.it/175x175">
-			    </div>
-			    <div class="content">
-			      <a class="header">Watchmen</a>
-			      <div class="meta">
-			        <span class="cinema">IFC</span>
-			      </div>
-			      <div class="description">
-			        <p></p>
-			      </div>
-			      <div class="extra">
-			        <div class="ui right floated primary button">
-			          Buy tickets
-			          <i class="right chevron icon"></i>
-			        </div>
-			      </div>
-			    </div>
-			  </div>
+			  @endforeach
 			</div>
 
 		</div>
@@ -209,29 +167,50 @@ Bem vindo ao seu banco
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
 
-			$('#sacar').on('click', function(event) {
+			//Compra um novo item
+			$('.buy_product').on('click', function(event) {
 				event.preventDefault();
-				
-				$('#sacar_modal')
-				.modal('show')
-				;
-			});
 
-			$('#depositar').on('click', function(event) {
-				event.preventDefault();
-				
-				$('#depositar_modal')
-				.modal('show')
-				;
-			});
+				//Coloca classe de carregando no botão
+				var btn = $(this);
+				btn.addClass('loading');
 
+				$.ajax({
+		            type: "POST",
+		            url: 'cantina',
+		            headers: {
+		            	'X-CSRF-TOKEN': '{{ csrf_token() }}'
+		            },
+		            data: {
+		            	product_id: btn.attr('id')
+		            },
+		            success: function (data) {
+		                console.log(data);
+		                btn.removeClass('loading');
 
-			$('#range-2').range({
-				min: 0,
-				max: 100000,
-				start: 2000,
-				input: '#input-2'
-			});
+		                $('#stamina-status').text(data.stamina);
+		                $('#money-status').text(data.money);
+
+	                	$.toast({ 
+	                	  heading : data.toast.heading,
+	                	  text : data.toast.message, 
+	                	  showHideTransition : 'slide',
+	                	  allowToastClose : true, 
+	                	  hideAfter : 5000,
+	                	  bgcolor : data.toast.bgcolor,         
+	                	  stack : 5,               
+	                	  textAlign : 'left',      
+	                	  position : 'bottom-right',
+	                	  icon: (data.success) ? 'success' : 'error' 
+	                	});
+		            },
+		            error: function (data) {
+		            	alert('error');
+		                console.log('Error:', data);
+		            	btn.removeClass('loading');
+		            }
+		        });				
+			});			
 		});
 	</script>
 	@endsection
