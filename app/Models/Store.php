@@ -11,7 +11,7 @@ class Store extends Model
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
-    protected $table = 'stores1';
+    protected $table = 'stores';
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
@@ -32,7 +32,7 @@ class Store extends Model
     */
     public function products()
     {
-        return $this->hasMany('app\Models\Product');
+        return $this->belongsToMany('App\Models\Product');
     }
     
     /*

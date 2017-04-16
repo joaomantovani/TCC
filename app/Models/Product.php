@@ -15,8 +15,8 @@ class Product extends Model
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
-    // protected $hidden = [];
+    protected $fillable = ['name', 'description', 'slug', 'price', 'type', 'image', 'created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at'];
     // protected $dates = [];
     
     /*
@@ -32,11 +32,11 @@ class Product extends Model
     */
     public function stores()
     {
-        return $this->belongsTo('App\Models\Store');
+        return $this->belongsToMany('App\Models\Store');
     }
     public function effects()
     {
-        return $this->hasMany('app\Models\Effect');
+        return $this->hasMany('App\Models\Effect');
     }
     
     /*
@@ -50,6 +50,16 @@ class Product extends Model
     | ACCESORS
     |--------------------------------------------------------------------------
     */
+    /**
+     * Check the image output.
+     *
+     * @param  string  
+     * @return string
+     */
+    public function getImageAttribute($value)
+    {
+        return !empty($value) ? $value : 'http://placehold.it/250x250';
+    }
     
     /*
     |--------------------------------------------------------------------------

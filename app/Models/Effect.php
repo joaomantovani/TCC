@@ -15,8 +15,8 @@ class Effect extends Model
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
-    // protected $hidden = [];
+    protected $fillable = ['product_id', 'name', 'slug', 'type', 'stats', 'number'];
+    protected $hidden = ['created_at', 'updated_at'];
     // protected $dates = [];
     
     /*
@@ -24,6 +24,10 @@ class Effect extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function allInformation()
+    {
+        return $this->number . ' ' . $this->name;
+    }
     
     /*
     |--------------------------------------------------------------------------
@@ -46,6 +50,10 @@ class Effect extends Model
     | ACCESORS
     |--------------------------------------------------------------------------
     */
+    public function getNumberAttribute($value)
+    {
+        return $value < 0 ? $value : '+' . $value;
+    }
     
     /*
     |--------------------------------------------------------------------------
