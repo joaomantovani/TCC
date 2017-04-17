@@ -45,9 +45,7 @@ Route::get('/creditos', function () {
 */
 Route::group(['middleware' => ['auth']], function () {
     
-	Route::get('escolher', function () {
-	    return view('escolher');
-	});
+	Route::get('escolher', 'CreateCharacterController@class');
 
 	Route::get('tutorial', 'TutorialController@index');
 	Route::post('tutorial/complete', 'TutorialController@finish');

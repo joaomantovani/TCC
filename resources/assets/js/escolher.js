@@ -1,9 +1,9 @@
 $(document).ready(function(){
+	$('.shape').shape();
 
-  $('.escolher-carousel').slick({
-    centerMode: true,
-    centerPadding: '60px',
-    slidesToShow: 3,
-    arrows: true,
-  });
+	$('.shape').hover(function() {
+		$(this).shape('flip over');
+	}, function() {
+		$(this).shape('flip back');
+	});
 });

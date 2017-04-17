@@ -12,10 +12,6 @@ const { mix } = require('laravel-mix');
  */
 
 /*
-
-
-
-
  |--------------------------------------------------------------------------
  | Css Master
  |--------------------------------------------------------------------------
@@ -27,6 +23,9 @@ mix.styles([
     'resources/assets/semantic/semantic.min.css',
     'resources/assets/semantic/icon.min.css',
     'resources/assets/semantic/button.min.css',
+    'resources/assets/semantic/card.min.css',
+    'resources/assets/semantic/grid.min.css',
+    'resources/assets/semantic/shape.min.css',
     'resources/assets/semantic/transition.min.css',
 
     //Toast
@@ -52,6 +51,8 @@ mix.scripts([
     'resources/assets/js/jquery-3.1.1.min.js',   
     'resources/assets/js/vue.js',
     'resources/assets/semantic/semantic.min.js',
+    'resources/assets/semantic/grid.min.js',
+    'resources/assets/semantic/shape.min.js',
     'resources/assets/semantic/transition.min.js',
 
     //Toast
@@ -76,6 +77,9 @@ mix.styles([
     'resources/assets/slick/slick.css',
     'resources/assets/css/escolher.css',
 
+    //Semantic
+    'resources/assets/semantic/shape.min.css'
+
 ], 'public/css/escolher.css');
 
 /*
@@ -86,7 +90,11 @@ mix.styles([
  */
 mix.scripts([
     //slick
-    'resources/assets/slick/slick.min.js',   
+    'resources/assets/slick/slick.min.js',
+
+    //Semantic
+    'resources/assets/semantic/shape.min.js',
+
     'resources/assets/js/escolher.js',
 
 ], 'public/js/escolher.js');

@@ -3,11 +3,6 @@
 @section('css')
 @parent
 <link rel="stylesheet" href="{{ asset('css/account.css') }}">
-<style type="text/css" media="screen">
-	body {
-		background: #ebebeb;
-	}
-</style>
 @endsection
 
 @section('content')
