@@ -20,7 +20,7 @@ class CantinaController extends Controller
     public function index()
     {
         $store = Store::where('slug', 'cantina')->with('products')->first();
-
+        
         return view('cantina.index')
             ->with('store', $store);
     }

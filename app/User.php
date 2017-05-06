@@ -118,6 +118,14 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Account');
     }
 
+    /**
+     * Conta do banco que pertence ao jogador
+     */
+    public function info()
+    {
+        return $this->hasOne('App\Models\Info');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

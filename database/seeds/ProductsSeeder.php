@@ -24,6 +24,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 1, 'store_id' => 1]);
 
         //Bottle
         DB::table('products')->insert([
@@ -36,6 +37,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 2, 'store_id' => 1]);
 
         //bread
         DB::table('products')->insert([
@@ -48,6 +50,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 3, 'store_id' => 1]);
 
         //Brigadeiro
         DB::table('products')->insert([
@@ -60,6 +63,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 4, 'store_id' => 1]);
 
         //Cake
         DB::table('products')->insert([
@@ -72,6 +76,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 5, 'store_id' => 1]);
 
         //Cheese
         DB::table('products')->insert([
@@ -84,6 +89,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 6, 'store_id' => 1]);
 
         //Chocolate
         DB::table('products')->insert([
@@ -96,6 +102,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 7, 'store_id' => 1]);
 
         //Café
         DB::table('products')->insert([
@@ -108,6 +115,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 8, 'store_id' => 1]);
 
         //Donut
         DB::table('products')->insert([
@@ -120,6 +128,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 9, 'store_id' => 1]);
 
         //Ovo
         DB::table('products')->insert([
@@ -132,6 +141,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 10, 'store_id' => 1]);
 
         //Peixe
         DB::table('products')->insert([
@@ -144,6 +154,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 11, 'store_id' => 1]);
 
         //Presunto
         DB::table('products')->insert([
@@ -156,6 +167,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 12, 'store_id' => 1]);
 
         //Hamburguer
         DB::table('products')->insert([
@@ -168,6 +180,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 13, 'store_id' => 1]);
 
         //Hotdog
         DB::table('products')->insert([
@@ -180,6 +193,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 14, 'store_id' => 1]);
 
         //Sorvete
         DB::table('products')->insert([
@@ -192,6 +206,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 15, 'store_id' => 1]);
 
         //Arroz Japones 
         DB::table('products')->insert([
@@ -204,6 +219,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 16, 'store_id' => 1]);
 
         //Limonada
         DB::table('products')->insert([
@@ -216,6 +232,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 17, 'store_id' => 1]);
 
         //Leite
         DB::table('products')->insert([
@@ -228,6 +245,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 18, 'store_id' => 1]);
 
         //Milkshake
         DB::table('products')->insert([
@@ -240,6 +258,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 19, 'store_id' => 1]);
 
         //Pizza
         DB::table('products')->insert([
@@ -252,6 +271,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 20, 'store_id' => 1]);
 
         //Batata Frita
         DB::table('products')->insert([
@@ -264,6 +284,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 21, 'store_id' => 1]);
 
         //Creme
         DB::table('products')->insert([
@@ -276,6 +297,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 22, 'store_id' => 1]);
 
         //Salsicha
         DB::table('products')->insert([
@@ -288,6 +310,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 23, 'store_id' => 1]);
 
         //Refrigerante
         DB::table('products')->insert([
@@ -300,6 +323,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 24, 'store_id' => 1]);
 
         //Sopa
         DB::table('products')->insert([
@@ -312,6 +336,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 25, 'store_id' => 1]);
 
         //Bife
         DB::table('products')->insert([
@@ -324,6 +349,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 26, 'store_id' => 1]);
 
         //sushi
         DB::table('products')->insert([
@@ -336,6 +362,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 27, 'store_id' => 1]);
 
         //Chá
         DB::table('products')->insert([
@@ -348,6 +375,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 28, 'store_id' => 1]);
 
         //Suco de tomate
         DB::table('products')->insert([
@@ -360,6 +388,7 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 29, 'store_id' => 1]);
 
         //Vinho
         DB::table('products')->insert([
@@ -372,5 +401,6 @@ class ProductsSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('product_store')->insert(['product_id' => 30, 'store_id' => 1]);
     }
 }

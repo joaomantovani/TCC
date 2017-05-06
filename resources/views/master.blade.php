@@ -4,6 +4,8 @@
 
 	@section('css')
 	<link rel="stylesheet" href="{{ asset('css/master.css') }}">
+	<link rel="stylesheet" type="text/css" href="http://devsmash.com/css/jquery.kwicks-2.2.1.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/fontawesome.min.css') }}">
 	@show
 
 </head>
@@ -15,6 +17,7 @@
 
 	@section('js')
 	<script src="{{ asset('js/master.js') }}" type="text/javascript"></script>
+	<script src="http://devsmash.com/js/jquery.kwicks-2.2.1.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$('.message').hide();
 

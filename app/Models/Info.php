@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PlayerClass extends Model
+class Info extends Model
 {
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
-    protected $table = 'classes';
+    protected $table = 'infos';
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
@@ -24,21 +24,21 @@ class PlayerClass extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function getTotalNumber()
-    {
-        return 22;
-    }
     
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function info()
+    public function user()
     {
-        return $this->hasMany('App\Models\Info');
+        return $this->belongsTo('App\Models\User');
     }
-       
+    
+    public function class()
+    {
+        return $this->belongsTo('App\Models\PlayerClass');
+    }
     
     /*
     |--------------------------------------------------------------------------
@@ -51,38 +51,6 @@ class PlayerClass extends Model
     | ACCESORS
     |--------------------------------------------------------------------------
     */
-    /**
-     * Transforma as desvantagens em array.
-     *
-     * @param  string  
-     * @return string
-     */
-    public function getDisadvantagesAttribute($value)
-    {
-        return explode(';', $value);
-    }
-
-    /**
-     * Transforma as vantagens em array.
-     *
-     * @param  string  
-     * @return string
-     */
-    public function getAdvantagesAttribute($value)
-    {
-        return explode(';', $value);
-    }
-
-    /**
-     * pega o nome pequeno
-     *
-     * @param  string  
-     * @return string
-     */
-    public function getShortNameAttribute($value)
-    {
-        return strtoupper($value);
-    }
     
     /*
     |--------------------------------------------------------------------------

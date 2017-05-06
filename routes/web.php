@@ -46,7 +46,8 @@ Route::get('/creditos', function () {
 Route::group(['middleware' => ['auth']], function () {
     
 	Route::get('escolher', 'CreateCharacterController@class');
-
+    Route::post('escolher/classe', 'CreateCharacterController@choose');
+    
 	Route::get('tutorial', 'TutorialController@index');
 	Route::post('tutorial/complete', 'TutorialController@finish');
 
@@ -66,8 +67,8 @@ Route::group(['middleware' => ['auth_player']], function () {
     Route::get('/home', 'HomeController@index');
     Route::get('/action', 'ActionController@index');
     Route::get('/banco', 'AccountController@index');
-    Route::resource('/cantina', 'CantinaController');
 });
+    Route::resource('/cantina', 'CantinaController');
 
 /*
 |--------------------------------------------------------------------------

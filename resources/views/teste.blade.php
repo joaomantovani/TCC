@@ -20,7 +20,7 @@
 		        points : '80',
 		        currency : '',
 		        name : 'Ser top #1 do servidor por 1 semana',
-		        icon : 'fa-thumbs-up',
+		        icon : 'fa-trophy',
 		        sound : 'T'
 			});
 	</script>
