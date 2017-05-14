@@ -73,7 +73,7 @@ class RegisterController extends Controller
             'name' => 'Carteira',
             'type' => 'wallet',
             'tutorial' => 0,
-            'money' => env('INITIAL_MONEY')
+            'money' => 100
         ]);
 
         //Cria os stats
