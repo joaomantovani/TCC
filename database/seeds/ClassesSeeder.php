@@ -71,7 +71,7 @@ class ClassesSeeder extends Seeder
         DB::table('classes')->insert([
         	'name' => 'Análise e desenvolvimento de sistemas',
         	'slug' => 'ads',
-            'short_name' => 'ADS',''
+            'short_name' => 'ADS',
             'slogan' => '"No meu computador funciona"',
             'description' => 
                 '<p> O profissional em ADS analisa, projeta, testa, implanta e mantém sistemas. Esse profissional trabalha, também, com ferramentas computacionais, equipamentos de informática e metodologia de projetos na produção de sistemas. Raciocínio lógico, emprego de linguagens de programação e de metodologias de construção de projetos, preocupação com a qualidade, usabilidade, robustez, integridade e segurança de programas computacionais são fundamentais à atuação desse profissional. </p>'
