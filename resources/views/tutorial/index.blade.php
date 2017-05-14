@@ -91,21 +91,4 @@
 @section('js')
 	@parent
 	<script src="{{ asset('js/tutorial.js') }}" type="text/javascript"></script>
-
-	<script type="text/javascript">
-		$('.tutorial-complete').on('click', function(event) {
-			event.preventDefault();
-
-			$().achievement_alert({
-				duration: 400,					// Duration for fade animation in milliseconds
-			    display: 3000,					// How long the achievement text is displayed in milliseconds
-			    title: 'Achievement', 	// Title of alert box
-			    points : '350',					// Number of points to be displayed
-			    currency : 'P', 				// Points description
-			    name : 'Achievement Name', 		// Name of achievement
-			    icon : 'fa-trophy', 			// Icon to be shown (uses font awesome)
-			    sound : 'F' 					// Play achievement sound or not set to either T or F
-			});
-		});
-	</script>
 @endsection

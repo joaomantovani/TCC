@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Models\Avatar;
+use App\Models\Info;
 use Auth;
 
 class PlayerController extends Controller
@@ -45,9 +47,17 @@ class PlayerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $user = Auth::user();
+
+        $user->username = $request->username;
+        $user->nickname = $request->nickname;
+        $user->avatar_id = $request->selected_avatar;
+
+        $user->save();
+
+        return redirect('escolher');
     }
 
     /**
@@ -104,5 +114,13 @@ class PlayerController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function info()
+    {
+        $avatars = Avatar::where('active', 1)->inRandomOrder()->get();
+
+        return view('auth.more_detail')
+            ->with('avatars', $avatars);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PlayerClass;
+use App\Models\Config;
 use Auth;
 
 class CreateCharacterController extends Controller
@@ -22,11 +23,24 @@ class CreateCharacterController extends Controller
 
     public function choose(Request $request)
     {
-        $class = PlayerClass::find($request->class_slug);
+        $class = PlayerClass::find($request->class_id);
         $user = Auth::user();
-        
-        return response()->json([
-            'success' => true,
+
+        //Atribui a classe ao jogador
+        $user->info()->create([
+            'class_id' => $class->id,
         ]);
+
+        //pega os stats iniciais para a classe escolhida
+        $stats = Config::getStats($class->id);
+
+        //Atribui os stats iniciais
+        $user->stats->inteligence = $stats['inteligence'];
+        $user->stats->charisma = $stats['charisma'];
+        $user->stats->audacity = $stats['audacity']; 
+        $user->stats->luck = $stats['luck'];
+        $user->stats->save();
+
+        return redirect('tutorial');
     }
 }

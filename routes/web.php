@@ -10,6 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+/*
+|--------------------------------------------------------------------------
+| Rotas de autenticação
+|--------------------------------------------------------------------------
+| Jogadores que não possuem conta ainda.
+|
+*/
 Auth::routes();
 
 /*
@@ -44,12 +52,14 @@ Route::get('/creditos', function () {
 */
 Route::group(['middleware' => ['auth']], function () {
     
-	Route::get('escolher', 'CreateCharacterController@class');
+    Route::get('escolher', 'CreateCharacterController@class');
     Route::post('escolher/classe', 'CreateCharacterController@choose');
     
-	Route::get('tutorial', 'TutorialController@index');
-	Route::post('tutorial/complete', 'TutorialController@finish');
+    Route::get('tutorial', 'TutorialController@index');
+    Route::post('tutorial/complete', 'TutorialController@finish');
 
+    Route::get('/player/info', 'PlayerController@info');
+    Route::post('/player/create/info', 'PlayerController@create');
 });
 
 /*
@@ -60,13 +70,15 @@ Route::group(['middleware' => ['auth']], function () {
 |
 */
 Route::group(['middleware' => ['auth_player']], function () {
-    Route::get('dashboard', function () {
-        echo 'pagina n existe e.e';
+        Route::get('dashboard', function () {
+            echo 'pagina n existe e.e';
+        });
+        Route::get('/home', 'HomeController@index');
+        Route::get('/action', 'ActionController@index');
+        Route::get('/banco', 'AccountController@index');
+        Route::get('/vilao', 'VillainController@index');
     });
-    Route::get('/home', 'HomeController@index');
-    Route::get('/action', 'ActionController@index');
-    Route::get('/banco', 'AccountController@index');
-});
+
     Route::resource('/cantina', 'CantinaController');
 
 /*

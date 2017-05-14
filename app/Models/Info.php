@@ -15,7 +15,7 @@ class Info extends Model
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $fillable = ['user_id', 'class_id'];
     // protected $hidden = [];
     // protected $dates = [];
     
