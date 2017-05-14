@@ -119,7 +119,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Conta do banco que pertence ao jogador
+     * Informações do jogador
      */
     public function info()
     {
