@@ -24,11 +24,11 @@ class TutorialController extends Controller
         $user->save();
 
         //Dispara evento do tutorial
-        event(new Tutorial([
-            'success' => true,
-            'achievement' => 'TutorialCompleted',
-            'user' => $user
-        ]));
+        // event(new Tutorial([
+        //     'success' => true,
+        //     'achievement' => 'TutorialCompleted',
+        //     'user' => $user
+        // ]));
 
         return redirect('home');
     }

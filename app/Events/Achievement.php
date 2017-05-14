@@ -9,7 +9,8 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use App\Models\Achievement;
+use App\Models\Achievement as mAchievement;
+use Auth;
 
 class Achievement
 {
@@ -23,10 +24,10 @@ class Achievement
      *
      * @return void
      */
-    public function __construct(Achievement $achievement)
+    public function __construct($achievement_slug)
     {
-        $this->achievement = $achievement;
-        $this->user = Auth::user()->with('achievements');
+        $this->achievement = mAchievement::where('slug', $achievement_slug)->first();
+        $this->user = Auth::user();
     }
 
     /**

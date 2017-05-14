@@ -102,10 +102,14 @@
         <!--[if lte IE 8]><script src="{{ asset('js/ie/respond.min.js') }}"></script><![endif]-->
         <script type="text/javascript">
             jQuery(document).ready(function($) {
+                $('.avatar').on('afterChange', function(event, slick, currentSlide, nextSlide){
+                    $('#selected_avatar').val($('.slick-current').attr('id'));                        
+                });
+
                 $('.avatar').slick({
                   centerMode: true,
                   centerPadding: '60px',
-                  slidesToShow: 3,
+                  slidesToShow: 5,
                   responsive: [
                     {
                       breakpoint: 768,

@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         \DB::table('product_store')->truncate();
         \DB::table('effects')->truncate();
         \DB::table('classes')->truncate();
+        \DB::table('avatars')->truncate();
         
         //Cria as badges
         $this->call(BadgeTableSeeder::class);
@@ -46,6 +47,9 @@ class DatabaseSeeder extends Seeder
 
         //Cria as classes
         $this->call(ClassesSeeder::class);
+
+        //Cria os avatares
+        $this->call(AvatarSeeder::class);
 
         //Enable the constraint check again
         \DB::statement('SET FOREIGN_KEY_CHECKS=1');

@@ -31,9 +31,9 @@ class User extends Authenticatable
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function avatar()
+    public function hasAchievement()
     {
-        return $this->avatar;
+        return false;
     }
 
     /**
@@ -93,6 +93,14 @@ class User extends Authenticatable
             ->with('badge')
             ->withTimestamps();
     }
+
+    /**
+     * Avatar que pertence ao usuario.
+     */
+    public function avatar()
+    {
+        return $this->hasOne('App\Models\Avatar');
+    }    
 
     /**
      * The stats that belong to the user.
