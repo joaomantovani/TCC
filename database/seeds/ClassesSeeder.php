@@ -16,6 +16,7 @@ class ClassesSeeder extends Seeder
         DB::table('classes')->insert([
         	'name' => 'Jogos digitais',
         	'slug' => 'jogos-digitais',
+            'short_name' => 'JD',
         	'slogan' => 'Y\'all need talos!',
             'description' => 
                 '<p> A classe de jogos digitais se destaca pela sua critividade e ampla possibilidade de escolha de carreiras </p>' .
@@ -44,6 +45,7 @@ class ClassesSeeder extends Seeder
         	'name' => 'Segurança da informação',
             'slogan' => '85931b3ecf8b88cede3e2df6653ecbfbcff0e5c0',
             'slug' => 'seguranca',
+            'short_name' => 'SI',
             'description' => 
                 '<p> Segurança da informação é voltada para pessoas que tenham a capacidade de se defender a ataques e atacar os outros, podendo ganhar muito dinheiro defendendo ou atacando servidores. </p>'
             ,
@@ -69,6 +71,7 @@ class ClassesSeeder extends Seeder
         DB::table('classes')->insert([
         	'name' => 'Análise e desenvolvimento de sistemas',
         	'slug' => 'ads',
+            'short_name' => 'ADS',''
             'slogan' => '"No meu computador funciona"',
             'description' => 
                 '<p> O profissional em ADS analisa, projeta, testa, implanta e mantém sistemas. Esse profissional trabalha, também, com ferramentas computacionais, equipamentos de informática e metodologia de projetos na produção de sistemas. Raciocínio lógico, emprego de linguagens de programação e de metodologias de construção de projetos, preocupação com a qualidade, usabilidade, robustez, integridade e segurança de programas computacionais são fundamentais à atuação desse profissional. </p>'

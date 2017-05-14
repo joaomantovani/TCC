@@ -21,9 +21,8 @@ Auth::routes();
 */
 
 //Página inicial
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'SiteController@index');
+Route::get('/credits', 'SiteController@credits');
 
 //Pagina principal de cada jogador
 Route::get('/jogador/{username}', 'PlayerController@personal');

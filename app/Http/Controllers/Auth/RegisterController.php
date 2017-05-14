@@ -62,10 +62,37 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+        $user = new User;
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->password = bcrypt($data['password']);
+        $user->save();
+
+        //Cria a carteira
+        $user->wallet()->create([
+            'name' => 'Carteira',
+            'type' => 'wallet',
+            'tutorial' => 0,
+            'money' => env('INITIAL_MONEY')
         ]);
+
+        //Cria os stats
+        $user->stats()->create([
+            'level' => 1,
+            'exp' => 0,
+            'stamina' => 100,
+            'inteligence' => null,
+            'charisma' => null,
+            'audacity' => null,
+            'luck' => null,
+        ]);
+
+        //Cria a conta no banco
+        $user->account()->create([
+            'name' => 'Conta do banco',
+            'money' => 0,
+        ]);
+
+        return $user;
     }
 }

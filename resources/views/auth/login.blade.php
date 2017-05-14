@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('public.master')
 
 @section('content')
 <div class="container">
@@ -11,7 +11,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label">Email</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="col-md-4 control-label">Senha</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -42,7 +42,7 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Lembrar login
                                     </label>
                                 </div>
                             </div>
@@ -50,15 +50,19 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="button">
                                     Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
+                                <a type="submit" href="{{ url('redirect') }}" class="button" style="background-color: #3b5998">
+                                    <i class="fa fa-facebook-square"></i>
                                 </a>
 
-                                <a href="redirect">FB Login</a>
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    Esqueceu a senha?
+                                </a>
+
+                                {{-- <a href="redirect">FB Login</a> --}}
                                 
                             </div>
                         </div>
