@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\Tutorial;
+use App\Events\Villain;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class GiveExp
+class setVillain
 {
     /**
      * Create the event listener.
@@ -21,13 +21,11 @@ class GiveExp
     /**
      * Handle the event.
      *
-     * @param  Tutorial  $event
+     * @param  Villain  $event
      * @return void
      */
-    public function handle(Tutorial $event)
+    public function handle(Villain $event)
     {
-        //Atribui a exp do achievemente para o jogador
-        $event->user->stats->exp = $event->achievement->exp;
-        $event->user->stats->save();
+        //
     }
 }

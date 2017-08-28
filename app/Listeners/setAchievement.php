@@ -6,7 +6,7 @@ use App\Events\Achievement;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ShowAnimation
+class setAchievement
 {
     /**
      * Create the event listener.
@@ -26,6 +26,6 @@ class ShowAnimation
      */
     public function handle(Achievement $event)
     {
-        //
+        
     }
 }

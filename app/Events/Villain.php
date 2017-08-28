@@ -10,26 +10,18 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-use App\Models\achievement;
-
-class Tutorial
+class Villain
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
-    public $success;
-    public $achievement;
-    public $user;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($tutorial)
+    public function __construct()
     {
-        $this->success = $tutorial['success'];
-        $this->achievement = Achievement::with('badge')->where('slug', $tutorial['achievement'])->first();
-        $this->user = $tutorial['user']->first();
+        //
     }
 
     /**

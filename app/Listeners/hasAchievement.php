@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\Tutorial;
+use App\Events\Achievement;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class GiveBadge
+class hasAchievement
 {
     /**
      * Create the event listener.
@@ -15,18 +15,19 @@ class GiveBadge
      */
     public function __construct()
     {
-        
+        //
     }
 
     /**
      * Handle the event.
      *
-     * @param  Tutorial  $event
+     * @param  Achievement  $event
      * @return void
      */
-    public function handle(Tutorial $event)
+    public function handle(Achievement $event)
     {
-        //Da ao jogador o achievement (que acompanha a badge)
-        $event->user->achievements()->attach($event->achievement);
+        //Veriica se o usuario ja possui o achievement
+        if ( $event->user->hasAchievement() )
+            return false;
     }
 }

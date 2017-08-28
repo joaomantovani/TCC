@@ -12,6 +12,9 @@
         <![endif]-->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/darkbootstrap.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/customdarklaravel.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick-theme.css') }}">
+
     </head>
     <body class="homepage">
         <div id="page-wrapper">
@@ -49,6 +52,7 @@
                     </nav>
                 </div>
             </div>
+            <br><br><br><br>
             @yield('content')
         </div>
         <!-- Footer Wrapper -->
@@ -82,6 +86,52 @@
         <script src="{{ asset("js/skel-viewport.min.js") }}"></script>
         <script src="{{ asset("js/util.js") }}"></script>
         <script src="{{ asset("js/main.js") }}"></script>
+        <script src="{{ asset("assets/slick/slick.min.js") }}"></script>
+        <style type="text/css"> 
+            .slick-slide {
+                padding: 0 .5em !important;
+                text-align: center !important;
+                height: auto !important;
+                opacity: .1;
+            }
+
+            .slick-current {
+                opacity: 1;
+            }
+        </style>
         <!--[if lte IE 8]><script src="{{ asset('js/ie/respond.min.js') }}"></script><![endif]-->
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $('.avatar').on('afterChange', function(event, slick, currentSlide, nextSlide){
+                    $('#selected_avatar').val($('.slick-current').attr('id'));                        
+                });
+
+                $('.avatar').slick({
+                  centerMode: true,
+                  centerPadding: '60px',
+                  slidesToShow: 5,
+                  responsive: [
+                    {
+                      breakpoint: 768,
+                      settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 3
+                      }
+                    },
+                    {
+                      breakpoint: 480,
+                      settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+                      }
+                    }
+                  ]
+                });
+            });
+        </script>
     </body>
 </html>

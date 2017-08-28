@@ -37,9 +37,11 @@ class Kernel extends HttpKernel
         ],
 
         'auth_player' => [
+            \Illuminate\Auth\Middleware\Authenticate::class,
+            \App\Http\Middleware\CheckInfo::class,
             \App\Http\Middleware\CheckClass::class,
             \App\Http\Middleware\CheckTutorial::class,
-            \Illuminate\Auth\Middleware\Authenticate::class,
+            \App\Http\Middleware\VillainCheck::class,
         ],
 
         'api' => [

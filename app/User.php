@@ -31,9 +31,9 @@ class User extends Authenticatable
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function avatar()
+    public function hasAchievement()
     {
-        return $this->avatar;
+        return false;
     }
 
     /**
@@ -95,6 +95,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Avatar que pertence ao usuario.
+     */
+    public function avatar()
+    {
+        return $this->hasOne('App\Models\Avatar');
+    }    
+
+    /**
      * The stats that belong to the user.
      */
     public function stats()
@@ -119,7 +127,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Conta do banco que pertence ao jogador
+     * Informações do jogador
      */
     public function info()
     {
