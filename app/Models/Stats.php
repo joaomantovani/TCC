@@ -15,7 +15,7 @@ class Stats extends Model
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['user_id', 'level', 'exp', 'stamina', 'inteligence', 'charisma', 'audacity', 'luck'];
+    protected $fillable = ['user_id', 'level', 'exp', 'stamina', 'pression', 'inteligence', 'charisma', 'audacity', 'luck'];
     // protected $hidden = [];
     // protected $dates = [];
     
@@ -24,6 +24,11 @@ class Stats extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function recoverStats() 
+    {
+        $this->setStaminaAttribute($this->stamina + (5 - ((( $this->pression / 2 ) / 10) * 0.9 )));
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
@@ -59,13 +64,19 @@ class Stats extends Model
      */
     public function setStaminaAttribute($value)
     {
-        $this->attributes['stamina'] = $value;
+        // Limit integer between 1 and 100
+        $this->attributes['stamina'] = max(min($value, 100), 1);
+    }
 
-        if ($this->attributes['stamina'] < 0)
-            $this->attributes['stamina'] = 0;
-        
-        if ($this->attributes['stamina'] > 100)
-            $this->attributes['stamina'] = 100;
-
+    /**
+     * Fit the stamina between 0 and 100.
+     *
+     * @param  string  
+     * @return void
+     */
+    public function setPressionAttribute($value)
+    {
+        // Limit integer between 1 and 100
+        $this->attributes['pression'] = max(min($value, 100), 1);
     }
 }

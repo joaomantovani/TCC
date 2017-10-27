@@ -7,5 +7,21 @@
 }
 
 body {
-	background: #ebebeb;
+	background: #ebebeb !important;
 }
+
+body.pushable>.pusher {
+  background: #ebebeb !important;
+}
+
+/*@media (max-width: 720px) {*/
+	/*.hidden-md {
+		display: none;
+	}*/
+	#btn-menu-sidebar {
+		position: fixed !important;
+		bottom: 0 !important;
+		right: 0 !important;
+		margin: 0 20px 20px 0 !important;
+	}
+/*}*/

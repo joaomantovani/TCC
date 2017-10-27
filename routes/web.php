@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/historia', 'HistoryController@index');
+
 /*
 |--------------------------------------------------------------------------
 | Rotas de autenticação
@@ -38,6 +40,8 @@ Route::get('/jogador/{username}', 'PlayerController@personal');
 //Facebook login
 Route::get('/redirect', 'SocialAuthController@redirect');
 Route::get('/callback', 'SocialAuthController@callback');
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/creditos', function () {
     return view('credits');
@@ -70,16 +74,26 @@ Route::group(['middleware' => ['auth']], function () {
 |
 */
 Route::group(['middleware' => ['auth_player']], function () {
-        Route::get('dashboard', function () {
-            echo 'pagina n existe e.e';
-        });
-        Route::get('/home', 'HomeController@index');
-        Route::get('/action', 'ActionController@index');
-        Route::get('/banco', 'AccountController@index');
-        Route::get('/vilao', 'VillainController@index');
-    });
+    Route::get('/home', 'HomeController@index');
+    Route::get('/acao', 'ActionController@index');
+    Route::get('/banco', 'AccountController@index');
 
-    Route::resource('/cantina', 'CantinaController');
+    Route::post('/banco/depositar', 'AccountController@deposit');
+    Route::post('/banco/sacar', 'AccountController@withdraw');
+    // Route::get('/vilao', 'VillainController@index');
+});
+
+Route::group(['middleware' => ['food_store']], function () {
+    Route::get('/loja/{slug}', 'StoreController@show');
+    Route::post('/loja/comprar', 'StoreController@store');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Rotas de error
+|--------------------------------------------------------------------------
+*/
+Route::get('/403', 'ErrorController@error403');
 
 /*
 |--------------------------------------------------------------------------
@@ -97,4 +111,9 @@ Route::post('/action/ajax', 'ActionController@action');
 Route::get('teste', function () {
     // dd(\App\User::find(2)->stats);
     return view('teste');
+});
+
+Route::get('displayjs', function () {
+    // dd(\App\User::find(2)->stats);
+    return view('displayjs');
 });

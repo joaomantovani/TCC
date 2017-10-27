@@ -2,7 +2,7 @@
 
 @section('content')
 	<!-- Banner Wrapper -->
-		<div id="banner-wrapper">
+{{-- 		<div id="banner-wrapper">
 
 			<!--
 
@@ -18,7 +18,7 @@
 				</div>
 			</div>
 
-		</div>
+		</div> --}}
 
 	<!-- Main Wrapper -->
 		<div id="main-wrapper">

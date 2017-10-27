@@ -27,6 +27,7 @@ mix.styles([
     'resources/assets/semantic/grid.min.css',
     'resources/assets/semantic/shape.min.css',
     'resources/assets/semantic/transition.min.css',
+    'resources/assets/semantic/progress.min.css',
 
     //Toast
     'resources/assets/css/jquery.toast.css',
@@ -49,11 +50,12 @@ mix.styles([
 mix.scripts([
     //slick
     'resources/assets/js/jquery-3.1.1.min.js',   
-    'resources/assets/js/vue.js',
+    // 'resources/assets/js/vue.js',
     'resources/assets/semantic/semantic.min.js',
     'resources/assets/semantic/grid.min.js',
     'resources/assets/semantic/shape.min.js',
     'resources/assets/semantic/transition.min.js',
+    'resources/assets/semantic/progress.min.js',
 
     //Toast
     'resources/assets/js/jquery.toast.js',

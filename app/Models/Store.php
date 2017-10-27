@@ -34,6 +34,11 @@ class Store extends Model
     {
         return $this->belongsToMany('App\Models\Product');
     }
+
+    public function avatar()
+    {
+        return $this->belongsTo('App\Models\Avatar');
+    }
     
     /*
     |--------------------------------------------------------------------------

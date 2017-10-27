@@ -10,7 +10,6 @@ class VillainController extends Controller
     public function index()
     {
     	event(new eAchievement('TutorialCompleted'));
-
     	return view('villain.index');
     }
 }

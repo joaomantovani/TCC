@@ -43,6 +43,10 @@
 	</style>
 @endsection
 
+@section('navbar')
+	
+@endsection
+
 @section('content')
 	
 	<div id='fluid-example-container'>
@@ -50,7 +54,7 @@
 
         	@foreach($classes as $class)
             <li class="card-class" id='panel-{{ $loop->iteration }}'>
-            	<img src="{{ $class->image or 'http://semantic-ui.com/images/avatar/large/stevie.jpg' }}">
+            	{{-- <img src="{{ $class->image or 'http://semantic-ui.com/images/avatar/large/stevie.jpg' }}"> --}}
 
             	<div class="k content">
             			

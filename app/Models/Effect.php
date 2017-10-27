@@ -28,6 +28,11 @@ class Effect extends Model
     {
         return $this->number . ' ' . $this->name;
     }
+
+    public function isPositive() 
+    {
+        return $this->number > 0 ? true : false;
+    }
     
     /*
     |--------------------------------------------------------------------------

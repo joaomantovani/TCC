@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	@section('css')
 	<link rel="stylesheet" href="{{ asset('css/master.css') }}">
 	<link rel="stylesheet" type="text/css" href="http://devsmash.com/css/jquery.kwicks-2.2.1.css">
@@ -11,9 +12,17 @@
 </head>
 <body>
 
-	@include('common.navbar')
+	@section('navbar')
+		@include('common.navbar')
+	@show
 
-	@yield('content')
+	<div class="pusher">
+		@yield('content')
+		
+		<button class="circular ui massive black icon button" id="btn-menu-sidebar">
+		  <i class="icon bars"></i>
+		</button>
+  	</div>
 
 	{{-- @if ( ! isset($achievement) )
 		<span class="achievement_trigger" style="display: none"
@@ -56,6 +65,31 @@
 				});
 			}
 		});
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/foggy/1.1.1/jquery.foggy.min.js"></script>
+	<script type="text/javascript">
+		// $('.item').foggy();
+		// var cont = 1;
+		// var positivo = false;
+		// var negativo = true;
+
+		// function LoopForever() {
+		//     if (cont < .1) { positivo = true; negativo = false; }
+		//     if (cont > .9) { positivo = false; negativo = true; }
+
+		//     if (negativo) cont -= 0.01;
+		//     if (positivo) cont += 0.01;
+
+		//     $('.item').each(function(index) {  
+		//        $('.item').foggy({
+		//           blurRadius: cont + .2,          // In pixels.
+		//           opacity: cont,           // Falls back to a filter for IE.
+		//           cssFilterSupport: true  // Use "-webkit-filter" where available.
+		//        });
+		//     });
+		// }
+
+		// var interval = self.setInterval(function(){LoopForever()}, 1);
 	</script>
 	@show
 

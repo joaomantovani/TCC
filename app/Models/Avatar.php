@@ -39,6 +39,11 @@ class Avatar extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    public function stores()
+    {
+        return $this->hasMany('App\Models\Store');
+    }
     
     /*
     |--------------------------------------------------------------------------

@@ -33,7 +33,7 @@ class Wallet extends Model
 	 */
 	public function getMoney($money = null)
 	{
-	    return is_null($money) ? Money::convert($this->money) : Money::convert($money);
+	    return is_null($money) ? Money::convert(round($this->money)) : Money::convert(round($money));
 	}
 	
 	/*
