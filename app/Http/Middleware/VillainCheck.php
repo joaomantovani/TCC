@@ -19,8 +19,8 @@ class VillainCheck
         $chance = mt_rand(1,100);
 
         //Se o vilao for aparecer
-        if($chance > 50)
-            return redirect('vilao');
+        // if($chance > 50)
+        //     return redirect('vilao');
 
         return $next($request);
     }

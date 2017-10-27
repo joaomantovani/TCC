@@ -17,7 +17,7 @@ class ActionController extends Controller
      */
     public function index()
     {
-    	$actions = Action::all();
+    	$actions = Action::orderBy('difficult', 'asc')->get();
 
     	return view('action.index')
     		->with('actions', $actions);

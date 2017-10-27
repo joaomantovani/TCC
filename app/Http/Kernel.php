@@ -44,6 +44,10 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VillainCheck::class,
         ],
 
+        'food_store' => [
+            \App\Http\Middleware\CheckFoodStore::class,
+        ],
+
         'api' => [
             'throttle:60,1',
             'bindings',

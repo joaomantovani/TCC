@@ -7,35 +7,19 @@
 
 @section('content')
 
-@if(\Auth::user()->tutorial)
-@component('component.message')
-
-@slot('icon')
-university 
-@endslot
-
-@slot('type')
-info
-@endslot
-
-@slot('title')
-Bem vindo ao seu banco
-@endslot
-
-@endcomponent
-@endif
-
 <div class="ui container">
 
 	<div class="ui centered grid">
 
 		<div class="six wide tablet four wide computer column">
-
 			@component('component.card')
-
-			<img src="{{ asset('illustrations/avatar/garcom.png') }}" class="ui fluid image">
-
+				@if (isset($store->avatar))
+					<img src="{{ asset($store->avatar->path) }}" class="ui fluid image">
+				@endif
 			@endcomponent
+		</div>
+
+		<div class="twelve wide tablet four wide computer column">
 
 			@component('component.card')
 
@@ -48,10 +32,11 @@ Bem vindo ao seu banco
 			@endslot
 			<div class="ui small statistic">
 				<div class="value">
-					Cantina
+					{{ $store->name }}
 				</div>
+				<br>
 				<div class="label">
-					{{-- Faça suas compras aqui! --}}
+					{{ $store->description }}
 				</div>
 			</div>
 
@@ -65,19 +50,23 @@ Bem vindo ao seu banco
 			@foreach( $store->products as $product)
 			  <div class="item" id="{{ $product->slug }}">
 			    <div class="image">
-			      <img src="{{ $product->image }}">
+			      <img src="{{ asset($product->image) }}">
 			    </div>
 			    <div class="content">
 			      <a class="header">{{ $product->name }}</a>
 			      <div class="meta">
 			        <span class="cinema">{{ $product->description }}</span>
 			      </div>
-			      <div class="description">
-			        <p>R$ {{ $product->price }}</p>
+			      <div class="description price">
+			        <h3>R$ <span class="item-price">{{ $product->price }}</span></h3>
 			      </div>
 			      <div class="extra">
 			      	@foreach($product->effects as $effect)
-				        <div class="ui label">{{ $effect->allInformation() }}</div>
+			      		@component('component.effect', ['effect' => $effect])
+			      		@endcomponent
+				        @if (!$loop->last)
+				          <br>
+				        @endif
 			        @endforeach
 			      </div>
 
@@ -172,7 +161,7 @@ Bem vindo ao seu banco
 
 				$.ajax({
 		            type: "POST",
-		            url: 'cantina',
+		            url: 'comprar',
 		            headers: {
 		            	'X-CSRF-TOKEN': '{{ csrf_token() }}'
 		            },
@@ -183,7 +172,9 @@ Bem vindo ao seu banco
 		                console.log(data);
 		                btn.removeClass('loading');
 
-		                $('#stamina-status').text(data.stamina);
+		                $('#example2').progress({
+		                  percent: data.stamina
+		                });
 		                $('#money-status').text(data.money);
 
 	                	$.toast({ 

@@ -25,7 +25,12 @@
 				<div class="default text">Selecione a ação</div>
 				<div class="menu">
 					@foreach($actions as $action)
-					<div class="item" data-value="{{ $action }}">{{ $action->name }}</div>
+					<div class="item" data-value="{{ $action }}">
+						@if ($action->class_id)
+							<span class="ui right pointing red basic label">Exclusivo {{ Auth::user()->info->class()->first()->name }}</span>
+						@endif
+						{{ $action->name }} 
+					</div>
 					@endforeach
 				</div>
 			</div>
@@ -101,7 +106,7 @@
 			$('#action-template .action-description').text(action.description);
 
 			//Resultado do calculo de logica fuzzy em difucldade [NW]
-			$('.progress').progress({ percent: Math.floor((Math.random() * 100) + 1) });
+			// $('.progress').progress({ percent: Math.floor((Math.random() * 100) + 1) });
 		});
 	});
 
@@ -134,7 +139,11 @@
 
 			//Se o jogador teve sucesso na ação
 			if (data.success) {
-				$('#stamina-status').text(data.stamina);
+				// $('#stamina-status').text(data.stamina);
+				$('#example2').progress({
+				  percent: data.stamina
+				});
+				
 				$('#money-status').text(data.money);
 				showMessage('success', 'Você completou a ação', 'Aehoo');
 				
@@ -164,15 +173,6 @@
 		.always(function() {
 			$('#action-button').removeClass('disabled loading');
 		})
-	});
-
-	//Progresso
-	$(document).ready(function() {
-		$('.progress').progress(
-		{
-			percent: 0
-		}
-		);
 	});
 </script>
 

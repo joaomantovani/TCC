@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Helpers\Money;
 
+use App\Models\Income;
+
 class Account extends Model
 {
     /*
@@ -19,12 +21,34 @@ class Account extends Model
     protected $fillable = ['name', 'money'];
     // protected $hidden = [];
     // protected $dates = [];
+
+    //Porcentagem que rende por dia
+    protected $juros_bancarios = 0.01;
     
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function calcJuros($value='')
+    {
+        $old_money = $this->money;
+
+        $this->money += $this->money * 0.01;
+        $new_money = $this->money;
+        
+        //Calcula o juros
+        \Log::debug('old_money:' . $old_money);
+
+        $yield = new Income([
+            'old_money' => $old_money, 
+            'new_money' => $new_money, 
+            'description' => 'rendimento'
+        ]);
+
+        $this->incomes()->save($yield);
+        $this->save();
+    }
     
     /*
     |--------------------------------------------------------------------------
@@ -34,6 +58,11 @@ class Account extends Model
     public function parent()
     {
         return $this->belongsTo('App\Models\User');
+    }
+
+    public function incomes()
+    {
+        return $this->hasMany('App\Models\Income');
     }
     
     /*
@@ -53,9 +82,9 @@ class Account extends Model
      * @param  string  
      * @return string
      */
-    public function getMoneyAttribute($money)
+    public function getConvertedMoney()
     {
-        return Money::convert($money);
+        return $this->money >= 1000 ? Money::convert($this->money) : round($this->money);
     }
 
     /*

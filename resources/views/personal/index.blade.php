@@ -43,7 +43,9 @@
 		  			@endslot
 
 		  			@slot('image')
-		  				{{ $user->avatar() }}
+		  				@if (!is_null($user->avatar()))
+		  					{{ $user->avatar() }}
+		  				@endif
 		  			@endslot
 
 		  			@slot('class')

@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         \DB::table('effects')->truncate();
         \DB::table('classes')->truncate();
         \DB::table('avatars')->truncate();
+        \DB::table('actions')->truncate();
         
         //Cria as badges
         $this->call(BadgeTableSeeder::class);
@@ -37,7 +38,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PlatinumAchievementsTableSeeder::class);
 
         //Cria as lojas
-        $this->call(FoodStoreSeeder::class);
+        $this->call(StoreSeeder::class);
 
         //Cria os produtos (com efeitos)
         $this->call(ProductsSeeder::class);

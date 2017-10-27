@@ -132,7 +132,10 @@
 
 			//Se o jogador teve sucesso na ação
 			if (data.success) {
-				$('#stamina-status').text(data.stamina);
+				// $('#stamina-status').text(data.stamina);
+				$('#example2').progress({
+				  percent: data.stamina
+				});
 				$('#money-status').text(data.money);
 				showMessage('success', 'Você completou a ação', 'Aehoo');
 				
