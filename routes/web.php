@@ -20,7 +20,9 @@ Route::get('/historia', 'HistoryController@index');
 | Jogadores que não possuem conta ainda.
 |
 */
-Auth::routes();
+Route::group(['middleware' => ['web']], function () {
+    Auth::routes();
+});
 
 /*
 |--------------------------------------------------------------------------
