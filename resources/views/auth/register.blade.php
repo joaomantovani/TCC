@@ -8,7 +8,7 @@
             <h1 class="dark">Crie uma conta</h1>
 
             <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-                {!! csrf_token() !!} 
+                {{ Form::token() }}
 
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                     {{-- <label for="name" class="col-md-4 control-label">Nome</label> --}}
