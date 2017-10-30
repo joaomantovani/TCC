@@ -32,20 +32,11 @@ $(document).ready(function() {
 	$('#pagepiling').pagepiling({
       	direction: 'horizontal',
 		menu: '#menu',
-		anchors: [
-			'page1', 'page2', 'page3', 'page4', 'page5', 
-			'page6', 'page7', 'page8', 'page9', 'page10'
-		],
-	    sectionsColor: [
-	    	'#eeeeee', '#e6ee9c', '#90caf9', '#39C', '#ef5350',
-	    	'#b3e5fc', '#a5d6a7', '#c5e1a5', '#ffab91', '#a1887f'
-	    ],
+		anchors: ['page1', 'page2', 'page3', 'page4'],
+	    sectionsColor: ['white', '#ee005a', '#2C3E50', '#39C'],
 	    navigation: {
 	    	'position': 'right',
-	   		'tooltips': [
-	   			'Tutorial', 'Primeiros passos', 'Comandos básicos', 'Stamina e tensão', 'Ações',
-	   			'Lojas', 'Efeitos colaterais', 'Banco', 'Vilões', 'Fim',
-	   		]
+	   		'tooltips': ['Page 1', 'Page 2', 'Page 3', 'Pgae 4']
 	   	},
 	    afterRender: function(){
 	    	$('#pp-nav').addClass('custom');
@@ -57,12 +48,6 @@ $(document).ready(function() {
 	    		$('#pp-nav').addClass('custom');
 	    	}
 	    }
-	});
-
-	$('#btn-start-tutorial').on('click', function(event) {
-		event.preventDefault();
-		/* Act on the event */
-		$.fn.pagepiling.moveTo('page2');
 	});
 
 	//Dismissable message

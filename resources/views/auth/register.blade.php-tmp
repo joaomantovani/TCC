@@ -1,5 +1,9 @@
 @extends('public.master')
 
+@section('headextra')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -71,4 +75,14 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('extrajs')
+<script type="text/javascript">
+   $.ajaxSetup({
+       headers: {
+           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+       }
+   });
+</script>
 @endsection
