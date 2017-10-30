@@ -15,7 +15,8 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/customdarklaravel.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick-theme.css') }}">
-
+        @section('headextra')
+        @show
     </head>
     <body class="homepage">
         <div id="page-wrapper">
@@ -134,5 +135,7 @@
                 });
             });
         </script>
+        @section('extrajs')
+        @show
     </body>
 </html>
