@@ -1,6 +1,5 @@
 <div class="ui left fixed vertical inverted labeled sidebar menu" id="main-sidebar">
     <span class="item">
-        <img src="http://placehold.it/600x600" class="ui fluid image mobile hidden">
         <h3 style="margin: 0px;">
             {{ Auth::user()->nickname }} <br>
             @if (isset(Auth::user()->info->class))
@@ -122,9 +121,9 @@
     <span class="item">
         <div class="ui grid menu-buttons">
             <div class="{{-- eight --}} sixteen wide column">
-                <a href="{{ url('home') }}" style="margin-bottom: 6px;" class="ui tiny white fluid inverted button" data-tooltip="Ir para a home" data-position="top right"> <i class="home icon"></i> Home </a>
-                <a href="{{ url('acao') }}" style="margin-bottom: 6px;" class="ui tiny white fluid inverted button" data-tooltip="Fazer uma ação" data-position="top right"> <i class="crosshairs icon"></i> Ação </a>
-                <a href="{{ url('banco') }}" style="margin-bottom: 6px;" class="ui tiny white fluid inverted button" data-tooltip="Ir para o banco" data-position="top right"> <i class="bitcoin icon"></i> Banco </a>
+                <a href="{{ url('home') }}" class="ui tiny white fluid inverted button" data-tooltip="Ir para a home" data-position="top right"> <i class="home icon"></i> Home </a>
+                <a href="{{ url('acao') }}" class="ui tiny white fluid inverted button" data-tooltip="Fazer uma ação" data-position="top right"> <i class="crosshairs red icon"></i> Ação </a>
+                <a href="{{ url('banco') }}" class="ui tiny white fluid inverted button" data-tooltip="Ir para o banco" data-position="top right"> <i class="bitcoin icon"></i> Banco </a>
                 <a href="{{ url('loja') }}" class="ui tiny white fluid inverted button" data-tooltip="Ir para a loja" data-position="top right"> <i class="shop icon"></i> Loja </a>
             </div>
         </div>

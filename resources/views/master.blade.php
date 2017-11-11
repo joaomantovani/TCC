@@ -17,7 +17,9 @@
 	@show
 
 	<div class="pusher">
+		<br>
 		@yield('content')
+		<br>
 		
 		<button class="circular ui massive black icon button" id="btn-menu-sidebar">
 		  <i class="icon bars"></i>

@@ -4,15 +4,15 @@
 	@parent
 	<link rel="stylesheet" href="{{ asset('css/account.css') }}">
 	<style type="text/css" media="screen">
-		body {
-			background: #ebebeb;
-		}
-
 		body.pushable>.pusher {
-			background: #ebebeb !important;
-			background-image: url('https://i.imgur.com/sfP4RMP.jpg') !important;
+			background-image: url('/illustrations/backgrounds/vault.jpg') !important;
 			background-repeat: no-repeat;
 			background-attachment: fixed;;
+		}
+
+		body.pushable>.pusher { background: #291a13; }
+		body.pushable>.pusher:before {
+			background: linear-gradient(rgba(20,20,20, 1), rgba(20,20,20, 1)), url('/illustrations/backgrounds/vault.jpg') !important;
 		}
 
 		.detail-date {
@@ -26,7 +26,6 @@
 
 
 	<div class="ui container">
-		<h1>Banco</h1>
 
 		<div class="ui grid">
 
@@ -48,7 +47,7 @@
 		  			      <i class="bitcoin icon"></i> <span id="account-money"> {{ Auth::user()->account->getConvertedMoney() }} </span>
 		  			    </div>
 		  			    <div class="label">
-		  			      Banco
+		  			      Dinheiro no banco
 		  			    </div>
 		  			  </div>
 
