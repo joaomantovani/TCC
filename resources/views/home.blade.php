@@ -1,5 +1,14 @@
 @extends('master')
 
+@section('css')
+	@parent
+	<style type="text/css">
+		.white-text {
+			color: white !important;
+		}
+	</style>
+@endsection
+
 @section('navbar')
 	@parent
 @endsection
@@ -8,9 +17,9 @@
 
 	<div class="ui container">
 
-	<div class="ui stackable two column grid">
+	<div class="ui stackable two column grid mobile">
+		<p></p>
 		<div class="sixteen wide tablet six wide computer column">
-			<br>
 			<div class="ui raised segment">
 		      <a class="ui red ribbon label">Overview</a>
 		      <span>Account Details</span>
@@ -19,15 +28,16 @@
 		      <p></p>
 		    </div>
 		</div>
-		<div class="sixteen wide tablet ten wide computer column">
+		<div class="sixteen wide tablet ten wide computer column mobile hidden mobile space">
 			@component('component.card')
 			<canvas id="myChart" width="100%" height="40"></canvas>
 			@endcomponent
 		</div>
+		<p><br></p>
 	</div>
 		<div class="ui four stackable link cards">
 
-			<div class="card">
+			<div class="card" style="display: none !important;">
 				<a class="ui red right corner label">
 		        	<i class="crosshairs icon"></i>
 		      	</a>
@@ -57,7 +67,7 @@
 			  </div>
 			</div>
 
-			<div class="card">
+			<div class="card" style="display: none !important;">
 				<a class="ui right corner label">
 		        	<i class="bitcoin icon"></i>
 		      	</a>
@@ -81,7 +91,7 @@
 			  </div>
 			</div>
 
-			<div class="card">
+			<div class="card" style="display: none !important;">
 				<a class="ui right corner label">
 		        	<i class="bar chart icon"></i>
 		      	</a>
@@ -106,7 +116,7 @@
 			</div>
 
 			@foreach ($stores as $store)
-				<div class="card">
+				<div class="card" style="display: none !important;">
 					<a class="ui right corner label">
 						@if ($store->slug == "lanchonete")
 			        		<i class="coffee icon"></i>
@@ -271,6 +281,15 @@ var myChart = new Chart(ctx, {
             }]
         }
     }
+});
+jQuery(document).ready(function($) {
+	$('.cards .card')
+	  .transition({
+	    animation : 'fly left',
+	    reverse   : 'auto', // default setting
+	    interval  : 200
+	  })
+	;
 });
 </script>
 @endsection

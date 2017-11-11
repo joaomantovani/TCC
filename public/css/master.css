@@ -556,4 +556,34 @@ body.pushable>.pusher {
   [class*="mobile space"] {
   	margin-top: .75em;
   }
+
+  [class*="mobile space bottom"] {
+  	margin-top: .75em !important;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  [class*="mobile hidden"],
+  [class*="tablet only"]:not(.mobile),
+  [class*="computer only"]:not(.mobile),
+  [class*="large monitor only"]:not(.mobile),
+  [class*="widescreen monitor only"]:not(.mobile),
+  [class*="or lower hidden"] {
+    display: none !important;
+  }
+
+#btn-menu-sidebar {
+	z-index: 999 !important;
+}
+
+.ui.grid>.column:not(.row) {
+	padding: 0px !important;
+}
+
+.no-margin {
+	margin: 0px !important;
+}
+
+.menu-buttons .column .ui.button {
+	margin-top: 10em !important;
 }

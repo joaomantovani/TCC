@@ -61,7 +61,7 @@
 				    <div class="bar">
 				    	<div class="progress">{{ Auth::user()->stats->stamina }}%</div>
 				    </div>
-				    <div class="label">Stamina</div>
+				    <div class="white-text label">Stamina</div>
 				</div>
 				<div class="ui active indicating progress" data-percent="100" id="example3">
 				    <div class="bar">
