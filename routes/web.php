@@ -66,6 +66,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/player/info', 'PlayerController@info');
     Route::post('/player/create/info', 'PlayerController@create');
+
+
 });
 
 /*
@@ -83,6 +85,8 @@ Route::group(['middleware' => ['auth_player']], function () {
     Route::post('/banco/depositar', 'AccountController@deposit');
     Route::post('/banco/sacar', 'AccountController@withdraw');
     // Route::get('/vilao', 'VillainController@index');
+
+    Route::get('/highscore', 'HighscoreController@index');
 });
 
 Route::group(['middleware' => ['food_store']], function () {

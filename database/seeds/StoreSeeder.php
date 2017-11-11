@@ -62,5 +62,16 @@ class StoreSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+
+        DB::table('stores')->insert([
+            'name' => 'Escola',
+            'description' => 'O local perfeito para quem deseja aumentar suas habilidades',
+            'slug' => 'escola',
+            'avatar_id' => 16,
+            'type' => 'level_up',
+            'respect' => '0', 
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
     }
 }

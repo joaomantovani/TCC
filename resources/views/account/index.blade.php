@@ -8,6 +8,13 @@
 			background: #ebebeb;
 		}
 
+		body.pushable>.pusher {
+			background: #ebebeb !important;
+			background-image: url('https://i.imgur.com/sfP4RMP.jpg') !important;
+			background-repeat: no-repeat;
+			background-attachment: fixed;;
+		}
+
 		.detail-date {
 			float: right;
 			color: lightgrey;

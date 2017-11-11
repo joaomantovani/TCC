@@ -36,9 +36,8 @@ class PlayerClass extends Model
     */
     public function info()
     {
-        return $this->hasMany('App\Models\Info');
-    }
-       
+        return $this->hasMany('App\Models\Info', 'class_id', 'player_class_id');
+    }  
     
     /*
     |--------------------------------------------------------------------------

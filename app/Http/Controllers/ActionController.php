@@ -54,7 +54,9 @@ class ActionController extends Controller
 
     	return response()->json([
     	    'success' => true,
-            'message' => 'Boa!, você é foda!',
+            'title' => Action::randomMessageTitle(),-
+            'message' => Action::randomMessageSucess(),
+            'stats_results' => 'Você ganhou <br><br> +4 de inteligência',
             'stamina' => $user->stats->stamina,
             'reward' => $request->input('action.reward'),
             'toast' => [

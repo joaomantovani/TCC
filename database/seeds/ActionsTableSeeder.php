@@ -27,7 +27,7 @@ class ActionsTableSeeder extends Seeder
         DB::table('actions')->insert([
         	'name' => 'Programação I',
             'description' => 'Primeira aula de programação, muito básica, uns if, else, while e talvez um for... Não se preocupe muito não, você nem precisa de muito esforço para fazer essa aula.',
-            'reward' => '100',
+            'reward' => '100',wq
             'difficult' => 1,
             'exp' => '250',
             'class_id' => null,
@@ -45,7 +45,7 @@ class ActionsTableSeeder extends Seeder
             'exp' => '250',
             'class_id' => null,
             'achievement_slug' => null,
-            'energy_required' => '5',
+            'energy_required' => '10',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -91,20 +91,20 @@ class ActionsTableSeeder extends Seeder
 
         DB::table('actions')->insert([
             'name' => 'Matematica',
-            'description' => 'Sem descrição',
+            'description' => 'Calculos são importantes!',
             'reward' => '100',
             'difficult' => 4,
             'exp' => '250',
             'class_id' => null,
             'achievement_slug' => null,
-            'energy_required' => '5',
+            'energy_required' => '10',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         DB::table('actions')->insert([
             'name' => 'Engenharia de Software',
-            'description' => 'Sem descrição',
+            'description' => 'Planejamento e documentação de projetos',
             'reward' => '100',
             'difficult' => 5,
             'exp' => '250',
@@ -117,7 +117,7 @@ class ActionsTableSeeder extends Seeder
 
         DB::table('actions')->insert([
             'name' => 'Programação avançada',
-            'description' => 'Sem descrição',
+            'description' => 'Estrutura de dados para seus projetos irem cada vez mais longe',
             'reward' => '100',
             'difficult' => 7,
             'exp' => '250',
@@ -130,7 +130,7 @@ class ActionsTableSeeder extends Seeder
 
         DB::table('actions')->insert([
             'name' => 'Programação web',
-            'description' => 'Sem descrição',
+            'description' => 'Aprenda a criar web applications',
             'reward' => '100',
             'difficult' => 6,
             'exp' => '250',
@@ -143,7 +143,7 @@ class ActionsTableSeeder extends Seeder
 
         DB::table('actions')->insert([
             'name' => 'Banco de dados',
-            'description' => 'Sem descrição',
+            'description' => 'Coleção de dados bem organizados, fundalmente para você criar seus futuros projetos!',
             'reward' => '100',
             'difficult' => 4,
             'exp' => '250',
@@ -160,7 +160,7 @@ class ActionsTableSeeder extends Seeder
         ============================================================*/
         DB::table('actions')->insert([
             'name' => 'Principios de Jogos',
-            'description' => 'Sem descrição',
+            'description' => 'Discuta sobre os jogos e aprenda os modos de história',
             'reward' => '100',
             'difficult' => 1,
             'exp' => '250',
@@ -173,7 +173,7 @@ class ActionsTableSeeder extends Seeder
         
         DB::table('actions')->insert([
             'name' => 'Ficção Interativa',
-            'description' => 'Sem descrição',
+            'description' => 'Aprofunde seus conhecimentos',
             'reward' => '100',
             'difficult' => 2,
             'exp' => '250',
@@ -186,7 +186,7 @@ class ActionsTableSeeder extends Seeder
         
         DB::table('actions')->insert([
             'name' => 'Roterização de jogos',
-            'description' => 'Sem descrição',
+            'description' => 'Crie roteiros bem feitos e maneiros',
             'reward' => '100',
             'difficult' => 3,
             'exp' => '250',
@@ -199,7 +199,7 @@ class ActionsTableSeeder extends Seeder
         
         DB::table('actions')->insert([
             'name' => 'Jogos para web',
-            'description' => 'Sem descrição',
+            'description' => 'Crie jogos para uma plataforma que funciona em qualquer dispositivo',
             'reward' => '100',
             'difficult' => 4,
             'exp' => '250',
@@ -212,7 +212,7 @@ class ActionsTableSeeder extends Seeder
         
         DB::table('actions')->insert([
             'name' => 'Animação e Som',
-            'description' => 'Sem descrição',
+            'description' => 'De vida as principais elementos de seu jogo',
             'reward' => '100',
             'difficult' => 5,
             'exp' => '250',

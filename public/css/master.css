@@ -524,6 +524,7 @@ body {
 
 body.pushable>.pusher {
   background: #ebebeb !important;
+  background-image: url('https://i.imgur.com/dYR0OfB.jpg') !important;
 }
 
 /*@media (max-width: 720px) {*/
@@ -537,3 +538,22 @@ body.pushable>.pusher {
 		margin: 0 20px 20px 0 !important;
 	}
 /*}*/
+
+.hidden {
+	display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  [class*="mobile hidden"],
+  [class*="tablet only"]:not(.mobile),
+  [class*="computer only"]:not(.mobile),
+  [class*="large monitor only"]:not(.mobile),
+  [class*="widescreen monitor only"]:not(.mobile),
+  [class*="or lower hidden"] {
+    display: none !important;
+  }
+
+  [class*="mobile space"] {
+  	margin-top: .75em;
+  }
+}

@@ -3,6 +3,26 @@
 @section('css')
 @parent
 <link rel="stylesheet" href="{{ asset('css/account.css') }}">
+<style type="text/css">
+	body.pushable>.pusher {
+		background: #ebebeb !important;
+		background-image: url('https://i.imgur.com/dYR0OfB.jpg') !important;
+		background-repeat: no-repeat;
+		background-attachment: fixed;;
+	}
+
+	@if ($store->slug == "lanchonete")
+		body.pushable>.pusher { background-image: url('https://i.imgur.com/dYR0OfB.jpg') !important; }
+	@elseif ($store->slug == "bar")
+		body.pushable>.pusher { background-image: url('https://i.imgur.com/dYR0OfB.jpg') !important; }
+	@elseif ($store->slug == "esquina")
+		body.pushable>.pusher { background-image: url('https://i.imgur.com/dYR0OfB.jpg') !important; }
+	@elseif ($store->slug == "online")
+		body.pushable>.pusher { background-image: url('https://i.imgur.com/yA4MnLo.jpg') !important; }
+	@elseif ($store->slug == "escola")
+		body.pushable>.pusher { background-image: url('https://i.imgur.com/dYR0OfB.jpg') !important; }
+	@endif	
+</style>
 @endsection
 
 @section('content')
@@ -10,16 +30,71 @@
 <div class="ui container">
 
 	<div class="ui centered grid">
+	<br>
+		<span class="mobile space">
+			<div class="only sixteen wide mobile six wide tablet four wide computer column personal-hud" style="display: none">
+				@component('component.card')
 
-		<div class="six wide tablet four wide computer column">
+				@slot('content')
+				fcenter
+				@endslot
+
+				@slot('class')
+				small mobile hidden
+				@endslot
+
+				<h3>
+				    {{ Auth::user()->nickname }} <br>
+				    @if (isset(Auth::user()->info->class))
+				    <small>{{ Auth::user()->info->class()->first()->name }}</small>
+				    @endif
+				</h3>
+
+				<div class="ui fluid teal large label">
+				    Dinheiro
+				    <div class="detail"> <i class="money icon"></i> {{ Auth::user()->wallet->getMoney() }}</div>
+				</div>
+
+				<p><br></p>
+			
+				<div class="ui active indicating progress" data-percent="100" id="example2">
+				    <div class="bar">
+				    	<div class="progress">{{ Auth::user()->stats->stamina }}%</div>
+				    </div>
+				    <div class="label">Stamina</div>
+				</div>
+				<div class="ui active indicating progress" data-percent="100" id="example3">
+				    <div class="bar">
+				    	<div class="progress">{{ Auth::user()->stats->pression }}%</div>
+				    </div>
+				    <div class="label">Tensão</div>
+				</div>
+
+				@endcomponent	
+
+				@component('component.card')
+
+				@slot('content')
+				fcenter 
+				@endslot
+
+				@slot('class')
+				small 
+				@endslot
+				
+
+				<a class="ui fluid basic button" href="{{ url('home') }}"><i class="home icon"></i> Voltar para home</a>
+				@endcomponent		
+			</div>
+		</span>
+
+		<div class="twelve wide tablet four wide computer column splash-bar-owner" style="display: none">
+
 			@component('component.card')
 				@if (isset($store->avatar))
 					<img src="{{ asset($store->avatar->path) }}" class="ui fluid image">
 				@endif
 			@endcomponent
-		</div>
-
-		<div class="twelve wide tablet four wide computer column">
 
 			@component('component.card')
 
@@ -30,7 +105,7 @@
 			@slot('class')
 			small
 			@endslot
-			<div class="ui small statistic">
+			<div class="ui tiny statistic">
 				<div class="value">
 					{{ $store->name }}
 				</div>
@@ -46,9 +121,9 @@
 
 		<div class="sixteen wide tablet eight wide computer column">
 
-			<div class="ui segment divided items">
+			<div class="ui segment divided items products">
 			@foreach( $store->products as $product)
-			  <div class="item" id="{{ $product->slug }}">
+			  <div class="item" id="{{ $product->slug }}" style="display: none">
 			    <div class="image">
 			      <img src="{{ asset($product->image) }}">
 			    </div>
@@ -186,7 +261,7 @@
 	                	  bgcolor : data.toast.bgcolor,         
 	                	  stack : 5,               
 	                	  textAlign : 'left',      
-	                	  position : 'bottom-right',
+	                	  position : 'bottom-left',
 	                	  icon: (data.success) ? 'success' : 'error' 
 	                	});
 		            },
@@ -197,6 +272,31 @@
 		            }
 		        });				
 			});			
+		});
+	</script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$('.splash-bar-owner')
+			  .transition({
+			    animation : 'fly up',
+			    duration  : 1000,
+			  })
+			;
+
+			$('.products .item')
+			  .transition({
+			    animation : 'fly left',
+			    reverse   : 'auto', // default setting
+			    interval  : 200
+			  })
+			;
+
+			$('.personal-hud')
+			  .transition({
+			    animation : 'fly right',
+			    duration  : 1000,
+			  })
+			;
 		});
 	</script>
 	@endsection

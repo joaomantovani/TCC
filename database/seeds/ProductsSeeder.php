@@ -21,8 +21,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'cerveja',
             'type' => 'drink',
             'image' => 'illustrations\products\beer.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
 
@@ -42,8 +40,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'bottle',
             'type' => 'drink',
             'image' => 'illustrations\products\bottle.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -62,8 +58,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'pao',
             'type' => 'food',
             'image' => 'illustrations\products\bread.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -82,8 +76,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'brigadeiro',
             'type' => 'food',
             'image' => 'illustrations\products\brigadeiro.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -102,8 +94,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'bolo',
             'image' => 'illustrations\products\cake.png',
             'type' => 'food',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -122,8 +112,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'queijo',
             'type' => 'food',
             'image' => 'illustrations\products\cheese.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -142,8 +130,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'chocolate',
             'type' => 'food',
             'image' => 'illustrations\products\chocolate.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -162,8 +148,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'coffee',
             'type' => 'drink',
             'image' => 'illustrations\products\coffee.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -182,8 +166,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'donut',
             'type' => 'food',
             'image' => 'illustrations\products\donut.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -202,8 +184,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'fried_egg',
             'type' => 'food',
             'image' => 'illustrations\products\egg.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -222,8 +202,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'peixe',
             'type' => 'food',
             'image' => 'illustrations\products\fish.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -242,8 +220,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'presunto',
             'type' => 'food',
             'image' => 'illustrations\products\ham.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -262,8 +238,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'hamburguer',
             'type' => 'food',
             'image' => 'illustrations\products\hamburguer.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -282,8 +256,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'cachorro_quente',
             'type' => 'food',
             'image' => 'illustrations\products\hotdog.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -302,8 +274,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'sorvete',
             'type' => 'food',
             'image' => 'illustrations\products\icecream.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -322,8 +292,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'japanese_rice',
             'type' => 'food',
             'image' => 'illustrations\products\japanese_rice.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -342,8 +310,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'limonada',
             'type' => 'drink',
             'image' => 'illustrations\products\limonade.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -362,8 +328,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'leite',
             'type' => 'drink',
             'image' => 'illustrations\products\milk.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -382,8 +346,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'milkshake',
             'type' => 'drink',
             'image' => 'illustrations\products\milkshake.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -402,8 +364,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'pizza',
             'type' => 'food',
             'image' => 'illustrations\products\pizza.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -422,8 +382,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'fried_potato',
             'type' => 'food',
             'image' => 'illustrations\products\fried_potato.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -442,8 +400,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'cream',
             'type' => 'food',
             'image' => 'illustrations\products\cream.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -462,8 +418,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'salsicha',
             'type' => 'food',
             'image' => 'illustrations\products\sausage.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -482,8 +436,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'refrigerante',
             'type' => 'drink',
             'image' => 'illustrations\products\soda.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -502,8 +454,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'sopa',
             'type' => 'food',
             'image' => 'illustrations\products\soup.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -522,8 +472,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'bife',
             'type' => 'food',
             'image' => 'illustrations\products\steak.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -542,8 +490,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'sushi',
             'type' => 'food',
             'image' => 'illustrations\products\sushi.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -562,8 +508,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'cha',
             'type' => 'drink',
             'image' => 'illustrations\products\tea.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -582,8 +526,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'suco-de-tomate',
             'type' => 'drink',
             'image' => 'illustrations\products\tomato_juice.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -602,8 +544,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'vinho',
             'type' => 'drink',
             'image' => 'illustrations\products\wine.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 1]);
         DB::table('effects')->insert([
@@ -625,8 +565,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'teclado_velho',
             'type' => 'equipament',
             'image' => 'illustrations\products\wine.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 3]);
         
@@ -637,8 +575,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'monitor_15_polegadas_tubo',
             'type' => 'equipament',
             'image' => 'illustrations\products\wine.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 3]);
 
@@ -649,8 +585,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'monitor_17_polegadas',
             'type' => 'equipament',
             'image' => 'illustrations\products\wine.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 3]);
 
@@ -661,8 +595,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'monitor-19-polegadas-led',
             'type' => 'equipament',
             'image' => 'illustrations\products\wine.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 3]);
 
@@ -673,8 +605,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'monitor-21-polegadas',
             'type' => 'equipament',
             'image' => 'illustrations\products\wine.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 3]);
 
@@ -685,8 +615,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'monitor-25-ultra-wide',
             'type' => 'equipament',
             'image' => 'illustrations\products\wine.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 3]);
 
@@ -697,8 +625,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'monitor-21-polegadas-duplo',
             'type' => 'equipament',
             'image' => 'illustrations\products\wine.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 3]);
 
@@ -709,8 +635,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'monitor-29-ultra-wide',
             'type' => 'equipament',
             'image' => 'illustrations\products\wine.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 3]);
 
@@ -721,8 +645,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'monitor-29-duplo',
             'type' => 'equipament',
             'image' => 'illustrations\products\wine.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 3]);
 
@@ -733,8 +655,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'monitor-25-ultra-wide-duplo',
             'type' => 'equipament',
             'image' => 'illustrations\products\wine.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 3]);
 
@@ -745,8 +665,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'monitor-34-ultra-wide-curvo',
             'type' => 'equipament',
             'image' => 'illustrations\products\wine.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 3]);
 
@@ -757,8 +675,6 @@ class ProductsSeeder extends Seeder
             'slug' => 'monitor-34-ultra-wide-curvo-duplo',
             'type' => 'equipament',
             'image' => 'illustrations\products\wine.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 3]);
 
@@ -769,9 +685,31 @@ class ProductsSeeder extends Seeder
             'slug' => 'monitor-34-ultra-wide-curvo-triplo',
             'type' => 'equipament',
             'image' => 'illustrations\products\wine.png',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 3]);
+
+        /*=====================================
+        =            Escola seeder            =
+        =====================================*/
+        $product_id = DB::table('products')->insertGetId([
+            'name' => 'Curso de lógica',
+            'description' => 'Estude lógica de programação para melhorar sua inteligência',
+            'price' => 2500/*mt_rand (1*10, 10*10) / 10*/,
+            'slug' => 'curso-de-logica',
+            'type' => 'course',
+            'image' => 'illustrations\products\wine.png',
+        ]);
+        DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 4]);
+
+        $product_id = DB::table('products')->insertGetId([
+            'name' => 'Curso de carisma',
+            'description' => 'Consiga uns pontos a mais nessa sua habilidade de conversar',
+            'price' => 2500/*mt_rand (1*10, 10*10) / 10*/,
+            'slug' => 'curso-de-logica',
+            'type' => 'course',
+            'image' => 'illustrations\products\wine.png',
+        ]);
+        DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 4]);
+        
     }
 }

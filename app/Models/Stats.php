@@ -29,6 +29,11 @@ class Stats extends Model
         $this->setStaminaAttribute($this->stamina + (5 - ((( $this->pression / 2 ) / 10) * 0.9 )));
     }
 
+    public function calcLevel()
+    {
+        return max([$this->inteligence, $this->charisma, $this->audacity, $this->luck]) + 2;
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
@@ -36,7 +41,7 @@ class Stats extends Model
     */
     public function user()
     {
-        return $this->belongsTo('app\Models\User');
+        return $this->belongsTo('app\User');
     }
     
     /*

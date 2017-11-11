@@ -40,9 +40,9 @@
 		<div id="action-template">
 			<div class="ui fluid card">
 				<div class="content">
-					<div class="header action-name">Elliot Fu</div>
+					<div class="header action-name">Escolha uma ação para fazer</div>
 					<div class="description action-description">
-						Elliot Fu is a film-maker from New York.
+						Na parte de cima, clique no dropdown para abrir a lista de ações
 					</div>
 				</div>
 				
@@ -145,7 +145,7 @@
 				});
 				
 				$('#money-status').text(data.money);
-				showMessage('success', 'Você completou a ação', 'Aehoo');
+				showMessage('success', data.message + '\n' + data.stats_results, data.title);
 				
 				$.toast({ 
 				  heading : data.toast.heading,

@@ -84,7 +84,7 @@
 	  	        {!! Form::open(['url' => '/escolher/classe', 'method' => 'post']) !!}
 	  	        {!! csrf_field() !!}
 	  	        {!! Form::hidden('class_id', $class->id) !!}
-  	          	<button type="submit" class="ui bottom attached button choose-class" id="{{ $class->id }}">
+  	          	<button type="submit" class="ui black fluid default bottom button choose-class" id="{{ $class->id }}">
 	                <i class="add icon"></i>
 	                Escolher classe
 	              </button>
