@@ -51,6 +51,7 @@ class PlayerController extends Controller
     {
         $user = Auth::user();
 
+
         $user->username = $request->username;
         $user->nickname = $request->nickname;
         $user->avatar_id = $request->selected_avatar;

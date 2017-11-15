@@ -13,7 +13,15 @@
 <body>
 
 	@section('navbar')
-		@include('common.navbar')
+		
+		{{-- <span class="computer only"> --}}
+			@include('common.navbar')
+		{{-- </span> --}}
+
+		<span class="computer only">
+			@include('common.desktop-navbar')
+		</span>
+
 	@show
 
 	<div class="pusher">

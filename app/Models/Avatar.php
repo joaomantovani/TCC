@@ -11,8 +11,8 @@ class Avatar extends Model
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
-    // protected $table = 'users';
-    // protected $primaryKey = 'id';
+    protected $table = 'avatars';
+    protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = ['slug', 'path'];
@@ -37,7 +37,7 @@ class Avatar extends Model
     */
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->hasMany('App\Models\User');
     }
 
     public function stores()

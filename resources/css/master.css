@@ -49,6 +49,11 @@ body.pushable>.pusher {
   }
 }
 
+@media only screen and (min-width: 768px) {
+	#btn-menu-sidebar {
+		display: none;
+	}	
+}
 #btn-menu-sidebar {
 	z-index: 999 !important;
 }
@@ -59,4 +64,17 @@ body.pushable>.pusher {
 
 .menu-buttons .column .ui.button {
 	margin-top: .5em !important;
+}
+
+@media only screen and (min-width: 1450px) {
+	.pusher {
+		padding-left: 250px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.pusher {
+		padding-left: 250px;
+		padding-right: 50px;
+	}
 }

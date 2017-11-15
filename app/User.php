@@ -19,7 +19,7 @@ class User extends Authenticatable
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['name', 'email', 'password', 'avatar', 'nickname', 'username'];
+    protected $fillable = ['name', 'email', 'password', 'avatar', 'nickname', 'username', 'avatar_id'];
     protected $hidden = ['password', 'remember_token'];
     // protected $dates = [];
     protected $casts = [
@@ -97,9 +97,10 @@ class User extends Authenticatable
     /**
      * Avatar que pertence ao usuario.
      */
-    public function avatar()
+    public function getAvatar()
     {
-        return $this->hasOne('App\Models\Avatar');
+        return asset(\App\Models\Avatar::find($this->avatar_id)->path);
+        // return $this->hasOne('App\Models\Avatar', 'avatar_id', 'id');
     }    
 
     /**

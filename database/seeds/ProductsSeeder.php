@@ -577,6 +577,13 @@ class ProductsSeeder extends Seeder
             'image' => 'illustrations\products\wine.png',
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 3]);
+        DB::table('effects')->insert([
+            ['product_id' => $product_id, 'name' => 'Stamina', 'slug' => 'buff_stamina', 'type' => 'stamina', 'number' => 2],
+            ['product_id' => $product_id, 'name' => 'Tensão', 'slug' => 'buff_tensao', 'type' => 'tensao', 'number' => mt_rand(0,1) == 0 ? -2 : 2],
+            ['product_id' => $product_id, 'name' => 'Alcool', 'slug' => 'debuff_alcool', 'type' => 'embriaguez', 'number' => mt_rand(0,1) == 0 ? -2 : 2],
+            ['product_id' => $product_id, 'name' => 'Energia', 'slug' => 'buff_energia', 'type' => 'energia', 'number' => mt_rand(0,1) == 0 ? -2 : 2],
+            ['product_id' => $product_id, 'name' => 'Açucar', 'slug' => 'debuff_açucar', 'type' => 'glicose', 'number' => mt_rand(0,1) == 0 ? -2 : 2],
+        ]);
 
         $product_id = DB::table('products')->insertGetId([
             'name' => 'Monitor 17 polegadas lcd',
