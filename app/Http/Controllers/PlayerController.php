@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Models\Avatar;
+use App\Models\Achievement;
 use App\Models\Info;
 use Auth;
 
@@ -30,6 +31,8 @@ class PlayerController extends Controller
         //Carrega o user pelo username
         $user = User::where('username', $username)->with('achievements')->first();
 
+        $achievements = Achievement::orderBy('id', 'DESC')->get();
+
         //Se o usuário autenticado for o mesmo que o username passado no url
         //vai poder ver coisas ocultas na página de perfil
         if(! is_null(Auth::user()))
@@ -39,7 +42,8 @@ class PlayerController extends Controller
 
         return view('personal.index')
             ->with('user', $user)
-            ->with('has_permission', $has_permission);
+            ->with('has_permission', $has_permission)
+            ->with('achievements', $achievements);
 }
 
     /**

@@ -52,9 +52,9 @@ class HighscoreController extends Controller
         ])
         ->with('strongest', array_slice($players, 0, 3))
         ->with([
-            'jd_strongest' => array_slice($jd_players, 0, 3),
-            'si_strongest' => array_slice($si_players, 0, 3),
-            'ads_strongest' => array_slice($ads_players, 0, 3),
+            'jd_strongest' => array_slice($jd_players, 0, 5),
+            'si_strongest' => array_slice($si_players, 0, 5),
+            'ads_strongest' => array_slice($ads_players, 0, 5),
         ]);
     }
 }

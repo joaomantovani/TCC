@@ -27,7 +27,7 @@ class ActionsTableSeeder extends Seeder
         DB::table('actions')->insert([
         	'name' => 'Programação I',
             'description' => 'Primeira aula de programação, muito básica, uns if, else, while e talvez um for... Não se preocupe muito não, você nem precisa de muito esforço para fazer essa aula.',
-            'reward' => '100',wq
+            'reward' => '100',
             'difficult' => 1,
             'exp' => '250',
             'class_id' => null,

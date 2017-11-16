@@ -54,9 +54,9 @@ class ActionController extends Controller
 
     	return response()->json([
     	    'success' => true,
-            'title' => Action::randomMessageTitle(),-
+            'title' => Action::randomMessageTitle(),
             'message' => Action::randomMessageSucess(),
-            'stats_results' => 'Você ganhou <br><br> +4 de inteligência',
+            'stats_results' => ', você ganhou: <br><br> +4 de inteligência <br> +1 de carisma <br> +2 de audacia <br> +3 de sorte <br><br> +' . $request->input('action.reward') . ' de dinheiro',
             'stamina' => $user->stats->stamina,
             'reward' => $request->input('action.reward'),
             'toast' => [
@@ -64,7 +64,8 @@ class ActionController extends Controller
                 'bgcolor' => '#2ecc71', 
                 'message' => '<i class="bitcoin icon"></i>' . Money::convert($request->input('action.reward')) .' foram adicionados na sua carteira.',
             ],
-            'money' => $user->wallet->money,
+            'money' => $user->wallet->getMoney(),
+            'tensao' => 100,
     	]);
     }
 }

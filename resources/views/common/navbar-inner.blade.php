@@ -1,40 +1,48 @@
 <span class="item">
+        <a href="{{ url('jogador/' . Auth::user()->username) }}">
     <img class="ui centered tiny circular image" src="{{ Auth::user()->getAvatar() }}">
         <h3 class="no-margin">
-            {{ Auth::user()->nickname }} <br>
+            {{ Auth::user()->username }} <br>
             @if (isset(Auth::user()->info->class))
-            <small>{{ Auth::user()->info->class()->first()->name }}</small>
+            <small>
+                {{ Auth::user()->info->class()->first()->name }} 
+                <br>
+                <small>Ver meu perfil</small>
+            </small>
             @endif
         </h3>
+        </a>
     </span>
     <div class="item">
         <div class="ui fluid teal large label">
             Dinheiro
-            <div class="detail"> <i class="money icon"></i> {{ Auth::user()->wallet->getMoney() }}</div>
+            <div class="detail"> <i class="money icon"></i> <span class="money-count">{{ Auth::user()->wallet->getMoney() }}</span></div>
         </div>
         <h6></h6>
     </div>
     <span class="item">
-        {{-- <p>Stamina {{ Auth::user()->stats->stamina }}%</p> --}}
-        <div class="ui inverted indicating progress" data-percent="100" id="example2">
-            <div class="bar">
-                <div class="progress">{{ Auth::user()->stats->stamina }}</div>
+        {{-- <div class="ui indicating progress active" data-percent="80">
+            <div class="bar" style="transition-duration: 300ms; width: 80%;"></div>
+            <div class="label">80%</div>
+          </div> --}}
+        <span class="stamina">
+            <div class="ui inverted active indicating progress" data-percent="{{ Auth::user()->stats->stamina }}">
+                <div class="bar" style="transition-duration: 300ms; width: {{ Auth::user()->stats->stamina }}%;">
+                    <div class="label progress">{{ Auth::user()->stats->stamina }}%</div>
+                </div>
+                {{-- <div class="label stamina-status-init" style="display: none">{{ Auth::user()->stats->stamina }}</div> --}}
+                <div class="label white-text">Stamina</div>
             </div>
-            {{-- <div class="label stamina-status-init" style="display: none">{{ Auth::user()->stats->stamina }}</div> --}}
-            <div class="label white-text">Stamina</div>
-        </div>
-        {{-- <p>Tensão {{ Auth::user()->stats->pression }}%</p>
-        <div class="ui inverted indicating progress" data-percent="100" id="example3">
-            <div class="bar"></div>
-            <div class="label stamina-status-init" style="display: none">{{ Auth::user()->stats->pression }}</div>
-        </div> --}}
-        <div class="ui inverted indicating progress" data-percent="100" id="example3">
-            <div class="bar">
-                <div class="progress">{{ Auth::user()->stats->pression }}</div>
+        </span>
+        <br>
+        <span class="tensao">
+            <div class="ui inverted active indicating progress" data-percent="{{ Auth::user()->stats->pression }}">
+                <div class="bar" style="transition-duration: 300ms; width: {{ Auth::user()->stats->pression }}%;">
+                    <div class="label progress">{{ Auth::user()->stats->pression }}%</div>
+                </div>
+                <div class="label white-text">Tensão</div>
             </div>
-            {{-- <div class="label stamina-status-init" style="display: none">{{ Auth::user()->stats->stamina }}</div> --}}
-            <div class="label white-text">Tensão</div>
-        </div>
+        </span>
     </span>
     {{-- 
     <span class="item">
@@ -50,19 +58,19 @@
     <span class="item">
         <div class="ui grid lvl-buttons">
             <div class="eight wide column">
-                <span class="ui tiny white fluid inverted button" data-tooltip="Inteligência" data-position="top right"> INT: 23 </span>
+                <span class="ui tiny white fluid inverted button" data-tooltip="Inteligência" data-position="top right"> INT <br> {{ Auth::user()->stats->inteligence }} </span>
             </div>
 
             <div class="eight wide column">
-                <span class="ui tiny white fluid inverted button" data-tooltip="Carisma" data-position="top right"> CAR: 23 </span>
+                <span class="ui tiny white fluid inverted button" data-tooltip="Carisma" data-position="top right"> CAR <br> {{ Auth::user()->stats->charisma }} </span>
             </div>
 
             <div class="eight wide column">
-                <span class="ui tiny white fluid inverted button" data-tooltip="Audácia" data-position="top right"> AUD: 23 </span>
+                <span class="ui tiny white fluid inverted button" data-tooltip="Audácia" data-position="top right"> AUD <br> {{ Auth::user()->stats->audacity }} </span>
             </div>
 
             <div class="eight wide column">
-                <span class="ui tiny white fluid inverted button" data-tooltip="Sorte" data-position="top right"> SOR: 23 </span>
+                <span class="ui tiny white fluid inverted button" data-tooltip="Sorte" data-position="top right"> SOR <br> {{ Auth::user()->stats->luck }} </span>
             </div>
         </div>
     </span>

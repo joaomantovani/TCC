@@ -72,7 +72,8 @@ class StoreController extends Controller
                     'bgcolor' => '#2ecc71', 
                     'message' => 'Você comprou e recebeu +50 de stamina',
                 ],
-                'money' => $user->wallet->money,
+                'money' => $user->wallet->getMoney(),
+                'tensao' => $user->stats->pression,
             ]);
         }
 

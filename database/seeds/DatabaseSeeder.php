@@ -41,7 +41,11 @@ class DatabaseSeeder extends Seeder
         $this->call(StoreSeeder::class);
 
         //Cria os produtos (com efeitos)
-        $this->call(ProductsSeeder::class);
+        // $this->call(ProductsSeeder::class);
+        $this->call(LanchoneteSeeder::class);
+        $this->call(BarSeeder::class);
+        $this->call(EquipamentSeeder::class);
+        $this->call(EscolaSeeder::class);
 
         //Cria as ações
         $this->call(ActionsTableSeeder::class);

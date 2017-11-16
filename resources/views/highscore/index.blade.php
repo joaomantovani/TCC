@@ -87,7 +87,7 @@
 
 			<div class="three wide column">
 				<h1>ADS</h1>
-				@foreach ($jd_strongest as $player)
+				@foreach ($ads_strongest as $player)
 					<img class="ui avatar image" src="{{ $player['user']->getAvatar() }}">
 					<span>
 						@if ($loop->iteration == 1) <i class="yellow small trophy icon"></i>

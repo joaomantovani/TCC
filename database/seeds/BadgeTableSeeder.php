@@ -41,8 +41,8 @@ class BadgeTableSeeder extends Seeder
 
         //Platinum
         DB::table('badges')->insert([
-        	'name' => 'platinum',
-            'type' => 'Platina',
+        	'name' => 'Platina',
+            'type' => 'platinum',
             'color' => '#00b5ad',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),

@@ -244,7 +244,10 @@
 		            	product_id: btn.attr('id')
 		            },
 		            success: function (data) {
-		                console.log(data);
+		                changeStamina(data.stamina);
+		                changeTensao(data.tensao);
+		                changeMoney(data.money);
+		                
 		                btn.removeClass('loading');
 
 		                $('#example2').progress({

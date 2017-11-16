@@ -78,3 +78,7 @@ body.pushable>.pusher {
 		padding-right: 50px;
 	}
 }
+
+.white-text {
+	color: white !important;
+}

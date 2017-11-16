@@ -99,8 +99,11 @@ class User extends Authenticatable
      */
     public function getAvatar()
     {
-        return asset(\App\Models\Avatar::find($this->avatar_id)->path);
-        // return $this->hasOne('App\Models\Avatar', 'avatar_id', 'id');
+        if (!is_null($this->avatar_id))
+            return asset(\App\Models\Avatar::find($this->avatar_id)->path);
+        else
+            return '';
+        
     }    
 
     /**

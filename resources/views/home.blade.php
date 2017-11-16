@@ -71,10 +71,10 @@
 			      	<p>	
 			      		<br>
 			      		<span class="ui tiny black button" data-tooltip="Seu level" data-position="top right">Lvl {{ Auth::user()->stats->calcLevel() }}</span>
-						<span class="ui tiny basic black button" data-tooltip="Inteligência" data-position="top right"> INT: 23 </span>	
-						<span class="ui tiny basic black button" data-tooltip="Carisma" data-position="top right"> CAR: 23 </span>	
-						<span class="ui tiny basic black button" data-tooltip="Audácia" data-position="top right"> AUD: 23 </span>	
-						<span class="ui tiny basic black button" data-tooltip="Sorte" data-position="top right"> SOR: 23 </span>			      
+						<span class="ui tiny basic black button" data-tooltip="Inteligência" data-position="top right"> INT: {{ Auth::user()->stats->inteligence }} </span>	
+						<span class="ui tiny basic black button" data-tooltip="Carisma" data-position="top right"> CAR: {{ Auth::user()->stats->charisma }} </span>	
+						<span class="ui tiny basic black button" data-tooltip="Audácia" data-position="top right"> AUD: {{ Auth::user()->stats->audacity }} </span>	
+						<span class="ui tiny basic black button" data-tooltip="Sorte" data-position="top right"> SOR: {{ Auth::user()->stats->luck }} </span>			      
 					</p>
 			      <a class="ui blue ribbon label">Redondezas</a> <strong>Ultimas notícias</strong>
 			      <p>Lorem ipsum dolor sit amet uasduhasd uhasduh dasuhduhsauhasdu sahduas dhsaudhausdhsaudh uasdh asudh sau hasudh asudh uasdh uhuashusahduahdasudhaus hasudhsa</p>

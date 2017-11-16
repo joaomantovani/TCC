@@ -19,3 +19,19 @@ $('#main-sidebar').sidebar({
 $('#btn-menu-sidebar').on('click', function() {
     $('#main-sidebar').sidebar('toggle');
 });
+
+function changeStamina(stamina) {
+  $('.stamina .progress').attr('data-percent', stamina + '%');
+  $('.stamina .bar').css('width', stamina + '%');
+  $('.stamina .label.progress').text(stamina + '%');
+}
+
+function changeTensao(stamina) {
+  $('.tensao .progress').attr('data-percent', stamina + '%');
+  $('.tensao .bar').css('width', stamina + '%');
+  $('.tensao .label.progress').text(stamina + '%');
+}
+
+function changeMoney(money) {
+  $('.money-count').text(money);
+}
