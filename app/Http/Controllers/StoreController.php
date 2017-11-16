@@ -61,6 +61,13 @@ class StoreController extends Controller
                         break;
                 }
             }
+
+
+            $string = '';
+            foreach ($product->effects as $key => $product_effect) {
+                $string .= $product_effect->allInformation() . '<br>';
+            }
+
             $user->stats->save();
 
             return response()->json([
@@ -70,7 +77,7 @@ class StoreController extends Controller
                 'toast' => [
                     'heading' => $product->name . ' comprado!',
                     'bgcolor' => '#2ecc71', 
-                    'message' => 'Você comprou e recebeu +50 de stamina',
+                    'message' => $string,
                 ],
                 'money' => $user->wallet->getMoney(),
                 'tensao' => $user->stats->pression,

@@ -2,6 +2,14 @@
     <div class="ui basic {{ $effect->isPositive() ? 'green' : 'red' }} label" data-tooltip="Quantidade de energia que você irá {{ $effect->isPositive() ? 'ganhar' : 'perder' }}" data-position="top right">{{ $effect->allInformation() }}</div>
 @endif
 
+@if($effect->type == 'colesterol')
+    <div class="ui basic orange label" data-tooltip="A quantidade de colesterol que você irá {{ $effect->isPositive() ? 'ganhar' : 'perder' }}" data-position="top right"><i class="fa fa-heartbeat" aria-hidden="true"></i> {{ $effect->allInformation() }}</div>
+@endif
+
+@if($effect->type == 'cafeina')
+    <div class="ui basic brown label" data-tooltip="Quantidade de cafeina que você irá {{ $effect->isPositive() ? 'ganhar' : 'perder' }}" data-position="top right"><i class="fa fa-coffee" aria-hidden="true"></i> {{ $effect->allInformation() }}</div>
+@endif
+
 @if($effect->type == 'tensao')
     <div class="ui basic {{ $effect->isPositive() ? 'green' : 'red' }} label" data-tooltip="Cuidado para não ficar muito tenso" data-position="top right">{{ $effect->allInformation() }}</div>
 @endif

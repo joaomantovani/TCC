@@ -6,13 +6,12 @@
 <style type="text/css">
 	body.pushable>.pusher {
 		background: #ebebeb !important;
-		background-image: url('https://i.imgur.com/dYR0OfB.jpg') !important;
 		background-repeat: no-repeat;
 		background-attachment: fixed;;
 	}
 
 	@if ($store->slug == "lanchonete")
-		body.pushable>.pusher { background-image: url('https://i.imgur.com/dYR0OfB.jpg') !important; }
+		body.pushable>.pusher { background-image: url('/illustrations/backgrounds/lanchonete.jpg') !important; }
 	@elseif ($store->slug == "bar")
 		body.pushable>.pusher { background-image: url('https://i.imgur.com/dYR0OfB.jpg') !important; }
 	@elseif ($store->slug == "esquina")
@@ -243,17 +242,14 @@
 		            data: {
 		            	product_id: btn.attr('id')
 		            },
-		            success: function (data) {
-		                changeStamina(data.stamina);
-		                changeTensao(data.tensao);
-		                changeMoney(data.money);
-		                
+		            success: function (data) {		                
 		                btn.removeClass('loading');
 
-		                $('#example2').progress({
-		                  percent: data.stamina
-		                });
-		                $('#money-status').text(data.money);
+		                if (data.success) {
+		                	changeStamina(data.stamina);
+		                	changeTensao(data.tensao);
+		                	changeMoney(data.money);
+		                }
 
 	                	$.toast({ 
 	                	  heading : data.toast.heading,
