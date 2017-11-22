@@ -28,12 +28,9 @@ class HomeController extends Controller
     {
         $users = User::all();
         
-        $jd_sum = 0;
-        $si_sum = 0;
-        $ads_sum = 0;
-        $jd_cont = 0;
-        $si_cont = 0;
-        $ads_cont = 0;
+        $jd_sum = 0; $si_sum = 0; $ads_sum = 0;
+        $jd_cont = 1; $si_cont = 1; $ads_cont = 1;
+        
         foreach ($users as $key => $user) {
             switch ($user->info->class->slug) {
                 case 'jogos-digitais':
