@@ -12,6 +12,7 @@
 */
 
 Route::get('/historia', 'HistoryController@index');
+Route::get('/scene1', 'HistoryController@scene1');
 
 /*
 |--------------------------------------------------------------------------

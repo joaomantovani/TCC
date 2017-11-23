@@ -7,6 +7,18 @@
 	body {
 		background: #ebebeb;
 	}
+
+	@media only screen and (max-width: 768px) {
+		#first-label {
+			width: 100%;
+			margin-bottom: 5px;
+		}
+
+		#second-label {
+			width: 100%;
+			margin-bottom: 5px;
+		}
+	}
 </style>
 @endsection
 
@@ -94,10 +106,28 @@
 
 			//Pega o objeto que representa a ação
 			var action = $(this).data().value;
+			var dificuldade = action.difficult;
+			var dificuldade_text = '';
+			console.log(action);
+
+			if      (dificuldade <= 10)  { dificuldade_text = 'Fácil';       color_class = 'green'; }
+			else if (dificuldade <= 30)  { dificuldade_text = 'Tranquilo';   color_class = 'green'; }
+			else if (dificuldade <= 50)  { dificuldade_text = 'Razoavél';    color_class = 'olive'; }
+			else if (dificuldade <= 70)  { dificuldade_text = 'Complicado';  color_class = 'yellow'; }
+			else if (dificuldade <= 90)  { dificuldade_text = 'Díficil';     color_class = 'orange'; }
+			else if (dificuldade <= 99)  { dificuldade_text = 'Muito díficil';     color_class = 'red'; }
+			else if (dificuldade <= 100)  { dificuldade_text = 'Extremo';     color_class = 'black'; }
 
 			//Atribui os valores para os campos
 			$('#action-template .action-name').text(action.name);
 			$('#action-template .action-description').text(action.description);
+			$('#action-template .action-description').append(  "<h2></h2>" );
+			$('#action-template .action-description').append('<div id="first-label" class="ui large label"> <i class="lightning yellow icon"></i> <strong>'+ action.energy_required +'</strong> <div class="detail">Stamina necessária</div></div>');
+			$('#action-template .action-description').append('<div id="second-label" class="ui large label"> <i class="bitcoin yellow icon"></i> <strong>'+ action.reward +'</strong> <div class="detail">Recompensa</div></div>');
+			$('#action-template .action-description').append(  "<h2></h2>" );
+			$('#action-template .action-description').append('<div id="bardiff" class="ui active '+ color_class +' progress" data-percent="'+ dificuldade +'"> <div class="bar" style="transition-duration: 300ms; width: '+ dificuldade +'%;"> <div class="label progress">'+ dificuldade +'</div> </div> <div class="label">'+ dificuldade_text +'</div> </div>');
+
+			
 
 			//Resultado do calculo de logica fuzzy em difucldade [NW]
 			// $('.progress').progress({ percent: Math.floor((Math.random() * 100) + 1) });
