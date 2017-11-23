@@ -1,5 +1,8 @@
 @extends('master')
 
+@section('navbar')
+@endsection
+
 @section('css')
 @parent
 <style type="text/css">
