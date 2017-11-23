@@ -2,23 +2,10 @@
 
 @section('content')
 	<!-- Banner Wrapper -->
-{{-- 		<div id="banner-wrapper">
-
-			<!--
-
-				The slider's images (as well as its behavior) can be configured
-				at the top of "js/main.js".
-
-			-->
-
-			<div id="slider">
-				<div class="caption">
-					<h2>Tente alcançar o topo!</h2>
-					<p>Escolha uma classe e junte-se a nós</p>
-				</div>
-			</div>
-
-		</div> --}}
+	<span style="text-align: center">
+		<h1>Bem vindo a sua nova aventura</h1>
+		<p>Crie uma conta e escolha a sua classe para começar a jogar</p>
+	</span>
 
 	<!-- Main Wrapper -->
 		<div id="main-wrapper">

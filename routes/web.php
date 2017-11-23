@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/historia', 'HistoryController@index');
-Route::get('/scene1', 'HistoryController@scene1');
-
 /*
 |--------------------------------------------------------------------------
 | Rotas de autenticação
@@ -68,7 +65,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/player/info', 'PlayerController@info');
     Route::post('/player/create/info', 'PlayerController@create');
 
-
+    Route::get('/historia', 'HistoryController@index');
+    Route::get('/scene0', 'HistoryController@scene0');
+    Route::get('/scene1', 'HistoryController@scene1');
 });
 
 /*

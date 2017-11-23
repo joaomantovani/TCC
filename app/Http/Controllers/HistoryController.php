@@ -17,14 +17,13 @@ class HistoryController extends Controller
         return view('history.index');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function scene0()
+    {
+        return view('history.scene0');
+    }
+
     public function scene1()
     {
-        //
         return view('history.scene1');
     }
 }
