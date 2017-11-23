@@ -169,8 +169,6 @@
 				  percent: data.stamina
 				});
 				
-				
-				
 				showMessage('success', data.message + data.stats_results, data.title, 'checkmark');
 				
 				$.toast({ 
