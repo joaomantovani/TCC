@@ -4,6 +4,12 @@
 	@parent
 	<link rel="stylesheet" href="{{ asset('css/escolher.css') }}">
 	<style type='text/css'>
+		body {
+			background-image: linear-gradient(rgba(20,20,20, .7), rgba(20,20,20, .3)), url('https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb') !important;
+			background-size:     cover !important;                      
+		    background-repeat: repeat !important;
+		    background-position: center center !important;	
+		}
 	    .kwicks .card-class{
 	    	border-radius: .25em;
 	    }
@@ -36,9 +42,9 @@
 	        height: auto;
 	    }
 
-	    #panel-1 { background-color: #8e44ad; }
-	    #panel-2 { background-color: #2980b9; }
-	    #panel-3 { background-color: #27ae60; }
+	    #panel-1 { background-color: #D24D57; }
+	    #panel-2 { background-color: #5C97BF; }
+	    #panel-3 { background-color: #03A678; }
 	    #panel-4 { background-color: #bf7cc7; }
 	</style>
 @endsection
@@ -50,6 +56,11 @@
 @section('content')
 	
 	<div id='fluid-example-container'>
+
+		<div class="ui raised segment">
+			<h1 style="text-align: center">Escolha sua classe</h1>
+		</div>
+
         <ul class='kwicks kwicks-horizontal'>
 
         	@foreach($classes as $class)
@@ -102,6 +113,7 @@
 	<script src="{{ asset('js/escolher.js') }}" type="text/javascript"></script>
 
 	<script type='text/javascript'>
+		$('.pusher').removeClass('pusher');
 	    $().ready(function() {
 	        $('.kwicks').kwicks({
 	            maxSize : '65%',

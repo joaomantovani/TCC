@@ -1,11 +1,14 @@
 @extends('public.master')
 
 @section('content')
+    <!-- Banner Wrapper -->
+    <span style="text-align: center">
+        <h1>Preencha suas informações</h1>
+        <p>Escolha seu nome e avatar</p>
+    </span>
 
-<div class="container">
-    <div class="row">
-    
-        <div class="col-md-8 col-md-offset-2">
+    <!-- Main Wrapper -->
+        <div id="main-wrapper" class="col-md-12">
             <form class="form-horizontal" role="form" method="POST" action="{{ url('/player/create/info') }}">
                 {{ csrf_field() }}
 
@@ -31,7 +34,7 @@
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
                     <div class="col-md-8 col-md-offset-2">
-                        <input placeholder="Apelido (Nome a ser mostrado)" id="nickname" type="nickname" class="form-control input-lg" name="nickname" value="{{ old('nickname') }}" required>
+                        {{-- <input placeholder="Apelido (Nome a ser mostrado)" id="nickname" type="nickname" class="form-control input-lg" name="nickname" value="{{ old('nickname') }}" required> --}}
 
                         @if ($errors->has('email'))
                             <span class="help-block">
@@ -40,15 +43,18 @@
                         @endif
                     </div>
                 </div>
+
                 <br>
+
                 <div class="form-group">
                     <div class="avatar">
                         @foreach( $avatars as $avatar )
-                            <div class="slick_get_avatar" id="{{ $avatar->id }}"><img style="width: 100%" class="img-rounded" src="{{ $avatar->getAvatar() }}"></div>
+                            <div class="slick_get_avatar" id="{{ $avatar->id }}"><img class="img-responsive img-rounded" src="{{ $avatar->getAvatar() }}"></div>
                         @endforeach
                     </div>
                 </div>
                 <br>
+
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
                         <button type="submit" class="button">
@@ -57,8 +63,7 @@
                         </button>
                     </div>
                 </div>
+                
             </form>
         </div>
-    </div>
-</div>
 @endsection

@@ -58,11 +58,13 @@ class PlayerController extends Controller
 
         $user->username = $request->username;
         $user->nickname = $request->nickname;
-        $user->avatar_id = $request->selected_avatar;
+
+        $avatar = $request->selected_avatar;
+        $user->avatar_id = $avatar;
 
         $user->save();
 
-        return redirect('escolher');
+        return redirect('scene0');
     }
 
     /**

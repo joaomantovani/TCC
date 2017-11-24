@@ -33,7 +33,7 @@
 	.you {
 		bottom: 0 !important;
 		position: absolute;
-		margin-bottom: 5em;
+		margin-bottom: 5em !important;
 		display: none;
 	}
 
@@ -54,7 +54,7 @@
 		}
 
 		.you {
-			margin-bottom: 10px !important;
+			margin-bottom: 2em !important;
 		}
 
 
@@ -98,7 +98,7 @@
 <span id="username" style="display: none">{{ Auth::user()->username }}</span>
 
 <button class="circular ui small black icon button" id="btn-skip-history">
-  <i class="icon arrow right"></i> Pular história
+  <i class="icon arrow right"></i> Pular	
 </button>
 
 @endsection
@@ -200,7 +200,7 @@
 	}
 
 	$('#btn-skip-history').click(function(){
-	   window.location.href = '/home';
+	   window.location.href = '/scene1';
 	})
 </script>
 @endsection

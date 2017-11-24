@@ -34,8 +34,7 @@
 	<div style="position:fixed;top:50px;left:50px;color:white;z-index:999;" id="callbacksDiv"></div>
 
 	<div id="pagepiling">
-	    <div class="section" id="section1">
-	    	
+	    <div class="section" id="section1">	    	
 	    	<div class="ui text container">
 	      		<h1 class="ui header">
 	       			 Tutorial
@@ -59,11 +58,9 @@
 		      		</button>
 		      	{{ Form::close() }}
 	    	</div>
-
 	    </div>
 
-	    <div class="section" id="section2">
-	    	
+	    <div class="section" id="section2"> 	
 	    	<div class="ui inverted text container">
 	      		<h1 class="ui header">
 	       			Primeiros passos...
@@ -73,7 +70,6 @@
 	      		<br><br>
 	      		<div class="ui big purple label">Vamos, tente você!</div>
 	    	</div>
-
 	    </div>
 	    
 	    <div class="section" id="section3">
@@ -215,18 +211,13 @@
 		      	{{ Form::close() }}
 			</div>
 	    </div>
-
+	    
 	</div>
-
-	{{-- <ul id="menu">
-		<div data-menuanchor="page1" class="active"><a href="#page1">Page 1</a></div>
-		<li data-menuanchor="page2"><a href="#page2">Page 2</a></li>
-		<li data-menuanchor="page3"><a href="#page3">Page 3</a></li>
-	</ul> --}}
 
 @endsection
 
 @section('js')
 	@parent
+	<script>$('.pusher').removeClass('pusher');</script>
 	<script src="{{ asset('js/tutorial.js') }}" type="text/javascript"></script>
 @endsection

@@ -32,6 +32,8 @@ class HomeController extends Controller
         $jd_cont = 1; $si_cont = 1; $ads_cont = 1;
         
         foreach ($users as $key => $user) {
+            if (is_null($user->info)) continue;
+
             switch ($user->info->class->slug) {
                 case 'jogos-digitais':
                     $jd_sum += $user->stats->calclevel();

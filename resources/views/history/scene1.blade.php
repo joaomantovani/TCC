@@ -93,6 +93,10 @@
 	</span>
 </div>
 
+<button class="circular ui small black icon button" id="btn-skip-history">
+  <i class="icon arrow right"></i> Pular
+</button>
+
 @endsection
 
 @section('js')
@@ -118,7 +122,7 @@
 		  typeSpeed: 40,
 		  startDelay: 1000,
 		  cursorChar: '',
-		  onComplete: (self) => {
+		  onComp55ete: (self) => {
 		  	$('.you').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() { dialog2(); }});
 		  },
 		  onStringTyped: (arrayPos, self) => {},
@@ -304,7 +308,7 @@
 	}
 
 	$('#btn-skip-history').click(function(){
-	   window.location.href = '/home';
+	   window.location.href = '/scene2';
 	})
 </script>
 @endsection

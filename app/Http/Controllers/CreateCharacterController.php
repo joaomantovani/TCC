@@ -41,6 +41,6 @@ class CreateCharacterController extends Controller
         $user->stats->luck = $stats['luck'];
         $user->stats->save();
 
-        return redirect('tutorial');
+        return redirect('scene3');
     }
 }

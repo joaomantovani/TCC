@@ -25,28 +25,10 @@
                 <!-- Header -->
                 <div id="header" class="container">
                     <!-- Logo -->
-                    <h1 id="logo"><a href="index.html"><span>Fatec <b>Quest</b></span></a></h1>
+                    <h1 id="logo"><a href="index.html"><span>sad <b>dsad</b></span></a></h1>
                     <!-- Nav -->
                     <nav id="nav">
                         <ul>
-                            <li>
-                                <a href="#">Dropdown</a>
-                                <ul>
-                                    <li><a href="#">Lorem ipsum dolor</a></li>
-                                    <li><a href="#">Magna phasellus</a></li>
-                                    <li><a href="#">Etiam dolore nisl</a></li>
-                                    <li>
-                                        <span>Phasellus consequat</span>
-                                        <ul>
-                                            <li><a href="#">Lorem ipsum dolor</a></li>
-                                            <li><a href="#">Phasellus consequat</a></li>
-                                            <li><a href="#">Magna phasellus</a></li>
-                                            <li><a href="#">Etiam dolore nisl</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Veroeros feugiat</a></li>
-                                </ul>
-                            </li>
                             <li><a href="{{ url('creditos') }}">Créditos</a></li>
                             <li class="break"><a href="{{ url('login') }}">Login</a></li>
                             <li><a href="{{ url('register') }}">Criar conta</a></li>
@@ -111,8 +93,17 @@
                 $('.avatar').slick({
                   centerMode: true,
                   centerPadding: '60px',
-                  slidesToShow: 5,
+                  slidesToShow: 10,
                   responsive: [
+                    {
+                      breakpoint: 1366,
+                      settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 5
+                      }
+                    },
                     {
                       breakpoint: 768,
                       settings: {
@@ -128,7 +119,7 @@
                         arrows: false,
                         centerMode: true,
                         centerPadding: '40px',
-                        slidesToShow: 1
+                        slidesToShow: 2
                       }
                     }
                   ]
