@@ -26,4 +26,9 @@ class HistoryController extends Controller
     {
         return view('history.scene1');
     }
+
+    public function scene2()
+    {
+        return view('history.scene2');
+    }
 }

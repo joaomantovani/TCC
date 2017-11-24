@@ -530,7 +530,7 @@ body.pushable>.pusher {
 	/*.hidden-md {
 		display: none;
 	}*/
-	#btn-menu-sidebar {
+	#btn-menu-sidebar, #btn-skip-history {
 		position: fixed !important;
 		bottom: 0 !important;
 		right: 0 !important;

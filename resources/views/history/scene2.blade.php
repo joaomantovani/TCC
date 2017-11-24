@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <style type="text/css">
 	body {
-		background-image: linear-gradient(rgba(20,20,20, .7), rgba(20,20,20, .3)), url('https://images.pexels.com/photos/189333/pexels-photo-189333.jpeg?w=940&h=650&auto=compress&cs=tinysrgb') !important;
+		background-image: linear-gradient(rgba(20,20,20, .7), rgba(20,20,20, .3)), url('https://static.pexels.com/photos/139303/pexels-photo-139303.jpeg') !important;
 		background-size:     cover !important;                      
 	    background-repeat:   no-repeat !important;
 	    background-position: center center !important;	
@@ -74,7 +74,7 @@
 @section('content')
 <div class="ui container">
 
-	<span class="other father">
+	<span class="other friend">
 		<span id="typed"></span>&zwnj;
 		<img class="ui middle aligned rounded image" src="illustrations/avatar/13.png">
 		{{-- <img class="ui middle aligned rounded image" src="http://placehold.it/120x120"> --}}
@@ -85,14 +85,9 @@
 		{{-- <img class="ui middle aligned rounded image" src="http://placehold.it/120x120"> --}}
 		<span id="typed"></span>&zwnj;
 	</span>
-
-	<span class="other mom">
-		<span id="typed"></span>&zwnj;
-		<img class="ui middle aligned rounded image" src="illustrations/avatar/7.png">
-		{{-- <img class="ui middle aligned rounded image" src="http://placehold.it/120x120?text=mae"> --}}
-	</span>
 </div>
 
+<span id="username" style="display: none">{{ Auth::user()->username }}</span>
 @endsection
 
 @section('js')
@@ -106,39 +101,42 @@
 		dialog1();
 	});
 
-	function dialog1() {
-		$('.other.father').transition({ animation  : 'fly down', duration   : '2s', });
+	function username() {
+		return $('#username').text();
+	}
 
-		var typed = new Typed(".other #typed", {
-		  strings: [
-		  	'Filho', 
-		  	'Venha já aqui', 
-		  	'Estou mandando!', 
-		  ],
-		  typeSpeed: 40,
-		  startDelay: 1000,
-		  cursorChar: '',
-		  onComplete: (self) => {
-		  	$('.you').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() { dialog2(); }});
-		  },
-		  onStringTyped: (arrayPos, self) => {},
-		});
+	function dialog1() {
+		$('.other.friend').transition({ animation  : 'fly down', duration   : '2s', onComplete : function() {
+			$('.other.friend').transition({ animation  : 'tada', duration   : '2s', onComplete : function() {
+				var typed = new Typed(".other #typed", {
+				  strings: [
+				  	'Ei!', 
+				  	username() + ' Ei!!!', 
+				  ],
+				  typeSpeed: 40,
+				  startDelay: 1000,
+				  cursorChar: '',
+				  onComplete: (self) => {
+				  	$('.you').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() { dialog2(); }});
+				  },
+				  onStringTyped: (arrayPos, self) => {},
+				});
+			}});		
+		}});
 	}
 
 	function dialog2() {
 		var typed = new Typed(".you #typed", {
 		  strings: [
-		  	'Oi pai', 
-		  	'Estou aqui', 
-		  	'O que foi?', 
+		  	'E ai cara!', 
+		  	'Quanto tempo', 
+		  	'Como você está?', 
 		  ],
 		  typeSpeed: 40,
 		  startDelay: 1000,
 		  cursorChar: '',
 		  onComplete: (self) => {
 		  	dialog3();
-		  	$('.other.father').addClass('animated pulse');
-		  	$('.other.father').removeClass('animated pulse');
 		  },
 		  onStringTyped: (arrayPos, self) => {},
 		});
@@ -147,10 +145,9 @@
 	function dialog3() {
 		var typed = new Typed(".other #typed", {
 		  strings: [
-		  	'Você já terminou seus estudos e não está fazendo nada', 
-		  	'Você só fica jogando nesse computador',
-		  	'o dia inteiro sem parar', 
-		  	'Você tem que fazer algo da sua vida', 
+		  	'Muito bem, comecei aquele curso na Faculdade', 
+		  	'Estou quase formado já',
+		  	'Último semestre, sou veterano hehe', 
 		  ],
 		  typeSpeed: 40,
 		  startDelay: 1000,
@@ -166,15 +163,17 @@
 	function dialog4() {
 		var typed = new Typed(".you #typed", {
 		  strings: [
-		  	'Mas pai...', 
-		  	'Eu não quero'
+		  	'Meu pai falou que eu precisava fazer algo',
+		  	'Meu pai falou que eu precisava fazer algo',
+		  	'mas está tudo tão tranquilo.',
+		  	'Não queria começar uma nova rotina'
 		  ],
 		  typeSpeed: 40,
 		  startDelay: 1000,
 		  cursorChar: '',
 		  onComplete: (self) => {
-		  	$('.other.father').addClass('animated pulse');
-		  	$('.other.father').removeClass('animated pulse');
+		  	$('.other.friend').addClass('animated pulse');
+		  	$('.other.friend').removeClass('animated pulse');
 		  	dialog5();
 		  },
 		  onStringTyped: (arrayPos, self) => {},
@@ -184,18 +183,18 @@
 	function dialog5() {
 		var typed = new Typed(".other #typed", {
 		  strings: [
-		  	'"Eu não quero" nada',
-		  	'Ou você vai ir estudar',
-		  	'Ou você vai ir trabalhar',
-		  	'Na minha casa sem fazer nada',
-		  	'Você não fica'
+		  	'Seu pai tem razão',
+		  	'Você realmente precisa fazer algo da sua vida',
+		  	'Você mal percebe e o tempo já passou',
+		  	'Tem que aproveitar que você é jovem',
+		  	'Por que não tenta a mesma faculdade que eu?'
 		  ],
 		  typeSpeed: 40,
 		  startDelay: 1000,
 		  cursorChar: '',
 		  onComplete: (self) => {
-		  	$('.other.father').addClass('animated shake');
-		  	$('.other.father').removeClass('animated shake');
+		  	$('.other.friend').addClass('animated shake');
+		  	$('.other.friend').removeClass('animated shake');
 		  	$('.you').addClass('animated swing');
 		  	$('.you').removeClass('animated swing');
 		  	dialog6();
@@ -207,37 +206,30 @@
 	function dialog6() {
 		var typed = new Typed(".you #typed", {
 		  strings: [
-		  	'Mãe',
-		  	'Mãããe...',
-		  	'Mããããããeeeee...',
+		  	'A sua faculdade?',
+		  	'Hmm...',
+		  	'Eu não tinha pensado nisso...',
+		  	'Onde você estuda mesmo?',
 		  ],
 		  typeSpeed: 40,
 		  startDelay: 1000,
 		  cursorChar: '',
 		  onComplete: (self) => {
-		  	$('.other.father').addClass('animated pulse');
-		  	$('.other.father').removeClass('animated pulse');
-
-		  	$('.other.father')
-		  	  .transition({
-		  	    animation  : 'fly down',
-		  	    duration   : '2s',
-		  	    onComplete : function() {
-		  	      $('.other.mom').transition({ animation  : 'fly down', duration   : '2s', onComplete : function() { dialog7(); }});
-		  	    }
-		  	  })
-		  	;
-
+		  	$('.other.friend')
+		  	  .transition({ animation  : 'tada', duration   : '1s', onComplete : function() {
+		  	      dialog7();
+		  	}});
 		  },
 		  onStringTyped: (arrayPos, self) => {},
 		});
 	}
 
 	function dialog7() {
-		var typed = new Typed(".other.mom #typed", {
+		var typed = new Typed(".other.friend #typed", {
 		  strings: [
-		  	'Oi filho',
-		  	'O que foi?',
+		  	'Estou estudando na Fatec',
+		  	'Estou estudando na Fatec',
+		  	'Faço a noite lá, tem vários cursos',
 		  ],
 		  typeSpeed: 40,
 		  startDelay: 1000,
@@ -250,11 +242,11 @@
 	}
 
 	function dialog8() {
-		var typed = new Typed(".you #typed", {
+		var typed = new Typed(".friend #typed", {
 		  strings: [
-		  	'O pai quer quer que vá logo fazer algo',
-		  	'Vocês me disseram que eu poderia',
-		  	'Tirar um ano de folga...'
+		  	'Agora que estamos conversando eu lembrei',
+		  	'Está no período de inscrição, você tem que tentar!',
+		  	'É só fazer a prova e esperar o inicio das aulas'
 		  ],
 		  typeSpeed: 40,
 		  startDelay: 1000,
@@ -267,11 +259,11 @@
 	}
 
 	function dialog9() {
-		var typed = new Typed(".other.mom #typed", {
+		var typed = new Typed(".you #typed", {
 		  strings: [
-		  	'Sim, nos dissemos',
-		  	'Seu pai está meio nervoso',
-		  	'Vou conversar com ele...'
+		  	'Bem, eu acho que você tem razão',
+		  	'Vou tentar passar!',
+		  	'Me aguarde no próximo semestre'
 		  ],
 		  typeSpeed: 40,
 		  startDelay: 1000,
@@ -284,16 +276,17 @@
 	}
 
 	function dialog10() {
-		var typed = new Typed(".you #typed", {
+		var typed = new Typed(".friend #typed", {
 		  strings: [
-		  	'Ok mãe',
-		  	'Obrigado'
+		  	'É isso ai!',
+		  	'É isso ai!',
+		  	'Te espero no próximo semestre hein!'
 		  ],
 		  typeSpeed: 40,
 		  startDelay: 1000,
 		  cursorChar: '',
 		  onComplete: (self) => {
-		  	$('.other.mom').transition({ animation  : 'fly down', duration   : '2s', });
+		  	$('.other.friend').transition({ animation  : 'fly down', duration   : '2s', });
 		  	$('.you').transition({ animation  : 'fly up', duration   : '2s', 	
 		  		onComplete: (self) => {
 		  		window.location.href = '/scene2';

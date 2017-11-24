@@ -68,6 +68,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/historia', 'HistoryController@index');
     Route::get('/scene0', 'HistoryController@scene0');
     Route::get('/scene1', 'HistoryController@scene1');
+    Route::get('/scene2', 'HistoryController@scene2');
 });
 
 /*
