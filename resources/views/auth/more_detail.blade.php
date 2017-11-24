@@ -8,7 +8,7 @@
     </span>
 
     <!-- Main Wrapper -->
-        <div id="main-wrapper" class="col-md-12">
+        <div >
             <form class="form-horizontal" role="form" method="POST" action="{{ url('/player/create/info') }}">
                 {{ csrf_field() }}
 
@@ -46,7 +46,7 @@
 
                 <br>
 
-                <div class="form-group">
+                <div class="col-md-8 col-md-offset-2">
                     <div class="avatar">
                         @foreach( $avatars as $avatar )
                             <div class="slick_get_avatar" id="{{ $avatar->id }}"><img class="img-responsive img-rounded" src="{{ $avatar->getAvatar() }}"></div>
