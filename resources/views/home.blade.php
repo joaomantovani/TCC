@@ -77,7 +77,7 @@
 						<span class="ui tiny basic black button" data-tooltip="Sorte" data-position="top right"> SOR: {{ Auth::user()->stats->luck }} </span>			      
 					</p>
 			      <a class="ui blue ribbon label">Redondezas</a> <strong>Ultimas notícias</strong>
-			      <p>Lorem ipsum dolor sit amet uasduhasd uhasduh dasuhduhsauhasdu sahduas dhsaudhausdhsaudh uasdh asudh sau hasudh asudh uasdh uhuashusahduahdasudhaus hasudhsa</p>
+			      <p>Aproveite as ofertas, todas as lojas com desconto.</p>
 			    </div>
 			</div>
 			<div class="six wide column mobile hidden">
