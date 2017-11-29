@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	@section('css')
-	<link rel="stylesheet" href="{{ asset('css/master.css') }}">
-	<link rel="stylesheet" type="text/css" href="http://devsmash.com/css/jquery.kwicks-2.2.1.css">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/fontawesome.min.css') }}">
-	@show
-
-</head>
-<body>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-86211771-2"></script>
 	<script>
@@ -21,7 +11,16 @@
 	  gtag('config', 'UA-86211771-2');
 	</script>
 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	@section('css')
+	<link rel="stylesheet" href="{{ asset('css/master.css') }}">
+	<link rel="stylesheet" type="text/css" href="http://devsmash.com/css/jquery.kwicks-2.2.1.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/fontawesome.min.css') }}">
+	@show
 
+</head>
+<body>
 	@section('navbar')
 		
 		{{-- <span class="computer only"> --}}
