@@ -14,16 +14,16 @@
   <div class="actions">
 
     @if(isset($left_button))
-      <div class="ui black deny button">
+      <button class="ui black deny button btn_deny">
         {{ $left_button }}
-      </div>
+      </button>
     @endif
 
     @if(isset($right_button))
-      <div class="ui positive right labeled icon button">
+      <button value="submit" class="ui positive right labeled icon button btn_approve">
         {{ $right_button }}
         <i class="checkmark icon"></i>
-      </div>
+      </button>
     @endif
   </div>
 </div>

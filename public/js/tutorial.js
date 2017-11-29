@@ -32,11 +32,11 @@ $(document).ready(function() {
 	$('#pagepiling').pagepiling({
       	direction: 'horizontal',
 		menu: '#menu',
-		anchors: ['page1', 'page2', 'page3', 'page4'],
-	    sectionsColor: ['white', '#ee005a', '#2C3E50', '#39C'],
+		anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7', 'page8', 'page9', 'page10'],
+	    sectionsColor: ['white', '#ee005a', '#2C3E50', '#39C', '#ee005a', 'white', '#ee005a', '#2C3E50', '#39C', '#ee005a'],
 	    navigation: {
 	    	'position': 'right',
-	   		'tooltips': ['Page 1', 'Page 2', 'Page 3', 'Pgae 4']
+	   		'tooltips': ['Page 1', 'Page 2', 'Page 3', 'Page 4', 'Page 5', 'Page 6', 'Page 7', 'Page 8', 'Page 9', 'Page 10'],
 	   	},
 	    afterRender: function(){
 	    	$('#pp-nav').addClass('custom');

@@ -13,9 +13,14 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\Tutorial' => [
-            'App\Listeners\GiveBadge',
-            'App\Listeners\GiveExp',
+        'App\Events\Villain' => [
+            'App\Listeners\setVillain',
+        ],
+
+        'App\Events\Achievement' => [
+            'App\Listeners\hasAchievement',
+            'App\Listeners\setAchievement',
+            'App\Listeners\showAchievement',
         ],
     ];
 

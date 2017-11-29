@@ -1,0 +1,57 @@
+/*uses google roboto fonts*/
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500);
+
+/* jQuery Achievement Alert */
+
+#achievement_alert {
+	position: absolute;
+    width: 60px;
+    height: 60px;
+    margin: 32px auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 500px;
+    background-color: #2D2B2C;
+    font-family: 'Roboto', sans-serif;
+}
+
+#achievement_alert_icon {
+	width: 45px;
+	height: 45px;
+	margin: 5px;
+	display: inline-block;
+	float:left;
+	vertical-align: center;
+	text-align: center;
+	line-height: 50px;
+	color: #fff;
+	font-size: 30px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+#achievement_alert_text_block {
+	height: 60px;
+	max-height: 60px;
+	padding: 5px;
+	max-width: 75%;
+	float: left;
+	color: #fff;
+}
+
+#achievement_alert_text_block div {
+	clear: both;
+}
+
+#achievement_alert_main_text {
+	line-height: 30px;
+	font-size: 20px;
+}
+
+#achievement_alert_sub_text {
+	line-height: 20px;
+	font-size: 16px;
+}

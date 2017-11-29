@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Action;
 use Auth;
+use Log;
+use Money;
 
 class ActionController extends Controller
 {
@@ -15,7 +17,7 @@ class ActionController extends Controller
      */
     public function index()
     {
-    	$actions = Action::all();
+    	$actions = Action::orderBy('difficult', 'asc')->get();
 
     	return view('action.index')
     		->with('actions', $actions);
@@ -35,7 +37,8 @@ class ActionController extends Controller
         //Verifica se o jogador não tem stamina suficiente
         if( $user->stats->stamina < $request->input('action.energy_required') )
             return response()->json([
-                'success' => false
+                'success' => false,
+                'message' => 'Você não tem stamina suficiente para completar a ação'
             ]);
 
         //Diminui a stamina
@@ -46,13 +49,23 @@ class ActionController extends Controller
         $user->stats->save();
 
         //Adiciona dinheiro pro usuario
-        $user->pockets->first()->money += $request->input('action.reward');
-        $user->pockets->first()->save();
+        $user->wallet->money += $request->input('action.reward');
+        $user->wallet->save();
 
     	return response()->json([
     	    'success' => true,
+            'title' => Action::randomMessageTitle(),
+            'message' => Action::randomMessageSucess(),
+            'stats_results' => ', você ganhou: <br><br> +4 de inteligência <br> +1 de carisma <br> +2 de audacia <br> +3 de sorte <br><br> +' . $request->input('action.reward') . ' de dinheiro',
             'stamina' => $user->stats->stamina,
-            'money' => $user->getWallet()
+            'reward' => $request->input('action.reward'),
+            'toast' => [
+                'heading' => 'Mais dinheiro na conta',
+                'bgcolor' => '#2ecc71', 
+                'message' => '<i class="bitcoin icon"></i>' . Money::convert($request->input('action.reward')) .' foram adicionados na sua carteira.',
+            ],
+            'money' => $user->wallet->getMoney(),
+            'tensao' => 100,
     	]);
     }
 }

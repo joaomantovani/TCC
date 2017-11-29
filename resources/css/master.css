@@ -5,3 +5,80 @@
 .fcenter {
 	text-align: center !important;
 }
+
+body {
+	background: #ebebeb !important;
+}
+
+body.pushable>.pusher {
+  background: #ebebeb;
+}
+
+/*@media (max-width: 720px) {*/
+	/*.hidden-md {
+		display: none;
+	}*/
+	#btn-menu-sidebar, #btn-skip-history {
+		position: fixed !important;
+		bottom: 0 !important;
+		right: 0 !important;
+		margin: 0 20px 20px 0 !important;
+	}
+/*}*/
+
+.hidden {
+	display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  [class*="mobile hidden"],
+  [class*="tablet only"]:not(.mobile),
+  [class*="computer only"]:not(.mobile),
+  [class*="large monitor only"]:not(.mobile),
+  [class*="widescreen monitor only"]:not(.mobile),
+  [class*="or lower hidden"] {
+    display: none !important;
+  }
+
+  [class*="mobile space"] {
+  	margin-top: .75em;
+  }
+
+  [class*="mobile space bottom"] {
+  	margin-top: .75em !important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+	#btn-menu-sidebar {
+		display: none;
+	}	
+}
+#btn-menu-sidebar {
+	z-index: 999 !important;
+}
+
+.no-margin {
+	margin: 0px !important;
+}
+
+.menu-buttons .column .ui.button {
+	margin-top: .5em !important;
+}
+
+@media only screen and (min-width: 1450px) {
+	.pusher {
+		padding-left: 250px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.pusher {
+		padding-left: 250px;
+		padding-right: 50px;
+	}
+}
+
+.white-text {
+	color: white !important;
+}

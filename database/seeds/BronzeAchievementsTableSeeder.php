@@ -93,5 +93,15 @@ class BronzeAchievementsTableSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+
+        DB::table('achievements')->insert([
+            'name' => 'Começando na Faculdade',
+            'description' => 'Completar a primeira aula',
+            'slug' => 'FirstClassCompleted',
+            'exp' => 50,
+            'badge_id' => $badget_id, 
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
     }
 }

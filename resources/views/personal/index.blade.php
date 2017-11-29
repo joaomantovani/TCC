@@ -12,29 +12,29 @@
 
 @section('content')
 
-	@if(\Auth::user()->tutorial)
-		@component('component.message')
+		<div class="ui stackable grid">
 
-			@slot('icon')
-				warning
-			@endslot
+		  {{-- <div class="six wide tablet two wide computer column"> --}}
+		  	<div class="seven wide column">
 
-			@slot('type')
-				info
-			@endslot
+		  		@component('component.card')
 
-			@slot('title')
-				Cards com o icone <i class="eye icon"></i> serão vistos apenas por você
-			@endslot
+		  			@slot('content')
+		  				fcenter
+		  			@endslot
+		  			
+		  			 
+		  			<img class="ui small circular image" src="{{ Auth::user()->getAvatar() }}">
+		  			<h2>
+		  				{{ $user->username }}
+		  				<br>
+		  				<small>{{ Auth::user()->info->class()->first()->name }}</small>
+		  			</h2>
+	  			    {{-- <div class="description">
+	  			     	 Kristy is an art director living in New York.
+	  			    </div> --}}
 
-		@endcomponent
-	@endif
-
-	<div class="">
-
-		<div class="ui centered grid">
-
-		  <div class="six wide tablet two wide computer column">
+		  		@endcomponent
 
 		  		@component('component.card')
 
@@ -42,65 +42,60 @@
 		  				fcenter
 		  			@endslot
 
-		  			@slot('image')
-		  				{{ $user->avatar() }}
-		  			@endslot
-
-		  			@slot('class')
-		  				big
-		  			@endslot
+		  			<div class="ui statistic">
+		  			  <div class="value">
+		  			    {{ Auth::user()->stats->calcLevel() }}
+		  			  </div>
+		  			  <div class="label">
+		  			    Level
+		  			  </div>
+		  			</div>
+		  				
+		  			<br>
 		  			 
-		  			<a class="header">{{ $user->name }}</a>
-	  			    <div class="meta">
-	  			      	<span class="date">Nome da classe</span>
-	  			    </div>
-	  			    {{-- <div class="description">
-	  			     	 Kristy is an art director living in New York.
-	  			    </div> --}}
+		  			<div class="ui mini four statistics">
+		  			  <div class="statistic">
+		  			    <div class="value">
+		  			      {{ Auth::user()->stats->inteligence }}
+		  			    </div>
+		  			    <div class="label">
+		  			      Inteligência
+		  			    </div>
+		  			  </div>
+		  			  
+		  			  <div class="statistic">
+		  			    <div class="value">
+		  			      {{ Auth::user()->stats->charisma }}
+		  			    </div>
+		  			    <div class="label">
+		  			      Carisma
+		  			    </div>
+		  			  </div>
 
-	  			    @slot('extra_content')
-	  			    	<div class="extra fcenter content">
-							@if(! $user->getBadge('platinum')->isEmpty())  			    		
-		  			    		<div class="ui teal basic label">
-		  			    			<a class="ui teal empty circular label"></a> {{ $user->getBadge('platinum')->count() }}
-		  			    		</div>
-	  			    		@endif
+		  			  <div class="statistic">
+		  			    <div class="value">
+		  			      {{ Auth::user()->stats->audacity }}
+		  			    </div>
+		  			    <div class="label">
+		  			      Audacia
+		  			    </div>
+		  			  </div>
 
-	  			    		@if(! $user->getBadge('gold')->isEmpty())
-		  			    		<div class="ui yellow basic label">
-		  			    			<a class="ui yellow empty circular label"></a>{{ $user->getBadge('gold')->count() }}
-		  			    		</div>
-	  			    		@endif
-
-	  			    		@if(! $user->getBadge('silver')->isEmpty())
-		  			    		<div class="ui grey basic label">
-		  			    			<a class="ui grey empty circular label"></a>{{ $user->getBadge('silver')->count() }} 
-		  			    		</div>
-	  			    		@endif
-
-	  			    		@if(! $user->getBadge('bronze')->isEmpty())
-		  			    		<div class="ui brown basic label">
-		  			    			<a class="ui brown empty circular label"></a> {{ $user->getBadge('bronze')->count() }} 
-		  			    		</div>
-	  			    		@endif
-	  			    	</div>
-	  			    @endslot
+		  			  <div class="statistic">
+		  			    <div class="value">
+		  			      {{ Auth::user()->stats->luck }}
+		  			    </div>
+		  			    <div class="label">
+		  			      Sorte
+		  			    </div>
+		  			  </div>
+		  			</div>
 
 		  		@endcomponent
 
 		  		<div class="ui fluid vertical menu">
 		  		  <a class="active teal item" id="home_btn">
-		  		    Home
-		  		  </a>
-
-		  		  <a class="item">
-		  		    Inbox
-		  		    <div class="ui {{-- teal left pointing --}}label">1</div>
-		  		  </a>
-
-		  		  <a class="item">
-		  		    Senha
-		  		    <div class="ui label">51</div>
+		  		    Conquistas
 		  		  </a>
 
 		  		  <a class="item" id="config_btn">
@@ -112,176 +107,76 @@
 
 		  </div>
 
-		  <div class="six wide tablet eight wide computer column">
+		  <div class="nine wide column">
 
 		  		<div id="main">
 
+		  			<h2>Conquistas</h2>
 			  		{{-- Amigos --}}
 			  		@component('component.card')
 
-			  			@slot('title')
-			  				Amigos
-			  			@endslot
-			  		    
-			  			<img class="ui avatar image" src="http://placehold.it/100x100">
-			  			<span>Nome do amigo</span>
+			  			@if ($user->getBadge('platinum')->isEmpty() && $user->getBadge('gold')->isEmpty() && $user->getBadge('silver')->isEmpty() && $user->getBadge('bronze')->isEmpty())
+			  					<div class="fcenter">{{ Auth::user()->name }} não possui nenhum conquista ainda</div>
+			  					<br>
+			  			@else
+			  				<div class="extra fcenter content">
+			  				
+							@if(! $user->getBadge('platinum')->isEmpty())  			    		
+		  			    		<div class="ui teal basic label" data-tooltip="Quantidade de achievements: Platina">
+		  			    			<a data-position="top right" class="ui teal empty circular label"></a> {{ $user->getBadge('platinum')->count() }}
+		  			    		</div>
+	  			    		@endif
 
-			  			<img class="ui avatar image" src="http://placehold.it/100x100">
-			  			<span>Nome do amigo</span>
+	  			    		@if(! $user->getBadge('gold')->isEmpty())
+		  			    		<div class="ui yellow basic label" data-tooltip="Quantidade de achievements: Ouro">
+		  			    			<a data-position="top right" class="ui yellow empty circular label"></a> {{ $user->getBadge('gold')->count() }}
+		  			    		</div>
+	  			    		@endif
 
-			  			<img class="ui avatar image" src="http://placehold.it/100x100">
-			  			<span>Nome do amigo</span>
+	  			    		@if(! $user->getBadge('silver')->isEmpty())
+		  			    		<div class="ui grey basic label" data-tooltip="Quantidade de achievements: Prata">
+		  			    			<a data-position="top right" class="ui grey empty circular label"></a> {{ $user->getBadge('silver')->count() }} 
+		  			    		</div>
+	  			    		@endif
 
-			  			<img class="ui avatar image" src="http://placehold.it/100x100">
-			  			<span>Nome do amigo</span>
-
-			  			<img class="ui avatar image" src="http://placehold.it/100x100">
-			  			<span>Nome do amigo</span>
-
-			  			<img class="ui avatar image" src="http://placehold.it/100x100">
-			  			<span>Nome do amigo</span>
-
-			  		@endcomponent
-
-			  		{{-- Feed --}}
-			  		@component('component.card')
-
-			  			@if($has_permission)
-			  				<div class="ui top right attached label"><i class="eye icon"></i> Vísivel apenas para você</div>
+	  			    		@if(! $user->getBadge('bronze')->isEmpty())
+		  			    		<div class="ui brown basic label" data-tooltip="Quantidade de achievements: Bronze">
+		  			    			<a data-position="top right" class="ui brown empty circular label"></a> {{ $user->getBadge('bronze')->count() }} 
+		  			    		</div>
+	  			    		@endif
+	  			    		<h6></h6>
+	  			    	</div>
 			  			@endif
 
-			  			@slot('title')
-			  				Feed
-			  			@endslot
-			  		    
-			  			<div class="ui feed">
-			  			  <div class="event">
-			  			    <div class="label">
-			  			      <img src="http://placehold.it/100x100">
-			  			    </div>
-			  			    <div class="content">
-			  			      <div class="summary">
-			  			        <a class="user">
-			  			          Elliot Fu
-			  			        </a> added you as a friend
-			  			        <div class="date">
-			  			          1 Hour Ago
-			  			        </div>
-			  			      </div>
-			  			      <div class="meta">
-			  			        <a class="like">
-			  			          <i class="like icon"></i> 4 Likes
-			  			        </a>
-			  			      </div>
-			  			    </div>
-			  			  </div>
-			  			  <div class="event">
-			  			    <div class="label">
-			  			      <img src="http://placehold.it/100x100">
-			  			    </div>
-			  			    <div class="content">
-			  			      <div class="summary">
-			  			        <a>Helen Troy</a> added <a>2 new illustrations</a>
-			  			        <div class="date">
-			  			          4 days ago
-			  			        </div>
-			  			      </div>
-			  			      <div class="extra images">
-			  			        <a><img src="http://placehold.it/100x100"></a>
-			  			        <a><img src="http://placehold.it/100x100"></a>
-			  			      </div>
-			  			      <div class="meta">
-			  			        <a class="like">
-			  			          <i class="like icon"></i> 1 Like
-			  			        </a>
-			  			      </div>
-			  			    </div>
-			  			  </div>
-			  			  <div class="event">
-			  			    <div class="label">
-			  			      <img src="http://placehold.it/100x100">
-			  			    </div>
-			  			    <div class="content">
-			  			      <div class="summary">
-			  			        <a class="user">
-			  			          Jenny Hess
-			  			        </a> added you as a friend
-			  			        <div class="date">
-			  			          2 Days Ago
-			  			        </div>
-			  			      </div>
-			  			      <div class="meta">
-			  			        <a class="like">
-			  			          <i class="like icon"></i> 8 Likes
-			  			        </a>
-			  			      </div>
-			  			    </div>
-			  			  </div>
-			  			  <div class="event">
-			  			    <div class="label">
-			  			      <img src="http://placehold.it/100x100">
-			  			    </div>
-			  			    <div class="content">
-			  			      <div class="summary">
-			  			        <a>Joe Henderson</a> posted on his page
-			  			        <div class="date">
-			  			          3 days ago
-			  			        </div>
-			  			      </div>
-			  			      <div class="extra text">
-			  			        Ours is a life of constant reruns. We're always circling back to where we'd we started, then starting all over again. Even if we don't run extra laps that day, we surely will come back for more of the same another day soon.
-			  			      </div>
-			  			      <div class="meta">
-			  			        <a class="like">
-			  			          <i class="like icon"></i> 5 Likes
-			  			        </a>
-			  			      </div>
-			  			    </div>
-			  			  </div>
-			  			  <div class="event">
-			  			    <div class="label">
-			  			      <img src="http://placehold.it/100x100">
-			  			    </div>
-			  			    <div class="content">
-			  			      <div class="summary">
-			  			        <a>Justen Kitsune</a> added <a>2 new photos</a> of you
-			  			        <div class="date">
-			  			          4 days ago
-			  			        </div>
-			  			      </div>
-			  			      <div class="extra images">
-			  			        <a><img src="http://placehold.it/100x100"></a>
-			  			        <a><img src="http://placehold.it/100x100"></a>
-			  			      </div>
-			  			      <div class="meta">
-			  			        <a class="like">
-			  			          <i class="like icon"></i> 41 Likes
-			  			        </a>
-			  			      </div>
-			  			    </div>
-			  			  </div>
+			  			<div class="ui list">
+			  				{{-- bugfix gambiarra --}}
+			  				<div class="item" style="display: none"></div>
+				  			@foreach ($achievements as $achievement)
+				  				{{-- Se o usuario tiver o achievement --}}
+				  				@if (Auth::user()->achievements->contains($achievement->id))
+				  					<span class="item">
+					  				    <i class="trophy big icon" style="color: {{ $achievement->badge->color }}"></i>
+					  				    <div class="content">
+					  				      <strong>{{ $achievement->name }}</strong>
+					  				      <br>
+					  				      {{ $achievement->description }}
+					  				    </div>
+					  				  </span>
+				  				{{-- se nao tiver o achievement --}}
+				  				@else
+				  				  <div data-tooltip="achievement bloqueado" class="disabled item">
+				  				    <i class="disabled trophy big icon" style="color: {{ $achievement->badge->color }}"></i>
+				  				    <div class="content">
+				  				      <strong>{{ $achievement->name }}</strong>
+				  				      <br>
+				  				      {{ $achievement->description }}
+				  				    </div>
+				  				  </div>
+				  					{{-- expr --}}
+				  				@endif
+			  				  <br>
+				  			@endforeach
 			  			</div>
-
-			  		@endcomponent
-
-			  		{{-- Indefinido --}}
-			  		@component('component.card')
-
-			  			@slot('title')
-			  				Segurança
-			  			@endslot
-			  		    
-			  			<button class="ui secondary basic fluid button">
-			  				<i class="unlock icon"></i>
-			  				Vulnerável
-			  			</button>
-
-			  			@slot('extra_content')
-			  				<div class="ui bottom attached negative message">
-			  				  <i class="icon warning"></i>
-			  				  Você não tem senha, <a href="#">clique aqui</a> para criar.
-			  				</div>
-			  			@endslot
 
 			  		@endcomponent
 

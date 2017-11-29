@@ -12,10 +12,6 @@ const { mix } = require('laravel-mix');
  */
 
 /*
-
-
-
-
  |--------------------------------------------------------------------------
  | Css Master
  |--------------------------------------------------------------------------
@@ -27,7 +23,17 @@ mix.styles([
     'resources/assets/semantic/semantic.min.css',
     'resources/assets/semantic/icon.min.css',
     'resources/assets/semantic/button.min.css',
+    'resources/assets/semantic/card.min.css',
+    'resources/assets/semantic/grid.min.css',
+    'resources/assets/semantic/shape.min.css',
     'resources/assets/semantic/transition.min.css',
+    'resources/assets/semantic/progress.min.css',
+
+    //Toast
+    'resources/assets/css/jquery.toast.css',
+
+    //Achievement
+    'resources/assets/css/achievement_alert.css',
 
     //Custom
     'resources/css/master.css',
@@ -44,18 +50,22 @@ mix.styles([
 mix.scripts([
     //slick
     'resources/assets/js/jquery-3.1.1.min.js',   
-    'resources/assets/js/vue.js',
+    // 'resources/assets/js/vue.js',
     'resources/assets/semantic/semantic.min.js',
+    'resources/assets/semantic/grid.min.js',
+    'resources/assets/semantic/shape.min.js',
     'resources/assets/semantic/transition.min.js',
+    'resources/assets/semantic/progress.min.js',
+
+    //Toast
+    'resources/assets/js/jquery.toast.js',
+
+    //Achievement
+    'resources/assets/js/achievement_alert.js',
 
     //Custom
     'resources/js/master.js',
 ], 'public/js/master.js');
-
-
-
-
-
 
 /*
  |--------------------------------------------------------------------------
@@ -69,6 +79,9 @@ mix.styles([
     'resources/assets/slick/slick.css',
     'resources/assets/css/escolher.css',
 
+    //Semantic
+    'resources/assets/semantic/shape.min.css'
+
 ], 'public/css/escolher.css');
 
 /*
@@ -79,7 +92,11 @@ mix.styles([
  */
 mix.scripts([
     //slick
-    'resources/assets/slick/slick.min.js',   
+    'resources/assets/slick/slick.min.js',
+
+    //Semantic
+    'resources/assets/semantic/shape.min.js',
+
     'resources/assets/js/escolher.js',
 
 ], 'public/js/escolher.js');

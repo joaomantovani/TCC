@@ -19,7 +19,7 @@ class User extends Authenticatable
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['name', 'email', 'password', 'avatar', 'nickname', 'username'];
+    protected $fillable = ['name', 'email', 'password', 'avatar', 'nickname', 'username', 'avatar_id'];
     protected $hidden = ['password', 'remember_token'];
     // protected $dates = [];
     protected $casts = [
@@ -31,9 +31,9 @@ class User extends Authenticatable
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function avatar()
+    public function hasAchievement()
     {
-        return $this->avatar;
+        return false;
     }
 
     /**
@@ -95,6 +95,18 @@ class User extends Authenticatable
     }
 
     /**
+     * Avatar que pertence ao usuario.
+     */
+    public function getAvatar()
+    {
+        if (!is_null($this->avatar_id))
+            return asset(\App\Models\Avatar::find($this->avatar_id)->path);
+        else
+            return '';
+        
+    }    
+
+    /**
      * The stats that belong to the user.
      */
     public function stats()
@@ -116,6 +128,14 @@ class User extends Authenticatable
     public function account()
     {
         return $this->hasOne('App\Models\Account');
+    }
+
+    /**
+     * Informações do jogador
+     */
+    public function info()
+    {
+        return $this->hasOne('App\Models\Info');
     }
 
     /*

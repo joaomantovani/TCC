@@ -20,6 +20,13 @@ class DatabaseSeeder extends Seeder
         //Remove todos os dados das tabelas e reseta o ID para 0
         \DB::table('badges')->truncate();
         \DB::table('achievements')->truncate();
+        \DB::table('stores')->truncate();
+        \DB::table('products')->truncate();
+        \DB::table('product_store')->truncate();
+        \DB::table('effects')->truncate();
+        \DB::table('classes')->truncate();
+        \DB::table('avatars')->truncate();
+        \DB::table('actions')->truncate();
         
         //Cria as badges
         $this->call(BadgeTableSeeder::class);
@@ -30,8 +37,24 @@ class DatabaseSeeder extends Seeder
         $this->call(GoldAchievementsTableSeeder::class);
         $this->call(PlatinumAchievementsTableSeeder::class);
 
+        //Cria as lojas
+        $this->call(StoreSeeder::class);
+
+        //Cria os produtos (com efeitos)
+        // $this->call(ProductsSeeder::class);
+        $this->call(LanchoneteSeeder::class);
+        $this->call(BarSeeder::class);
+        $this->call(EquipamentSeeder::class);
+        $this->call(EscolaSeeder::class);
+
         //Cria as ações
         $this->call(ActionsTableSeeder::class);
+
+        //Cria as classes
+        $this->call(ClassesSeeder::class);
+
+        //Cria os avatares
+        $this->call(AvatarSeeder::class);
 
         //Enable the constraint check again
         \DB::statement('SET FOREIGN_KEY_CHECKS=1');
