@@ -26,8 +26,8 @@
 						
 					</div>
 					<div class="actions">
-						<a href="#" class="button button-big"><i class="fa fa-sign_in"></i> Criar uma conta grátis</a>
-						<a href="#" class="button button-big button-alt">Fazer login</a>
+						<a href="{{ url('register') }}" class="button button-big"><i class="fa fa-sign_in"></i> Criar uma conta grátis</a>
+						<a href="{{ url('login') }}" class="button button-big button-alt">Fazer login</a>
 					</div>
 				</div>
 
