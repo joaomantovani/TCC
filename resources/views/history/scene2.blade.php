@@ -294,7 +294,7 @@
 		  	$('.other.friend').transition({ animation  : 'fly down', duration   : '2s', });
 		  	$('.you').transition({ animation  : 'fly up', duration   : '2s', 	
 		  		onComplete: (self) => {
-		  		window.location.href = '/scene2';
+		  		window.location.href = '/home';
 		  	}});
 		  },
 		  onStringTyped: (arrayPos, self) => {},
