@@ -6,27 +6,10 @@ use Illuminate\Database\Migrations\Migration;
 
 class AddTutorialFieldToUserTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
             $table->boolean('tutorial')->default(false);
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('user', function (Blueprint $table) {
-            //
         });
     }
 }

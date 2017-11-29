@@ -14,17 +14,12 @@ body.pushable>.pusher {
   background: #ebebeb;
 }
 
-/*@media (max-width: 720px) {*/
-	/*.hidden-md {
-		display: none;
-	}*/
-	#btn-menu-sidebar, #btn-skip-history {
-		position: fixed !important;
-		bottom: 0 !important;
-		right: 0 !important;
-		margin: 0 20px 20px 0 !important;
-	}
-/*}*/
+#btn-menu-sidebar, #btn-skip-history {
+	position: fixed !important;
+	bottom: 0 !important;
+	right: 0 !important;
+	margin: 0 20px 20px 0 !important;
+}
 
 .hidden {
 	display: none;

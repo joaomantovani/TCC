@@ -9,39 +9,17 @@ use Money;
 class User extends Authenticatable
 {
     use Notifiable;
-
-    /*
-    |--------------------------------------------------------------------------
-    | GLOBAL VARIABLES
-    |--------------------------------------------------------------------------
-    */
-    // protected $table = 'users';
-    // protected $primaryKey = 'id';
-    // public $timestamps = false;
-    // protected $guarded = ['id'];
     protected $fillable = ['name', 'email', 'password', 'avatar', 'nickname', 'username', 'avatar_id'];
     protected $hidden = ['password', 'remember_token'];
-    // protected $dates = [];
     protected $casts = [
         'tutorial' => 'boolean',
     ];
 
-    /*
-    |--------------------------------------------------------------------------
-    | FUNCTIONS
-    |--------------------------------------------------------------------------
-    */
     public function hasAchievement()
     {
         return false;
     }
 
-    /**
-     * Pega todos os achievements [bronze]
-     *
-     * @param  $[type] [<Tipo da medalha, pode ser
-     *                        bronze, silver, gold, platinum>]
-     */
     public function getBadge($type)
     {
         //Inicia a collection para armazenar todas as medalhas
@@ -57,36 +35,6 @@ class User extends Authenticatable
         return !$badges->isEmpty() ? $badges : collect();
     }
 
-    // /**
-    //  * Pega o dinheiro atual da carteira do jogador
-    //  * @param  [bool] $convert true: converte para K,M. Ex: 1K e 10M
-    //  *                         false: Dinheiro total, ex: 22131231
-    //  * @return float       Dinheiro atual na carteira do jogador
-    //  */
-    // public function getWallet($convert = false)
-    // {
-    //     return $convert ? Money::convert($this->wallets->first()->money) : $this->wallets->first()->money;
-    // }
-
-    // /**
-    //  * Retorna o dinheiro atual do jogador
-    //  * @param  [bool] $convert true: converte para K,M. Ex: 1K e 10M
-    //  *                         false: Dinheiro total, ex: 22131231
-    //  * @return float       Dinheiro atual no banco do jogador
-    //  */
-    // public function getBank($convert = false)
-    // {
-    //     return $convert ? Money::convert($this->wallets->first()->money) : $this->wallets->first()->money;
-    // }
-
-    /*
-    |--------------------------------------------------------------------------
-    | RELATIONS
-    |--------------------------------------------------------------------------
-    */
-    /**
-     * The achievements that belong to the user.
-     */
     public function achievements()
     {
         return $this->belongsToMany('App\Models\Achievement')
@@ -94,9 +42,6 @@ class User extends Authenticatable
             ->withTimestamps();
     }
 
-    /**
-     * Avatar que pertence ao usuario.
-     */
     public function getAvatar()
     {
         if (!is_null($this->avatar_id))
@@ -106,53 +51,23 @@ class User extends Authenticatable
         
     }    
 
-    /**
-     * The stats that belong to the user.
-     */
     public function stats()
     {
         return $this->hasOne('App\Models\Stats');
     }
 
-    /**
-     * Carteira que pertence ao jogador (dinheiro)
-     */
     public function wallet()
     {
         return $this->hasOne('App\Models\Wallet');
     }
 
-    /**
-     * Conta do banco que pertence ao jogador
-     */
     public function account()
     {
         return $this->hasOne('App\Models\Account');
     }
 
-    /**
-     * Informações do jogador
-     */
     public function info()
     {
         return $this->hasOne('App\Models\Info');
     }
-
-    /*
-    |--------------------------------------------------------------------------
-    | SCOPES
-    |--------------------------------------------------------------------------
-    */
-
-    /*
-    |--------------------------------------------------------------------------
-    | ACCESORS
-    |--------------------------------------------------------------------------
-    */
-
-    /*
-    |--------------------------------------------------------------------------
-    | MUTATORS
-    |--------------------------------------------------------------------------
-    */
 }

@@ -5,11 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class RemoveExpFromUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
@@ -18,18 +13,6 @@ class RemoveExpFromUsersTable extends Migration
 
         Schema::table('stats', function (Blueprint $table) {
             $table->integer('exp')->default(0)->after('level');
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('users', function (Blueprint $table) {
-            
         });
     }
 }

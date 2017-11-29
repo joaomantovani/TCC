@@ -18,16 +18,4 @@ class AddAllFacebookFieldsToUser extends Migration
             $table->string('avatar')->nullable()->after('nickname');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
-    }
 }

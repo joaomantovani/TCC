@@ -9,27 +9,10 @@ use App\Models\Income;
 
 class Account extends Model
 {
-    /*
-    |--------------------------------------------------------------------------
-    | GLOBAL VARIABLES
-    |--------------------------------------------------------------------------
-    */
-    // protected $table = 'accounts';
     protected $primaryKey = 'id';
-    // public $timestamps = false;
-    // protected $guarded = ['id'];
     protected $fillable = ['name', 'money'];
-    // protected $hidden = [];
-    // protected $dates = [];
-
-    //Porcentagem que rende por dia
     protected $juros_bancarios = 0.01;
     
-    /*
-    |--------------------------------------------------------------------------
-    | FUNCTIONS
-    |--------------------------------------------------------------------------
-    */
     public function calcJuros($value='')
     {
         $old_money = $this->money;
@@ -49,12 +32,7 @@ class Account extends Model
         $this->incomes()->save($yield);
         $this->save();
     }
-    
-    /*
-    |--------------------------------------------------------------------------
-    | RELATIONS
-    |--------------------------------------------------------------------------
-    */
+
     public function parent()
     {
         return $this->belongsTo('App\Models\User');
@@ -64,32 +42,9 @@ class Account extends Model
     {
         return $this->hasMany('App\Models\Income');
     }
-    
-    /*
-    |--------------------------------------------------------------------------
-    | SCOPES
-    |--------------------------------------------------------------------------
-    */
-    
-    /*
-    |--------------------------------------------------------------------------
-    | ACCESORS
-    |--------------------------------------------------------------------------
-    */
-    /**
-     * Get the money converted.
-     *
-     * @param  string  
-     * @return string
-     */
+
     public function getConvertedMoney()
     {
         return $this->money >= 1000 ? Money::convert($this->money) : round($this->money);
     }
-
-    /*
-    |--------------------------------------------------------------------------
-    | MUTATORS
-    |--------------------------------------------------------------------------
-    */
 }

@@ -10,11 +10,6 @@ use Money;
 
 class ActionController extends Controller
 {
-    /**
-     * Mostra a tela inicial
-     * 
-     * @return [view] [view principal]
-     */
     public function index()
     {
     	$actions = Action::orderBy('difficult', 'asc')->get();
@@ -23,12 +18,6 @@ class ActionController extends Controller
     		->with('actions', $actions);
     }
 
-    /**
-     * Controller da ajax para controlar as ações
-     * 
-     * @param  Request $request [Model action do form]
-     * @return [json]           [Se obteve sucesso ou fail]
-     */
     public function action(Request $request)
     {
         //Carrega o jogador

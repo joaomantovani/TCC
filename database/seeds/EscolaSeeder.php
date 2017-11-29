@@ -6,17 +6,8 @@ use Carbon\Carbon;
 
 class EscolaSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-
-        /*=====================================
-        =            Escola seeder            =
-        =====================================*/
         $product_id = DB::table('products')->insertGetId([
             'name' => 'Curso de lógica',
             'description' => 'Estude lógica de programação para melhorar sua inteligência',
@@ -36,6 +27,5 @@ class EscolaSeeder extends Seeder
             'image' => 'illustrations\products\wine.png',
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 4]);
-        
     }
 }

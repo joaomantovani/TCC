@@ -6,18 +6,8 @@ use Carbon\Carbon;
 
 class EquipamentSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-
-        /*========================================
-        =            Equipament store            =
-        ========================================*/
-        
         $product_id = DB::table('products')->insertGetId([
             'name' => 'Teclado velho',
             'description' => 'Lorem ipsum',
@@ -154,6 +144,5 @@ class EquipamentSeeder extends Seeder
             'image' => 'illustrations\products\wine.png',
         ]);
         DB::table('product_store')->insert(['product_id' => $product_id, 'store_id' => 3]);
-        
     }
 }

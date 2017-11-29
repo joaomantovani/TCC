@@ -6,27 +6,10 @@ use Illuminate\Database\Migrations\Migration;
 
 class AddNullableFieldsToUserTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('password')->nullable()->change();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('user', function (Blueprint $table) {
-            //
         });
     }
 }

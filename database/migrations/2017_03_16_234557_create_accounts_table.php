@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateAccountsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('accounts', function (Blueprint $table) {
@@ -18,18 +13,6 @@ class CreateAccountsTable extends Migration
             $table->string('name')->nullable();
             $table->float('money');
             $table->timestamps();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('accounts', function (Blueprint $table) {
-            //
         });
     }
 }

@@ -7,9 +7,6 @@ use App\Models\PlayerClass;
 
 class Config extends Model
 {
-	/**
-	 * Retorna os stats iniciais da classe
-	 */
     public static function getStats($class_id)
     {
     	$class = PlayerClass::find($class_id);
@@ -20,11 +17,7 @@ class Config extends Model
     		case 'ads': $prefix = 'ADS'; break;
     	}
 
-    	$stats = [
-    		'inteligence' => env($prefix . '_INITIAL_INTELIGENCE'),
-    		'charisma' => env($prefix . '_INITIAL_CHARISMA'),
-    		'audacity' => env($prefix . '_INITIAL_AUDACITY'),
-    		'luck' => env($prefix . '_INITIAL_LUCK'),
+    	$stats = ['inteligence' => env($prefix . '_INITIAL_INTELIGENCE'),'charisma' => env($prefix . '_INITIAL_CHARISMA'),'audacity' => env($prefix . '_INITIAL_AUDACITY'),'luck' => env($prefix . '_INITIAL_LUCK'),
     	];
 
     	return $stats;

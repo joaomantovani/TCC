@@ -8,11 +8,6 @@ use Carbon\Carbon;
 
 class PlatinumAchievementsTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
     	$badge_id = 4;

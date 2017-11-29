@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class AddUserIdToAccountsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::table('accounts', function($table) {
@@ -18,15 +13,5 @@ class AddUserIdToAccountsTable extends Migration
             $table->integer('user_id')->unsigned()->after('money');
             $table->foreign('user_id')->references('id')->on('users');
         });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
     }
 }

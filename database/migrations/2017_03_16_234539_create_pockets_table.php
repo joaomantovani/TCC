@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreatePocketsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('pockets', function (Blueprint $table) {
@@ -19,18 +14,6 @@ class CreatePocketsTable extends Migration
             $table->string('type')->nullable();
             $table->float('money');
             $table->timestamps();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('pockets', function (Blueprint $table) {
-            //
         });
     }
 }

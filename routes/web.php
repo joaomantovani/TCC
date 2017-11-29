@@ -2,17 +2,6 @@
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-/*
-|--------------------------------------------------------------------------
 | Rotas de autenticação
 |--------------------------------------------------------------------------
 | Jogadores que não possuem conta ainda.
@@ -116,11 +105,9 @@ Route::post('/action/ajax', 'ActionController@action');
 |
 */
 Route::get('teste', function () {
-    // dd(\App\User::find(2)->stats);
     return view('teste');
 });
 
 Route::get('displayjs', function () {
-    // dd(\App\User::find(2)->stats);
     return view('displayjs');
 });

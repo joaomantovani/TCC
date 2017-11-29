@@ -16,11 +16,6 @@ class SocialAuthController extends Controller
         return Socialite::driver('facebook')->redirect();   
     }   
 
-    /**
-     * Acionado depois da autenticação pelo facebook
-     * 
-     * @return function [description]
-     */
     public function callback(SocialAccountService $service)
     {
         $user = $service->createOrGetUser(Socialite::driver('facebook')->user());

@@ -5,20 +5,6 @@ use Carbon\Carbon;
 
 class ActionsTableSeeder extends Seeder
 {
-   //  private jd_id;
-   //  private ads_id;
-   //  private si_id;
-
-   //  function __construct() {
-   //      $this->jd_id = 1;
-   //      $this->si_id = 2;
-   //      $this->ads_id = 3;
-   // }
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         /*==========================================================
@@ -33,8 +19,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => null,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         DB::table('actions')->insert([
@@ -46,8 +30,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => null,
             'achievement_slug' => null,
             'energy_required' => '10',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         DB::table('actions')->insert([
@@ -59,8 +41,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => null,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         DB::table('actions')->insert([
@@ -72,8 +52,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => null,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         DB::table('actions')->insert([
@@ -85,8 +63,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => null,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         DB::table('actions')->insert([
@@ -98,8 +74,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => null,
             'achievement_slug' => null,
             'energy_required' => '10',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         DB::table('actions')->insert([
@@ -111,8 +85,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => null,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         DB::table('actions')->insert([
@@ -124,8 +96,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => null,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         DB::table('actions')->insert([
@@ -137,8 +107,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => null,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         DB::table('actions')->insert([
@@ -150,8 +118,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => null,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         /*=====  End of Aulas em comum com todos os cursos  ======*/
 
@@ -167,8 +133,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => 1,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         
         DB::table('actions')->insert([
@@ -180,8 +144,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => 1,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         
         DB::table('actions')->insert([
@@ -193,8 +155,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => 1,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         
         DB::table('actions')->insert([
@@ -206,8 +166,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => 1,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         
         DB::table('actions')->insert([
@@ -219,8 +177,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => 1,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         
         DB::table('actions')->insert([
@@ -232,8 +188,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => 1,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         /*=====  End of Aulas excluisvas para Jogos Digitais  ======*/
         
@@ -253,8 +207,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => 1,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         
         DB::table('actions')->insert([
@@ -266,8 +218,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => 1,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         
         DB::table('actions')->insert([
@@ -279,8 +229,6 @@ class ActionsTableSeeder extends Seeder
             'class_id' => 1,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         
 
@@ -293,72 +241,7 @@ class ActionsTableSeeder extends Seeder
             'class_id' => 1,
             'achievement_slug' => null,
             'energy_required' => '5',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
-        /*=====  End of Exclusivos JOGOS DIGITAIS  ======*/
         
     }
 }
-
-// // aulas comum
-// Programação I
-// Programação II
-// Sistemas Operacionais
-// Arquitetura
-// Redes
-// Matematica
-// Engenharia de Software
-// Programação avançada
-// Programação web
-// Banco de dados
-
-// /*======================================
-// =            Jogos Digitais            =
-// ======================================*/
-
-// // aulas jd
-// Principios de Jogos
-// Ficção Interativa
-// Roterização de jogos
-// Jogos para web
-// Animação e Som
-// Inteligencia artificial
-
-// //Exclusivos jd
-// Criar um tetris
-// Criar um Floppy Bord
-// Criar um jogo plataforma
-// Criar um jogo 3D 
-
-// =================================
-// =            Segurança            =
-// =================================
-
-// // aulas si
-// Principios da segurança
-// criptografia
-// Protocolos
-// Perícia Forense
-// Gestão de riscos
-// Segurança em Banco de Dados
-
-// //Exclusivos SI
-
-
-// /*===========================
-// =            ADS            =
-// ===========================*/
-
-// // aulas ads
-// Arquitetura
-// Sistema de informação
-// Estrutura de dados
-// Programação Orientada a Objetos
-// Engenharia de software avançado
-// Gestão de projetos
-// Auditoria de Sistemas
-
-// //Exclusivos ads
-// Programar uma calculadora
-

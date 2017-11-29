@@ -6,11 +6,6 @@ use Carbon\Carbon;
 
 class StoreSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
     	$food_store_id = 1;

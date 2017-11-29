@@ -6,14 +6,8 @@ use Carbon\Carbon;
 
 class LanchoneteSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-
         //Bottle
         $product_id = DB::table('products')->insertGetId([
             'name' => 'Refrigerante',
