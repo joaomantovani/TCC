@@ -27,10 +27,10 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::all();
-        
+
         $jd_sum = 0; $si_sum = 0; $ads_sum = 0;
         $jd_cont = 1; $si_cont = 1; $ads_cont = 1;
-        
+
         foreach ($users as $key => $user) {
             if (is_null($user->info)) continue;
 

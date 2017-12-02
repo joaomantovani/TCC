@@ -8,21 +8,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <style type="text/css">
 	body {
-		background-image: linear-gradient(rgba(20,20,20, .7), rgba(20,20,20, .3)), url('https://static.pexels.com/photos/139303/pexels-photo-139303.jpeg') !important;
-		background-size:     cover !important;                      
+		background-image: linear-gradient(rgba(20,20,20, .7), rgba(20,20,20, .3)), url('illustrations/backgrounds/rua-min.jpeg') !important;
+		background-size:     cover !important;
 	    background-repeat:   no-repeat !important;
-	    background-position: center center !important;	
+	    background-position: center center !important;
 	}
 
-	::-webkit-scrollbar { 
-	    display: none; 
+	::-webkit-scrollbar {
+	    display: none;
 	}
 
 	#btn-menu-sidebar {
 		display: none;
 	}
 	#typed, .typed-cursor  {
-		font-size: 2em;	
+		font-size: 2em;
 	}
 
 	#typed  {
@@ -76,7 +76,7 @@
 
 	<span class="other friend">
 		<span id="typed"></span>&zwnj;
-		<img class="ui middle aligned rounded image" src="illustrations/avatar/13.png">
+		<img class="ui middle aligned rounded image" src="illustrations/avatar/31.jpeg">
 		{{-- <img class="ui middle aligned rounded image" src="http://placehold.it/120x120"> --}}
 	</span>
 
@@ -100,7 +100,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.6/typed.min.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
-	
+		city = new Audio('sfx/city.mp3');
+		dialogue1_short = new Audio("sfx/dialogue1_short.wav");
+		dialogue1_medium = new Audio("sfx/dialogue1_medium.wav");
+		dialogue1_long = new Audio("sfx/dialogue1_long.wav");
+		whoosh = new Audio('sfx/whoosh.wav');
+
+		city.play();
 		$('.pusher').removeClass('pusher');
 
 		dialog1();
@@ -112,30 +118,37 @@
 
 	function dialog1() {
 		$('.other.friend').transition({ animation  : 'fly down', duration   : '2s', onComplete : function() {
+			whoosh.play();
 			$('.other.friend').transition({ animation  : 'tada', duration   : '2s', onComplete : function() {
 				var typed = new Typed(".other #typed", {
 				  strings: [
-				  	'Ei!', 
-				  	username() + ' Ei!!!', 
+				  	'Ei!',
+				  	username() + ' Ei!!!',
 				  ],
 				  typeSpeed: 40,
 				  startDelay: 1000,
 				  cursorChar: '',
 				  onComplete: (self) => {
+						whoosh.play();
 				  	$('.you').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() { dialog2(); }});
 				  },
-				  onStringTyped: (arrayPos, self) => {},
+				  preStringTyped: (arrayPos, self) => {
+						switch (arrayPos) {
+							case 0: dialogue1_short.play(); break;
+							case 1: dialogue1_short.play(); break;
+						}
+					},
 				});
-			}});		
+			}});
 		}});
 	}
 
 	function dialog2() {
 		var typed = new Typed(".you #typed", {
 		  strings: [
-		  	'E ai cara!', 
-		  	'Quanto tempo', 
-		  	'Como você está?', 
+		  	'E ai cara!',
+		  	'Quanto tempo',
+		  	'Como você está?',
 		  ],
 		  typeSpeed: 40,
 		  startDelay: 1000,
@@ -143,16 +156,22 @@
 		  onComplete: (self) => {
 		  	dialog3();
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_short.play(); break;
+					case 1: dialogue1_short.play(); break;
+					case 2: dialogue1_short.play(); break;
+				}
+			},
 		});
 	}
 
 	function dialog3() {
 		var typed = new Typed(".other #typed", {
 		  strings: [
-		  	'Muito bem, comecei aquele curso na Faculdade', 
+		  	'Muito bem, comecei aquele curso na Faculdade',
 		  	'Estou quase formado já',
-		  	'Último semestre, sou veterano hehe', 
+		  	'Último semestre, sou veterano hehe',
 		  ],
 		  typeSpeed: 40,
 		  startDelay: 1000,
@@ -161,7 +180,13 @@
 		  	// $('.you').addClass('animated shake');
 		  	dialog4();
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_long.play(); break;
+					case 1: dialogue1_medium.play(); break;
+					case 2: dialogue1_long.play(); break;
+				}
+			},
 		});
 	}
 
@@ -181,7 +206,14 @@
 		  	$('.other.friend').removeClass('animated pulse');
 		  	dialog5();
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_long.play(); break;
+					case 1: dialogue1_long.play(); break;
+					case 2: dialogue1_medium.play(); break;
+					case 3: dialogue1_medium.play(); break;
+				}
+			},
 		});
 	}
 
@@ -204,7 +236,15 @@
 		  	$('.you').removeClass('animated swing');
 		  	dialog6();
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_short.play(); break;
+					case 1: dialogue1_long.play(); break;
+					case 2: dialogue1_long.play(); break;
+					case 3: dialogue1_long.play(); break;
+					case 4: dialogue1_long.play(); break;
+				}
+			},
 		});
 	}
 
@@ -225,7 +265,14 @@
 		  	      dialog7();
 		  	}});
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_short.play(); break;
+					case 1: dialogue1_short.play(); break;
+					case 2: dialogue1_medium.play(); break;
+					case 3: dialogue1_medium.play(); break;
+				}
+			},
 		});
 	}
 
@@ -242,7 +289,13 @@
 		  onComplete: (self) => {
 		  	dialog8();
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_medium.play(); break;
+					case 1: dialogue1_medium.play(); break;
+					case 2: dialogue1_medium.play(); break;
+				}
+			},
 		});
 	}
 
@@ -259,7 +312,13 @@
 		  onComplete: (self) => {
 		  	dialog9();
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_long.play(); break;
+					case 1: dialogue1_long.play(); break;
+					case 2: dialogue1_long.play(); break;
+				}
+			},
 		});
 	}
 
@@ -276,7 +335,13 @@
 		  onComplete: (self) => {
 		  	dialog10();
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_medium.play(); break;
+					case 1: dialogue1_short.play(); break;
+					case 2: dialogue1_medium.play(); break;
+				}
+			},
 		});
 	}
 
@@ -291,18 +356,32 @@
 		  startDelay: 1000,
 		  cursorChar: '',
 		  onComplete: (self) => {
+				whoosh.play();
 		  	$('.other.friend').transition({ animation  : 'fly down', duration   : '2s', });
-		  	$('.you').transition({ animation  : 'fly up', duration   : '2s', 	
+				whoosh.play();
+		  	$('.you').transition({ animation  : 'fly up', duration   : '2s',
 		  		onComplete: (self) => {
+<<<<<<< HEAD
 		  		window.location.href = '/home';
+=======
+						city.pause();
+		  			window.location.href = '/scene3';
+>>>>>>> dev
 		  	}});
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_short.play(); break;
+					case 1: dialogue1_short.play(); break;
+					case 2: dialogue1_medium.play(); break;
+				}
+			},
 		});
 	}
 
 	$('#btn-skip-history').click(function(){
-	   window.location.href = '/home';
+		 city.pause();
+	   window.location.href = '/scene3';
 	})
 </script>
 @endsection

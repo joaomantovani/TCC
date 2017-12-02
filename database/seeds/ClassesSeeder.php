@@ -18,15 +18,17 @@ class ClassesSeeder extends Seeder
         	'slug' => 'jogos-digitais',
             'short_name' => 'JD',
         	'slogan' => 'Y\'all need talos!',
-            'description' => 
-                '<p> A classe de jogos digitais se destaca pela sua critividade e ampla possibilidade de escolha de carreiras </p>' .
-                '<p> Possui bônus para ficar acordado a noite e perde menos stamina que os outros na frente do computador </p>'
+            'description' =>
+                '<p> A classe de jogos digitais se destaca pela sua critividade
+                e ampla possibilidade de escolha de carreiras </p>' .
+                '<p> Possui bônus para ficar acordado a noite e perde menos
+                stamina que os outros na frente do computador </p>'
             ,
-        	'advantages' => 
+        	'advantages' =>
                 '+ Audácia;' .
                 'Bônus na madrugada'
             ,
-    	   'disadvantages' => 
+    	   'disadvantages' =>
                 '- Sorte;' .
                 '- Produtivo de manhã'
             ,
@@ -46,14 +48,17 @@ class ClassesSeeder extends Seeder
             'slogan' => '85931b3ecf8b88cede3e2df6653ecbfbcff0e5c0',
             'slug' => 'seguranca',
             'short_name' => 'SI',
-            'description' => 
-                '<p> Segurança da informação é voltada para pessoas que tenham a capacidade de se defender a ataques e atacar os outros, podendo ganhar muito dinheiro defendendo ou atacando servidores. </p>'
+            'description' =>
+                '<p> Segurança da informação é voltada para pessoas que tenham
+                a capacidade de se defender a ataques e atacar os outros,
+                 podendo ganhar muito dinheiro defendendo ou atacando
+                 servidores. </p>'
             ,
-            'advantages' => 
+            'advantages' =>
                 '+ Inteligência;' .
                 'Bônus a noite'
             ,
-           'disadvantages' => 
+           'disadvantages' =>
                 '- Carisma;' .
                 '- Produtivo de tarde'
             ,
@@ -73,14 +78,18 @@ class ClassesSeeder extends Seeder
         	'slug' => 'ads',
             'short_name' => 'ADS',
             'slogan' => '"No meu computador funciona"',
-            'description' => 
-                '<p> O profissional em ADS analisa, projeta, testa, implanta e mantém sistemas. Esse profissional trabalha, também, com ferramentas computacionais, equipamentos de informática e metodologia de projetos na produção de sistemas. Raciocínio lógico, emprego de linguagens de programação e de metodologias de construção de projetos, preocupação com a qualidade, usabilidade, robustez, integridade e segurança de programas computacionais são fundamentais à atuação desse profissional. </p>'
+            'description' =>
+                '<p> O profissional em ADS possue todas as caracteristicas das
+                outras classes, porém em menor escala.
+                Ele pode tanto se aventurar no mundo dos games quanto trabalhar
+                com segurança (com menor eficiência). 
+                  </p>'
             ,
-            'advantages' => 
+            'advantages' =>
                 '+ Sorte;' .
                 'Bônus de manhã'
             ,
-           'disadvantages' => 
+           'disadvantages' =>
                 '- Audacia;' .
                 '- Produtivo de noite'
             ,

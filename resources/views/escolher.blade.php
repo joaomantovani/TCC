@@ -6,9 +6,9 @@
 	<style type='text/css'>
 		body {
 			background-image: linear-gradient(rgba(20,20,20, .7), rgba(20,20,20, .3)), url('https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb') !important;
-			background-size:     cover !important;                      
+			background-size:     cover !important;
 		    background-repeat: repeat !important;
-		    background-position: center center !important;	
+		    background-position: center center !important;
 		}
 	    .kwicks .card-class{
 	    	border-radius: .25em;
@@ -50,11 +50,11 @@
 @endsection
 
 @section('navbar')
-	
+
 @endsection
 
 @section('content')
-	
+
 	<div id='fluid-example-container'>
 
 		<div class="ui raised segment">
@@ -67,27 +67,30 @@
             <li class="card-class" id='panel-{{ $loop->iteration }}'>
             	{{-- <img src="{{ $class->image or 'http://semantic-ui.com/images/avatar/large/stevie.jpg' }}"> --}}
 
-            	<div class="k content">
-            			
+            	<div class="k content" style="text-align: center !important">
+								<span style="">
+									@if ($class->slug == 'jogos-digitais')
+										<i class="huge game icon"></i>
+									@elseif ($class->slug == 'ads')
+										<i class="huge laptop icon"></i>
+									@elseif ($class->slug == 'seguranca')
+										<i class="huge server icon"></i>
+									@endif
+								</span>
+
             		<h2 class="mobile">{{ $class->short_name }}</h2>
             		<h2 class="desktop">{{ $class->name }}</h2>
             		<h4>{{ $class->slogan }}</h4>
-            		
+
             		<div class="description">
             		  {!! $class->description !!}
-            		  <h4>Vantagens:</h4>
-            		  <div class="ui bulleted list">
-            		  	@foreach($class->advantages as $advantage)
-            		  	<div class="item">{{ $advantage }}</div>
-            		  	@endforeach
-            		  </div>
-            		  <h4>Desvantagens:</h4>
-            		  <div class="ui bulleted list">
-            		  	@foreach($class->disadvantages as $disadvantage)
-            		  	<div class="item">{{ $disadvantage }}</div>
-            		  	@endforeach
-            		  </div>
-            		 	<p>{{ $class->getTotalNumber() }} pessoas se juntaram</p>
+									@if ($class->slug == 'jogos-digitais')
+										<p>{{ $jd_count }} pessoas se juntaram</p>
+									@elseif ($class->slug == 'ads')
+										<p>{{ $ads_count }} pessoas se juntaram</p>
+									@elseif ($class->slug == 'seguranca')
+										<p>{{ $ads_count }} pessoas se juntaram</p>
+									@endif
             		</div>
 
             	</div>
