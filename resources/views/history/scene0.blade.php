@@ -8,21 +8,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <style type="text/css">
 	body {
-		background-image: linear-gradient(rgba(20,20,20, .7), rgba(20,20,20, .3)), url('https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb') !important;
-		background-size:     cover !important;                      
+		background-image: linear-gradient(rgba(20,20,20, .7), rgba(20,20,20, .3)), url('illustrations/backgrounds/house_externa-min.jpeg') !important;
+		background-size:     cover !important;
 	    background-repeat:   no-repeat !important;
-	    background-position: center center !important;	
+	    background-position: center center !important;
 	}
 
-	::-webkit-scrollbar { 
-	    display: none; 
+	::-webkit-scrollbar {
+	    display: none;
 	}
 
 	#btn-menu-sidebar {
 		display: none;
 	}
 	#typed, .typed-cursor  {
-		font-size: 2em;	
+		font-size: 2em;
 	}
 
 	#typed  {
@@ -98,7 +98,7 @@
 <span id="username" style="display: none">{{ Auth::user()->username }}</span>
 
 <button class="circular ui small black icon button" id="btn-skip-history">
-  <i class="icon arrow right"></i> Pular	
+  <i class="icon arrow right"></i> Pular
 </button>
 
 @endsection
@@ -108,10 +108,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.6/typed.min.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
+		music = new Audio('sounds/slowmotion.mp3');
+		dialogue1_short = new Audio("sfx/dialogue1_short.wav");
+		dialogue1_medium = new Audio("sfx/dialogue1_medium.wav");
+		dialogue1_long = new Audio("sfx/dialogue1_long.wav");
+		whoosh = new Audio('sfx/whoosh.wav');
+
+		music.play();
 		$('.pusher').removeClass('pusher');
 		// dialog1();
-		$('.you').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() { 
-			$('.you').transition({ animation  : 'tada', duration   : '2s', onComplete : function() { 
+		whoosh.play();
+		$('.you').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() {
+			$('.you').transition({ animation  : 'tada', duration   : '2s', onComplete : function() {
 				dialog1();
 			}});
 		}});
@@ -124,44 +132,59 @@
 	function dialog1() {
 		var typed = new Typed(".you #typed", {
 		  strings: [
-		  	'Esse é ' + username(), 
-		  	username() + ' é um pessoa jovem e bem...',
+		  	'Esse é ' + username(),
+		  	username() + ' é uma pessoa jovem e bem...',
 		  	'um tanto quanto acomodado sobre sua situação atual',
 		  ],
 		  typeSpeed: 40,startDelay: 1000,cursorChar: '',
 		  onComplete: (self) => {
-		  	$('.you').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() { 
-		  		$('.other.no-one').transition({ animation  : 'fly up', duration   : '1s', onComplete : function() { 
+				whoosh.play();
+		  	$('.you').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() {
+					whoosh.play();
+					$('.other.no-one').transition({ animation  : 'fly up', duration   : '1s', onComplete : function() {
 		  			dialog2();
 		  		}});
 		  	}});
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_short.play(); break;
+					case 1: dialogue1_long.play(); break;
+					case 2: dialogue1_long.play(); break;
+				}
+			},
 		});
 	}
 
 	function dialog2() {
 		var typed = new Typed(".other.no-one #typed", {
 		  strings: [
-		  	username() + ' mora com seus pais', 
+		  	username() + ' mora com seus pais',
 		  	'numa casa grande e confortável',
 		  ],
 		  typeSpeed: 40, startDelay: 1000, cursorChar: '',
 		  onComplete: (self) => {
-		  	$('.other.no-one').transition({ animation  : 'fly up', duration   : '1s', onComplete : function() { 
-		  		$('.other.mom').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() { 
+				whoosh.play();
+		  	$('.other.no-one').transition({ animation  : 'fly up', duration   : '1s', onComplete : function() {
+					whoosh.play();
+					$('.other.mom').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() {
 		  			dialog3();
 		  		}});
 		  	}});
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_medium.play(); break;
+					case 1: dialogue1_medium.play(); break;
+				}
+			},
 		});
 	}
 
 	function dialog3() {
 		var typed = new Typed(".other.mom #typed", {
 		  strings: [
-		  	'Sua mãe é uma empresária de sucesso', 
+		  	'Sua mãe é uma empresária de sucesso',
 		  	'Ela é uma mulher forte, dedicada e com ambição',
 		  	'apesar de todas as características de uma empresária',
 		  	'com sua familia ela acaba tendo um coração mole',
@@ -169,37 +192,58 @@
 		  ],
 		  typeSpeed: 40, startDelay: 1000, cursorChar: '',
 		  onComplete: (self) => {
-		  	$('.other.mom').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() { 
-		  		$('.other.father').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() { 
+				whoosh.play();
+		  	$('.other.mom').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() {
+					whoosh.play();
+					$('.other.father').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() {
 		  			dialog4();
 		  		}});
 		  	}});
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_medium.play(); break;
+					case 1: dialogue1_long.play(); break;
+					case 2: dialogue1_long.play(); break;
+					case 3: dialogue1_long.play(); break;
+					case 4: dialogue1_medium.play(); break;
+				}
+			},
 		});
 	}
 
 	function dialog4() {
 		var typed = new Typed(".other.father #typed", {
 		  strings: [
-		  	'Seu pai é gerente de TI', 
+		  	'Seu pai é gerente de TI',
 		  	'Por ocupar uma posição de liderança',
 		  	'Ele acaba passando pouco tempo com sua familia',
 		  	'e também é muito estressado',
 		  ],
 		  typeSpeed: 40, startDelay: 1000, cursorChar: '',
 		  onComplete: (self) => {
-		  	$('.other.father').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() { 
-		  		$('.you').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() { 
+				whoosh.play();
+		  	$('.other.father').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() {
+					whoosh.play();
+					$('.you').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() {
+						music.pause();
 		  			window.location.href = '/scene1';
 		  		}});
 		  	}});
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_medium.play(); break;
+					case 1: dialogue1_long.play(); break;
+					case 2: dialogue1_long.play(); break;
+					case 3: dialogue1_medium.play(); break;
+				}
+			},
 		});
 	}
 
 	$('#btn-skip-history').click(function(){
+		music.pause();
 	   window.location.href = '/scene1';
 	})
 </script>

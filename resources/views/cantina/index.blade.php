@@ -20,7 +20,7 @@
 		body.pushable>.pusher { background-image: url('https://i.imgur.com/yA4MnLo.jpg') !important; }
 	@elseif ($store->slug == "escola")
 		body.pushable>.pusher { background-image: url('https://i.imgur.com/dYR0OfB.jpg') !important; }
-	@endif	
+	@endif
 </style>
 @endsection
 
@@ -55,7 +55,7 @@
 				</div>
 
 				<p><br></p>
-			
+
 				<div class="ui active indicating progress" data-percent="100" id="example2">
 				    <div class="bar">
 				    	<div class="progress">{{ Auth::user()->stats->stamina }}%</div>
@@ -69,21 +69,21 @@
 				    <div class="label">Tensão</div>
 				</div>
 
-				@endcomponent	
+				@endcomponent
 
 				@component('component.card')
 
 				@slot('content')
-				fcenter 
+				fcenter
 				@endslot
 
 				@slot('class')
-				small 
+				small
 				@endslot
-				
+
 
 				<a class="ui fluid basic button" href="{{ url('home') }}"><i class="home icon"></i> Voltar para home</a>
-				@endcomponent		
+				@endcomponent
 			</div>
 		</span>
 
@@ -172,7 +172,7 @@
 	<h2>Quanto você deseja sacar?</h2>
 
 	<div class="ui range" id="range-2"></div>
-	<br>	
+	<br>
 
 	<div class="ui right labeled fluid input">
 		<div class="ui label">$</div>
@@ -199,7 +199,7 @@
 	<h2>Quanto você deseja depositar?</h2>
 
 	<div class="ui range" id="range-2"></div>
-	<br>	
+	<br>
 
 	<div class="ui right labeled fluid input">
 		<div class="ui label">$</div>
@@ -242,7 +242,7 @@
 		            data: {
 		            	product_id: btn.attr('id')
 		            },
-		            success: function (data) {		                
+		            success: function (data) {
 		                btn.removeClass('loading');
 
 		                if (data.success) {
@@ -251,17 +251,17 @@
 		                	changeMoney(data.money);
 		                }
 
-	                	$.toast({ 
+	                	$.toast({
 	                	  heading : data.toast.heading,
-	                	  text : data.toast.message, 
+	                	  text : data.toast.message,
 	                	  showHideTransition : 'slide',
-	                	  allowToastClose : true, 
+	                	  allowToastClose : true,
 	                	  hideAfter : 5000,
-	                	  bgcolor : data.toast.bgcolor,         
-	                	  stack : 5,               
-	                	  textAlign : 'left',      
+	                	  bgcolor : data.toast.bgcolor,
+	                	  stack : 5,
+	                	  textAlign : 'left',
 	                	  position : 'bottom-left',
-	                	  icon: (data.success) ? 'success' : 'error' 
+	                	  icon: (data.success) ? 'success' : 'error'
 	                	});
 		            },
 		            error: function (data) {
@@ -269,8 +269,8 @@
 		                console.log('Error:', data);
 		            	btn.removeClass('loading');
 		            }
-		        });				
-			});			
+		        });
+			});
 		});
 	</script>
 	<script type="text/javascript">

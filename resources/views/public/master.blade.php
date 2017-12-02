@@ -82,7 +82,7 @@
         <script src="{{ asset("js/util.js") }}"></script>
         <script src="{{ asset("js/main.js") }}"></script>
         <script src="{{ asset("assets/slick/slick.min.js") }}"></script>
-        <style type="text/css"> 
+        <style type="text/css">
             .slick-slide {
                 padding: 0 .5em !important;
                 text-align: center !important;
@@ -97,8 +97,15 @@
         <!--[if lte IE 8]><script src="{{ asset('js/ie/respond.min.js') }}"></script><![endif]-->
         <script type="text/javascript">
             jQuery(document).ready(function($) {
+                $('.submit').on('click', function() {
+                    $('#selected_avatar').val($('.slick-current').attr('id'));
+                    console.log($('#selected_avatar').val());
+                });
+
+                $('#selected_avatar').val($('.slick-current').attr('id'));
+
                 $('.avatar').on('afterChange', function(event, slick, currentSlide, nextSlide){
-                    $('#selected_avatar').val($('.slick-current').attr('id'));                        
+                    $('#selected_avatar').val($('.slick-current').attr('id'));
                 });
 
                 $('.avatar').slick({
@@ -106,7 +113,7 @@
                   centerPadding: '60px',
                   slidesToShow: 11,
                   dots: true,
-                  arrows: true,     
+                  arrows: true,
                   responsive: [
                     {
                       breakpoint: 1366,

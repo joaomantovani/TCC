@@ -57,13 +57,13 @@
 
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
-                        <button type="submit" class="button">
+                        <button type="submit" class="button submit">
                             {{-- Criar nova conta --}}
                             Vamos jogar!
                         </button>
                     </div>
                 </div>
-                
+
             </form>
         </div>
 @endsection
