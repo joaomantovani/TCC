@@ -25,7 +25,7 @@
 			@slot('title')
 				Você ja completou o tutorial!
 			@endslot
-		    
+
 			Caso queira pular ele, <a href="{{ url('/dashboard') }}"> clique aqui.</a>
 
 		@endcomponent
@@ -34,7 +34,7 @@
 	<div style="position:fixed;top:50px;left:50px;color:white;z-index:999;" id="callbacksDiv"></div>
 
 	<div id="pagepiling">
-	    <div class="section" id="section1">	    	
+	    <div class="section" id="section1">
 	    	<div class="ui text container">
 	      		<h1 class="ui header">
 	       			 Tutorial
@@ -60,7 +60,7 @@
 	    	</div>
 	    </div>
 
-	    <div class="section" id="section2"> 	
+	    <div class="section" id="section2">
 	    	<div class="ui inverted text container">
 	      		<h1 class="ui header">
 	       			Primeiros passos...
@@ -71,7 +71,7 @@
 	      		<div class="ui big purple label">Vamos, tente você!</div>
 	    	</div>
 	    </div>
-	    
+
 	    <div class="section" id="section3">
 			<div class="ui text container">
 				<h1>Comandos básicos</h1>
@@ -81,7 +81,7 @@
 				    <th>Efeito</th>
 				  </tr></thead>
 				  <tbody>
-				    
+
 				    <tr>
 				      <td><h2 class="ui center aligned header">F2</h2></td>
 				      <td class="single line">Abre a loja</td>
@@ -148,7 +148,7 @@
 				    <th>O que vende?</th>
 				  </tr></thead>
 				  <tbody>
-				    
+
 				    <tr>
 				      <td><h2 class="ui center aligned header">Comida</h2></td>
 				      <td class="">Comidas e bebidas que aumentam a sua stamina e diminuem a sua tensão</td>
@@ -156,7 +156,7 @@
 
 				    <tr>
 				      <td><h2 class="ui center aligned header">Equipamentos</h2></td>
-				      <td class="">Acessórios e periféricos para melhorar as suas ações</td>			
+				      <td class="">Acessórios e periféricos para melhorar as suas ações</td>
 				    </tr>
 
 				    <tr>
@@ -165,7 +165,7 @@
 				    </tr>
 
 				  </tbody>
-				</table> 
+				</table>
 			</div>
 	    </div>
 
@@ -182,7 +182,7 @@
 	    <div class="section" id="section8">
 	    	<div class="ui text container">
 				<h1>Banco</h1>
-				Simples e rápido. Guarde seu dinheiro aqui para evitar perde-lo caso algum imprevisto aconteça e até mesmo veja o seu dinheiro rendendo na poupança. 
+				Simples e rápido. Guarde seu dinheiro aqui para evitar perde-lo caso algum imprevisto aconteça e até mesmo veja o seu dinheiro rendendo na poupança.
 			</div>
 	    </div>
 
@@ -211,13 +211,19 @@
 		      	{{ Form::close() }}
 			</div>
 	    </div>
-	    
+
 	</div>
 
 @endsection
 
 @section('js')
 	@parent
-	<script>$('.pusher').removeClass('pusher');</script>
+	<script>$('.pusher').removeClass('pusher');
+	$(document).ready(function() {
+		music = new Audio('sounds/slowmotion.mp3');
+		music.play();
+	});
+
+	</script>
 	<script src="{{ asset('js/tutorial.js') }}" type="text/javascript"></script>
 @endsection
