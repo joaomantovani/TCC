@@ -9,20 +9,20 @@
 <style type="text/css">
 	body {
 		background-image: linear-gradient(rgba(20,20,20, .7), rgba(20,20,20, .3)), url('https://images.pexels.com/photos/189333/pexels-photo-189333.jpeg?w=940&h=650&auto=compress&cs=tinysrgb') !important;
-		background-size:     cover !important;                      
+		background-size:     cover !important;
 	    background-repeat:   no-repeat !important;
-	    background-position: center center !important;	
+	    background-position: center center !important;
 	}
 
-	::-webkit-scrollbar { 
-	    display: none; 
+	::-webkit-scrollbar {
+	    display: none;
 	}
 
 	#btn-menu-sidebar {
 		display: none;
 	}
 	#typed, .typed-cursor  {
-		font-size: 2em;	
+		font-size: 2em;
 	}
 
 	#typed  {
@@ -104,37 +104,48 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.6/typed.min.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
-	
+		dialogue1_short = new Audio("sfx/dialogue1_short.wav");
+		dialogue1_medium = new Audio("sfx/dialogue1_medium.wav");
+		dialogue1_long = new Audio("sfx/dialogue1_long.wav");
+		whoosh = new Audio('sfx/whoosh.wav');
 		$('.pusher').removeClass('pusher');
 
 		dialog1();
 	});
 
 	function dialog1() {
+		whoosh.play();
 		$('.other.father').transition({ animation  : 'fly down', duration   : '2s', });
 
 		var typed = new Typed(".other #typed", {
 		  strings: [
-		  	'Filho', 
-		  	'Venha já aqui', 
-		  	'Estou mandando!', 
+		  	'Filho',
+		  	'Venha já aqui',
+		  	'Estou mandando!',
 		  ],
 		  typeSpeed: 40,
 		  startDelay: 1000,
 		  cursorChar: '',
-		  onComp55ete: (self) => {
+		  onComplete: (self) => {
+				whoosh.play();
 		  	$('.you').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() { dialog2(); }});
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_short.play(); break;
+					case 1: dialogue1_medium.play(); break;
+					case 2: dialogue1_medium.play(); break;
+				}
+			},
 		});
 	}
 
 	function dialog2() {
 		var typed = new Typed(".you #typed", {
 		  strings: [
-		  	'Oi pai', 
-		  	'Estou aqui', 
-		  	'O que foi?', 
+		  	'Oi pai',
+		  	'Estou aqui',
+		  	'O que foi?',
 		  ],
 		  typeSpeed: 40,
 		  startDelay: 1000,
@@ -144,17 +155,17 @@
 		  	$('.other.father').addClass('animated pulse');
 		  	$('.other.father').removeClass('animated pulse');
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {dialogue1_short.play();},
 		});
 	}
 
 	function dialog3() {
 		var typed = new Typed(".other #typed", {
 		  strings: [
-		  	'Você já terminou seus estudos e não está fazendo nada', 
+		  	'Você já terminou seus estudos e não está fazendo nada',
 		  	'Você só fica jogando nesse computador',
-		  	'o dia inteiro sem parar', 
-		  	'Você tem que fazer algo da sua vida', 
+		  	'o dia inteiro sem parar',
+		  	'Você tem que fazer algo da sua vida',
 		  ],
 		  typeSpeed: 40,
 		  startDelay: 1000,
@@ -163,14 +174,21 @@
 		  	// $('.you').addClass('animated shake');
 		  	dialog4();
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_long.play(); break;
+					case 1: dialogue1_long.play(); break;
+					case 2: dialogue1_medium.play(); break;
+					case 3: dialogue1_long.play(); break;
+				}
+			},
 		});
 	}
 
 	function dialog4() {
 		var typed = new Typed(".you #typed", {
 		  strings: [
-		  	'Mas pai...', 
+		  	'Mas pai...',
 		  	'Eu não quero'
 		  ],
 		  typeSpeed: 40,
@@ -181,7 +199,12 @@
 		  	$('.other.father').removeClass('animated pulse');
 		  	dialog5();
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_short.play(); break;
+					case 1: dialogue1_short.play(); break;
+				}
+			},
 		});
 	}
 
@@ -204,7 +227,15 @@
 		  	$('.you').removeClass('animated swing');
 		  	dialog6();
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_medium.play(); break;
+					case 1: dialogue1_medium.play(); break;
+					case 2: dialogue1_medium.play(); break;
+					case 3: dialogue1_long.play(); break;
+					case 4: dialogue1_short.play(); break;
+				}
+			},
 		});
 	}
 
@@ -222,18 +253,28 @@
 		  	$('.other.father').addClass('animated pulse');
 		  	$('.other.father').removeClass('animated pulse');
 
+				whoosh.play();
 		  	$('.other.father')
 		  	  .transition({
 		  	    animation  : 'fly down',
 		  	    duration   : '2s',
 		  	    onComplete : function() {
-		  	      $('.other.mom').transition({ animation  : 'fly down', duration   : '2s', onComplete : function() { dialog7(); }});
+							whoosh.play();
+		  	      $('.other.mom').transition({ animation  : 'fly down', duration   : '2s', onComplete : function() {
+								dialog7();
+							}});
 		  	    }
 		  	  })
 		  	;
 
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_short.play(); break;
+					case 1: dialogue1_short.play(); break;
+					case 2: dialogue1_medium.play(); break;
+				}
+			},
 		});
 	}
 
@@ -249,7 +290,12 @@
 		  onComplete: (self) => {
 		  	dialog8();
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_short.play(); break;
+					case 1: dialogue1_short.play(); break;
+				}
+			},
 		});
 	}
 
@@ -266,7 +312,13 @@
 		  onComplete: (self) => {
 		  	dialog9();
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_long.play(); break;
+					case 1: dialogue1_long.play(); break;
+					case 2: dialogue1_medium.play(); break;
+				}
+			},
 		});
 	}
 
@@ -283,7 +335,13 @@
 		  onComplete: (self) => {
 		  	dialog10();
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_short.play(); break;
+					case 1: dialogue1_medium.play(); break;
+					case 2: dialogue1_medium.play(); break;
+				}
+			},
 		});
 	}
 
@@ -297,13 +355,20 @@
 		  startDelay: 1000,
 		  cursorChar: '',
 		  onComplete: (self) => {
+				whoosh.play();
 		  	$('.other.mom').transition({ animation  : 'fly down', duration   : '2s', });
-		  	$('.you').transition({ animation  : 'fly up', duration   : '2s', 	
+				whoosh.play();
+		  	$('.you').transition({ animation  : 'fly up', duration   : '2s',
 		  		onComplete: (self) => {
 		  		window.location.href = '/scene2';
 		  	}});
 		  },
-		  onStringTyped: (arrayPos, self) => {},
+		  preStringTyped: (arrayPos, self) => {
+				switch (arrayPos) {
+					case 0: dialogue1_short.play(); break;
+					case 1: dialogue1_short.play(); break;
+				}
+			},
 		});
 	}
 

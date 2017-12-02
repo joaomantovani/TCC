@@ -55,10 +55,10 @@ Route::get('/creditos', function () {
 |
 */
 Route::group(['middleware' => ['auth']], function () {
-    
+
     Route::get('escolher', 'CreateCharacterController@class');
     Route::post('escolher/classe', 'CreateCharacterController@choose');
-    
+
     Route::get('tutorial', 'TutorialController@index');
     Route::post('tutorial/complete', 'TutorialController@finish');
 
@@ -69,6 +69,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/scene0', 'HistoryController@scene0');
     Route::get('/scene1', 'HistoryController@scene1');
     Route::get('/scene2', 'HistoryController@scene2');
+    Route::get('/scene3', 'HistoryController@scene3');
 });
 
 /*
