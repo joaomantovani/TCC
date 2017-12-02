@@ -362,7 +362,7 @@
 		  	$('.you').transition({ animation  : 'fly up', duration   : '2s',
 		  		onComplete: (self) => {
 						city.pause();
-		  			window.location.href = '/scene2';
+		  			window.location.href = '/scene3';
 		  	}});
 		  },
 		  preStringTyped: (arrayPos, self) => {
@@ -377,7 +377,7 @@
 
 	$('#btn-skip-history').click(function(){
 		 city.pause();
-	   window.location.href = '/home';
+	   window.location.href = '/scene3';
 	})
 </script>
 @endsection
