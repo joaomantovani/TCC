@@ -18,7 +18,12 @@ class CreateCharacterController extends Controller
     	$classes = PlayerClass::all();
 
     	return view('escolher')
-    		->with('classes', $classes);
+    		->with('classes', $classes)
+        ->with([
+          'jd_count' => count(PlayerClass::where('slug', 'jogos-digitais')->get()),
+          'si_count' => count(PlayerClass::where('slug', 'seguranca')->get()),
+          'ads_count' => count(PlayerClass::where('slug', 'ads')->get()),
+        ]);
     }
 
     public function choose(Request $request)
@@ -37,7 +42,7 @@ class CreateCharacterController extends Controller
         //Atribui os stats iniciais
         $user->stats->inteligence = $stats['inteligence'];
         $user->stats->charisma = $stats['charisma'];
-        $user->stats->audacity = $stats['audacity']; 
+        $user->stats->audacity = $stats['audacity'];
         $user->stats->luck = $stats['luck'];
         $user->stats->save();
 
