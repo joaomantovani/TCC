@@ -131,7 +131,7 @@
 		var typed = new Typed(".you #typed", {
 		  strings: [
 		  	'Esse é ' + username(),
-		  	username() + ' é um pessoa jovem e bem...',
+		  	username() + ' é uma pessoa jovem e bem...',
 		  	'um tanto quanto acomodado sobre sua situação atual',
 		  ],
 		  typeSpeed: 40,startDelay: 1000,cursorChar: '',
