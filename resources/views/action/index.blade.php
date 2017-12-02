@@ -4,9 +4,26 @@
 @parent
 <link rel="stylesheet" href="{{ asset('css/action.css') }}">
 <style type="text/css" media="screen">
-	body {
-		background: #ebebeb;
-	}
+		body.pushable>.pusher { background: #2b2b2b !important; }
+			body.pushable>.pusher:before {
+				background: linear-gradient(rgba(20,20,20, .7), rgba(20,20,20, .3)), url('/illustrations/backgrounds/action.jpg') !important;
+			}
+
+		body.pushable>.pusher:before {
+			background-size: cover !important;
+		    content: "";
+		    position: absolute;
+		    z-index: -1; /* Keep the background behind the content */
+		    width: 1920px;
+		    height: 1080px;
+		    transform: scale(1.1);
+		    /* don't forget to use the prefixes you need */
+		    -webkit-filter: blur(3px);
+		      -moz-filter: blur(3px);
+		      -o-filter: blur(3px);
+		      -ms-filter: blur(3px);
+		      filter: blur(3px);
+		}
 
 	@media only screen and (max-width: 768px) {
 		#first-label {
@@ -24,7 +41,7 @@
 
 @section('content')
 
-<div class="ui centered container">	
+<div class="ui centered container">
 	<div class="ui centered container">
 	    <div class="six wide tablet eight wide computer column">
 	        {!! Form::open(['url' => '/action/ajax', 'method' => 'post', 'class' => 'ui form']) !!}
@@ -40,7 +57,7 @@
 	                        @if ($action->class_id)
 	                        <span class="ui right pointing red basic label">Exclusivo {{ Auth::user()->info->class()->first()->name }}</span>
 	                        @endif
-	                        {{ $action->name }} 
+	                        {{ $action->name }}
 	                    </div>
 	                    @endforeach
 	                </div>
@@ -95,11 +112,14 @@
 
 		if ( type == 'success')
 			$('.message').transition('scale');
-		else 
+		else
 			$('.message').transition('shake');
 	}
 
 	$(document).ready(function() {
+		music = new Audio('sounds/extremeaction.mp3');
+		music.play();
+
 		//Verifica se o select é acionado
 		$('.select.item').on('click', function(event) {
 			event.preventDefault();
@@ -127,7 +147,7 @@
 			$('#action-template .action-description').append(  "<h2></h2>" );
 			$('#action-template .action-description').append('<div id="bardiff" class="ui active '+ color_class +' progress" data-percent="'+ dificuldade +'"> <div class="bar" style="transition-duration: 300ms; width: '+ dificuldade +'%;"> <div class="label progress">'+ dificuldade +'</div> </div> <div class="label">'+ dificuldade_text +'</div> </div>');
 
-			
+
 
 			//Resultado do calculo de logica fuzzy em difucldade [NW]
 			// $('.progress').progress({ percent: Math.floor((Math.random() * 100) + 1) });
@@ -136,7 +156,7 @@
 
 	$('#action-button').on('click', function(event) {
 		event.preventDefault();
-		
+
 		//Adiciona classe de carregando
 		$(this).addClass('disabled loading');
 
@@ -168,20 +188,20 @@
 				$('#example2').progress({
 				  percent: data.stamina
 				});
-				
+
 				showMessage('success', data.message + data.stats_results, data.title, 'checkmark');
-				
-				$.toast({ 
+
+				$.toast({
 				  heading : data.toast.heading,
-				  text : data.toast.message, 
+				  text : data.toast.message,
 				  showHideTransition : 'slide',
 				  // bgColor : 'blue',
 				  // textColor : '#eee',
-				  allowToastClose : true, 
+				  allowToastClose : true,
 				  hideAfter : 5000,
-				  bgcolor : data.toast.bgcolor,         
-				  stack : 5,               
-				  textAlign : 'left',      
+				  bgcolor : data.toast.bgcolor,
+				  stack : 5,
+				  textAlign : 'left',
 				  position : 'top-right'
 				});
 			}

@@ -1,13 +1,13 @@
-<span class="item">
+<span class="item" style="text-align: center">
         <a href="{{ url('jogador/' . Auth::user()->username) }}">
     <img class="ui centered tiny circular image" src="{{ Auth::user()->getAvatar() }}">
-        <h3 class="no-margin">
+        <h3 style="margin-top: 6px;">
             {{ Auth::user()->username }} <br>
             @if (isset(Auth::user()->info->class))
             <small>
-                {{ Auth::user()->info->class()->first()->name }} 
+                {{ Auth::user()->info->class()->first()->name }}
                 <br>
-                <small>Ver meu perfil</small>
+                <small class="ui grey tiny basic label">Ver meu perfil</small>
             </small>
             @endif
         </h3>
@@ -44,15 +44,15 @@
             </div>
         </span>
     </span>
-    {{-- 
+    {{--
     <span class="item">
         --}}
-        {{-- 
+        {{--
         <div class="ui fluid teal large label">
             <i class="money icon"></i> {{ Auth::user()->wallet->getMoney() }}
         </div>
         --}}
-        {{-- 
+        {{--
     </span>
     --}}
     <span class="item">
@@ -89,7 +89,7 @@
             </div>
             <div class="item">
                 <div class="right floated content">
-                    {{-- 
+                    {{--
                     <div class="ui button">Add</div>
                     --}}
                     <button class="ui tiny teal inverted button" data-tooltip="Estado do seu equipamento" data-position="top right">65%</button>
@@ -101,7 +101,7 @@
             </div>
             <div class="item">
                 <div class="right floated content">
-                    {{-- 
+                    {{--
                     <div class="ui button">Add</div>
                     --}}
                     <button class="ui tiny red inverted button" data-tooltip="Estado do seu equipamento" data-position="top right">10%</button>
@@ -113,7 +113,7 @@
             </div>
             <div class="item">
                 <div class="right floated content">
-                    {{-- 
+                    {{--
                     <div class="ui button">Add</div>
                     --}}
                     <button class="ui tiny green inverted button" data-tooltip="Estado do seu equipamento" data-position="top right">95%</button>

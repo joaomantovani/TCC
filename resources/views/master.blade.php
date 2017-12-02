@@ -2,18 +2,34 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
+
 	@section('css')
 	<link rel="stylesheet" href="{{ asset('css/master.css') }}">
 	<link rel="stylesheet" type="text/css" href="http://devsmash.com/css/jquery.kwicks-2.2.1.css">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/fontawesome.min.css') }}">
+	<style media="screen">
+		::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+		background-color: rgb(45, 46, 47);
+}
+	</style>
 	@show
 
 </head>
 <body>
 
 	@section('navbar')
-		
+
 		{{-- <span class="computer only"> --}}
 			@include('common.navbar')
 		{{-- </span> --}}
@@ -28,7 +44,7 @@
 		<br>
 		@yield('content')
 		<br>
-		
+
 		<button class="circular ui massive black icon button" id="btn-menu-sidebar">
 		  <i class="icon bars"></i>
 		</button>
@@ -90,7 +106,7 @@
 		//     if (negativo) cont -= 0.01;
 		//     if (positivo) cont += 0.01;
 
-		//     $('.item').each(function(index) {  
+		//     $('.item').each(function(index) {
 		//        $('.item').foggy({
 		//           blurRadius: cont + .2,          // In pixels.
 		//           opacity: cont,           // Falls back to a filter for IE.
