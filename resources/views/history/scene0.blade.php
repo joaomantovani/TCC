@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <style type="text/css">
 	body {
-		background-image: linear-gradient(rgba(20,20,20, .7), rgba(20,20,20, .3)), url('https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb') !important;
+		background-image: linear-gradient(rgba(20,20,20, .7), rgba(20,20,20, .3)), url('illustrations/backgrounds/house_externa-min.jpeg') !important;
 		background-size:     cover !important;
 	    background-repeat:   no-repeat !important;
 	    background-position: center center !important;
@@ -108,11 +108,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.6/typed.min.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
+		music = new Audio('sounds/slowmotion.mp3');
 		dialogue1_short = new Audio("sfx/dialogue1_short.wav");
 		dialogue1_medium = new Audio("sfx/dialogue1_medium.wav");
 		dialogue1_long = new Audio("sfx/dialogue1_long.wav");
 		whoosh = new Audio('sfx/whoosh.wav');
 
+		music.play();
 		$('.pusher').removeClass('pusher');
 		// dialog1();
 		whoosh.play();
@@ -224,6 +226,7 @@
 		  	$('.other.father').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() {
 					whoosh.play();
 					$('.you').transition({ animation  : 'fly up', duration   : '2s', onComplete : function() {
+						music.pause();
 		  			window.location.href = '/scene1';
 		  		}});
 		  	}});
@@ -240,6 +243,7 @@
 	}
 
 	$('#btn-skip-history').click(function(){
+		music.pause();
 	   window.location.href = '/scene1';
 	})
 </script>

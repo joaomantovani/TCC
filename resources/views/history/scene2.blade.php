@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <style type="text/css">
 	body {
-		background-image: linear-gradient(rgba(20,20,20, .7), rgba(20,20,20, .3)), url('https://static.pexels.com/photos/139303/pexels-photo-139303.jpeg') !important;
+		background-image: linear-gradient(rgba(20,20,20, .7), rgba(20,20,20, .3)), url('illustrations/backgrounds/rua-min.jpeg') !important;
 		background-size:     cover !important;
 	    background-repeat:   no-repeat !important;
 	    background-position: center center !important;
@@ -76,7 +76,7 @@
 
 	<span class="other friend">
 		<span id="typed"></span>&zwnj;
-		<img class="ui middle aligned rounded image" src="illustrations/avatar/13.png">
+		<img class="ui middle aligned rounded image" src="illustrations/avatar/31.jpeg">
 		{{-- <img class="ui middle aligned rounded image" src="http://placehold.it/120x120"> --}}
 	</span>
 
@@ -100,10 +100,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.6/typed.min.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
+		city = new Audio('sfx/city.mp3');
 		dialogue1_short = new Audio("sfx/dialogue1_short.wav");
 		dialogue1_medium = new Audio("sfx/dialogue1_medium.wav");
 		dialogue1_long = new Audio("sfx/dialogue1_long.wav");
 		whoosh = new Audio('sfx/whoosh.wav');
+
+		city.play();
 		$('.pusher').removeClass('pusher');
 
 		dialog1();
@@ -358,7 +361,8 @@
 				whoosh.play();
 		  	$('.you').transition({ animation  : 'fly up', duration   : '2s',
 		  		onComplete: (self) => {
-		  		window.location.href = '/scene2';
+						city.pause();
+		  			window.location.href = '/scene2';
 		  	}});
 		  },
 		  preStringTyped: (arrayPos, self) => {
@@ -372,6 +376,7 @@
 	}
 
 	$('#btn-skip-history').click(function(){
+		 city.pause();
 	   window.location.href = '/home';
 	})
 </script>
