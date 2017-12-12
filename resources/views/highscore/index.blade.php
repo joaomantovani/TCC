@@ -41,6 +41,7 @@
 						</span>
 
 						{{-- terceiro lugar --}}
+						@if(isset($strongest[2]))
 						<span class="four wide column">
 							<br><br><br>
 							<span>
@@ -52,6 +53,7 @@
 							</span>
 						</span>
 					</div>
+					@endif
 				@endcomponent
 			</div>
 
@@ -64,7 +66,7 @@
 						@elseif ($loop->iteration == 2) <i class="grey small trophy icon"></i>
 						@elseif ($loop->iteration == 3) <i class="brown small trophy icon"></i>
 						@endif
-						{{ $player['user']->username }} <strong>Lvl {{ $player['level'] }}</strong> 
+						{{ $player['user']->username }} <strong>Lvl {{ $player['level'] }}</strong>
 					</span>
 					<br><br>
 				@endforeach
@@ -79,7 +81,7 @@
 						@elseif ($loop->iteration == 2) <i class="grey small trophy icon"></i>
 						@elseif ($loop->iteration == 3) <i class="brown small trophy icon"></i>
 						@endif
-						{{ $player['user']->username }} <strong>Lvl {{ $player['level'] }}</strong> 
+						{{ $player['user']->username }} <strong>Lvl {{ $player['level'] }}</strong>
 					</span>
 					<br><br>
 				@endforeach
@@ -94,7 +96,7 @@
 						@elseif ($loop->iteration == 2) <i class="grey small trophy icon"></i>
 						@elseif ($loop->iteration == 3) <i class="brown small trophy icon"></i>
 						@endif
-						{{ $player['user']->username }} <strong>Lvl {{ $player['level'] }}</strong> 
+						{{ $player['user']->username }} <strong>Lvl {{ $player['level'] }}</strong>
 					</span>
 					<br><br>
 				@endforeach

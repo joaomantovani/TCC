@@ -9,10 +9,17 @@ class HighscoreController extends Controller
 {
     public function index()
     {
+
+
     	$users = User::all();
-        
-        $jd_sum = 0; $si_sum = 0; $ads_sum = 0; $jd_cont = 0; $si_cont = 0; $ads_cont = 0;
+      $jd_sum = 0; $si_sum = 0; $ads_sum = 0;
+      $jd_cont = 1; $si_cont = 1; $ads_cont = 1;
+      $si_players = [];
+      $jd_players = [];
+      $ads_players = [];
+
         foreach ($users as $key => $user) {
+            if (is_null($user->info)) continue;
             $players[$key]['user'] = $user;
             $players[$key]['level'] = $user->stats->calclevel();
 
@@ -40,10 +47,10 @@ class HighscoreController extends Controller
             }
         }
 
-        rsort($players);
-        rsort($si_players);
-        rsort($ads_players);
-        rsort($jd_players);
+        if (!is_null($players)) rsort($players);
+        if (!is_null($si_players)) rsort($si_players);
+        if (!is_null($jd_players)) rsort($jd_players);
+        if (!is_null($ads_players)) rsort($ads_players); else $ads_players = [];
 
         return view('highscore.index')->with([
             'jd_sum' => $jd_sum/$jd_cont,
