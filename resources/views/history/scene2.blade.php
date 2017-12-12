@@ -361,12 +361,9 @@
 				whoosh.play();
 		  	$('.you').transition({ animation  : 'fly up', duration   : '2s',
 		  		onComplete: (self) => {
-<<<<<<< HEAD
 		  		window.location.href = '/home';
-=======
 						city.pause();
 		  			window.location.href = '/scene3';
->>>>>>> dev
 		  	}});
 		  },
 		  preStringTyped: (arrayPos, self) => {
